@@ -190,7 +190,10 @@ window.addEventListener('scroll', hideh3);
    }
 /*</script>*/
 /*<script>*/
-   
+   function clear_data_legacy(){
+   document.getElementById('legacy_text').value="";
+
+   }
 
    function copy_data_legacy(){
    document.getElementById('legacy_text').select();
