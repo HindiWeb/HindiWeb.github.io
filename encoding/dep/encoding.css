@@ -33,11 +33,11 @@
       }
       
       #unicodeContainer , #legacyContainer, #noter { 
-         margin:10px;position: fixed; width: 45%; top:12%;
+         margin:10px;position: fixed; width: 47%; top:12%;
          border-top: 1px solid red;
          border-radius: 5px;}
-      #legacyContainer { left: 15px;}
-      #unicodeContainer {right: 15px; }
+      #legacyContainer { left: 1%;}
+      #unicodeContainer {right: 1%; }
       textarea {
          min-width: 100%;
          background-color: rgba(63, 70, 74, 0.982);
