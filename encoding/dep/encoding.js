@@ -61,6 +61,29 @@ function about(){
    showpopup('Developer - Dev\n@contact - t.me/devravi',sec=5,c='ab'); 
 }
 /*</script>*/ 
+const textSizeControl = document.getElementById('text-size');
+const content = document.querySelector('.converter-body');
+
+textSizeControl.addEventListener('input', () => {
+    const newSize = textSizeControl.value + 'px';
+    content.style.fontSize = newSize;
+    document.querySelectorAll('textarea, p').forEach(element => {
+            element.style.fontSize = newSize;
+    }); 
+});
+
+function ts_show_hide() {
+   var ts = document.getElementById('ts');
+   var tsb = document.getElementById('ts-bar');
+   if (ts.style.display != 'none') {
+      ts.style.display = 'none';
+      tsb.style.display = 'block';
+   } else {
+      tsb.style.display = 'none';
+      ts.style.display = 'block';
+      exithandler();
+   }
+}
 
 /*<script>*/
 
@@ -177,6 +200,7 @@ window.addEventListener('scroll', hideh3);
    function show_saved_note(){
       const localStorage = window.localStorage;
       x = localStorage.getItem('saved_note');
+      const spaceCount = (x.match(/ /g) || []).length;
       if (x.length > 1000 ) {
          var llen = x.length;
          x = x.substring(0,1000);
@@ -185,7 +209,9 @@ window.addEventListener('scroll', hideh3);
       if (x == '' || x == null ) {
          showpopup('Nothing Found.') ;  
       } else {
-      showpopup(x,sec=5,c='show');
+         
+         x = x + '\n(' + (spaceCount+1) + ' Words.)'
+         showpopup(x,sec=5,c='show');
       } window.scrollTo(0, document.body.scrollHeight);
    }
 /*</script>*/
