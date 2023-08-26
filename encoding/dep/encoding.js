@@ -58,7 +58,7 @@ function pin_display(){
 }
 function about(){
    hl.style.display = 'none'; 
-   showpopup('Developer - Dev\n@contact - t.me/devravi',sec=5,c='ab'); 
+   showpopup('Developer - Deva Ram\n@contact - t.me/devravi',sec=5,c='ab'); 
 }
 /*</script>*/ 
 const textSizeControl = document.getElementById('text-size');
@@ -92,6 +92,7 @@ let isHidden = false;
 let lastScrollPosition = 0;
 
 function hideh3() {
+   handleScroll();
    if (window.innerWidth > 600) {
       const currentScrollPosition = window.scrollY;
       const scrollDifference = currentScrollPosition - lastScrollPosition;
@@ -123,7 +124,7 @@ function hideh3() {
 
 
 
-window.addEventListener('scroll', hideh3);
+window.addEventListener("scroll", hideh3);
 
 
 
@@ -137,7 +138,7 @@ window.addEventListener('scroll', hideh3);
       }
       window.removeEventListener("scroll", handleScroll);
    }
-   window.addEventListener("scroll", handleScroll);
+
   
    function replaceCharacters() {
      // Get the textarea element
