@@ -5,33 +5,77 @@
 	<title>Hindi Web</title>
 </head>
     <style>
-        body{background:lightyellow;
-            }
+	body{
+		background:lightyellow;
+	    }
+	    
+	h1 {
+		text-align:center;
+		font-family:cursive;
+		text-shadow: 1px 1px 10px white;           
+	}
+	    .div , .intro {
+		    text-align:center;
+	    }
+
+	    .intro , .enco , .qn {
+		    font-size:24px;
+		    margin:2px 2px 2px 2px;
+		    padding:7px;
+		    border-radius:2px;
             
-        h1 {text-align:center;
-           font-family:cursive;
-           text-shadow: 1px 1px 10px white;           
+	    }
+	    .intro {
+		    background:grey;
+		    color:lightgrey;
+            font-size: 20px;
+            margin-bottom:22px;
+            border-radius: 10px;
+	    }
+	    .enco {
+		    background:lightgreen;
+		    color:red;  
+	    }
+        .qn {
+            background-color: lightcyan;
         }
+	    p span {
+		    color:grey; 
+	    }
+		    
+    
         @media (min-width:800px){
-            h1 { font-size: 8vw; float:left; width: 4vw;position:fixed; z-index:5; }
-            #header { margin-top: 5%;}
+		h1 { font-size: 8vw; float:left; width: 4vw;position:fixed; z-index:5; padding-left:5%;
+		   color: rgba(130, 59, 59, 0.852);}
+		.div {font-size: 1vw; float:right; width: 60%;}
+           	#header { margin-top: 5%;}
         }
 
     </style>
 <body>
-   <div id="container" >
+<div id="container" >
 
-	<div id='header'> </div>
+<div id='header'> </div>
 
-	<h1>Hindi Web</h1>
-       <div id='body'>
-           <a target="_blank" href="test.html">
-	<span>testing</span></a>
+<h1>Hindi Web</h1>
+<div id='body'>
+       <!--<div>
+	       <a target="_blank" href="test.html">
+	       <span>testing</span></a>
+       </div>-->
+	       <p class="intro">This is the Hindi Web Profile Page here you will find all new webpages I'll build.</p>
+       <div class="div">
+	       <p class="enco"> This is <a href="encoding.html">Encoding.html - font converter and notes saver.</a></p>
+	       <p class="qn"> This is Hindi Quick Access Tool.<span> it will appear here soon. </span> </p>
+           <p></p>
+           <p></p>
        </div>
+   
+</div>
 
 
-	<div id='footer'> </div>
-   </div>
+<div id='footer'> </div>
+</div>
 </body>
 </html>
 
