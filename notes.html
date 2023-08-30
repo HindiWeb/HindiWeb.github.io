@@ -1,0 +1,386 @@
+
+<html lang="en-US">
+<head>
+<title>Notes</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="Notes saver Application.
+Develpoed by DEV (https://.me/devravi)"/>
+
+<style>
+
+   body  {
+      font-family: 'Courier New', Courier, monospace; min-width: 150px;
+      
+      background-image: linear-gradient(45deg,black 8%,rgba(61, 100, 113, 0.893) 53% ,black 80%);
+      
+      scroll-behavior: smooth;
+      }
+   #legacy_text , #unicode_text, #note_text {padding:10px;}
+   ::placeholder {color: rgb(195, 206, 0);padding: 5px; font-weight: 100;}
+   #top-heading {
+      border-radius: 5px; background-color:darkkhaki; margin:10 10 10 10;padding: 10px;}
+   h3 {
+    display: none;
+      position:inherit; top:1%; margin-top: 1%;
+      left: 15px; width:auto;right:15px;
+      transition: opacity 0.3s ease-in-out;
+   }
+   #unicodeContainer , #legacyContainer, #noter { 
+      margin:10px;position: fixed; width: 45%; top:12%;
+      border-top: 1px solid red;
+      border-radius: 5px;}
+   #legacyContainer { left: 15px;}
+   #unicodeContainer {right: 15px; }
+   textarea {
+      min-width: 100%;
+      background-color: rgba(63, 70, 74, 0.982);
+      border-radius: 4px;max-height: 400px;height: 400px;
+      color:rgb(255, 242, 176);max-width:100%;min-height: 50px;}
+   .p-1 {color:darkred;background-color: beige;border-radius: 5px;padding:7px;text-align: center;}
+   .c-p {color:rgb(129, 141, 0);background-color: white;border:1px solid lightgray;border-radius: 3px;
+         margin-right: 5px;padding:2px;font-size: smaller; cursor: pointer;}
+   #noter   {
+      position: relative;bottom:50px;z-index: 5;/*background-image: linear-gradient(140deg,rgb(59, 64, 0),rgb(70, 73, 0));*/
+      margin:auto;
+      margin-top:100px;border-top-width: 2px; 
+      width:99%;padding:0 .5% 0 .5%; border-radius: 5px;
+   }
+   #noter .p-1 .a {padding:3px 7px 3px 7px;}
+   #noter .p-1 {background-image: linear-gradient(140deg,rgb(0, 221, 255, 20%),rgb(0, 39, 36, 50%)); color: white;   }
+   #noter .p-1 span {font-weight: bold;}
+   #note_text {
+      height: 450px;max-height:450px ; min-height: 450px;
+      color:rgb(251, 255, 0);font-size:17px ;
+      background-image: linear-gradient(45deg,rgb(34, 36, 27) 8%,rgba(34, 55, 62, 0.726) 53% ,rgb(52, 49, 24) 80%);
+   }
+      
+   .c-p:hover  {background: blanchedalmond;border-color:rgb(57, 63, 0);}
+   /*save and download button*/
+   .d {padding: 2px 2px 2px 2px;border-radius: 5px;} 
+   .add {padding: 2px 3px 2px 3px; border-color: darksalmon;}
+   .d:hover {background-color: black; color: white;}
+   .s:hover {border-color: green; color: white; background-color: green;}
+
+   /*Justufied align of the text when screen is big.*/
+   @media (min-width:800px){
+      .show {text-align: justify;}
+   }
+   /*Big Broder around noter on bigger screens.*/
+   @media (min-width:601px){
+      #noter {
+         border-bottom:2px solid darkred;
+         border-top: 2px solid darkred;
+         }  
+   }
+   @media (max-width:600px){
+
+      /*#noter {display: none;}/*/
+      #noter {padding:0;}
+      h3 {position: relative;margin:auto;left:auto;right: auto;}
+      #unicodeContainer , #legacyContainer, #noter {
+          margin:10px;position: relative ; top: 25px !important;;
+          width:95%;margin-bottom:10px;}
+      textarea , #note_text {height:180px;}
+      .c-p:hover , #top-heading  {background-image:linear-gradient(140deg,rgb(50, 235, 235),rgb(26, 30, 0));color:white;}
+      #noter {top:10px;margin-bottom: 30px;}
+      
+   }
+   @media (max-width:320px){
+      h3 , .d {font-size: 16px;display: none;}
+      #legacyContainer {margin-top: 50px;}
+      .p-1 {font-size: 12px ;} 
+      button {font-size: 12px;}
+      
+   }
+   @media (max-height:290px) and (max-width:620px){
+      h3 {font-size: 16px;display: none;}
+      #legacyContainer {margin-top: 10px;}
+      .p-1 {font-size: 12px ;}
+      #unicodeContainer , #legacyContainer { float:left;margin:10px;position: relative; width: 45%;border: 1px solid red;}
+      #legacyContainer { left: 15px;} textarea {height: 50%;}
+      #unicodeContainer {right: 15px; } button{font-size: 10px;} 
+      #noter {position:absolute; margin-top:300px;height: auto; }
+      textarea { height: 180px;height: 200px; } 
+   }
+   .hidden {   display: none; }
+   #popup {  
+      position: fixed;
+      bottom: 20px; right: 20px;
+      padding: 10px 20px; z-index: 9; 
+      background-color: #333;
+      color: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+      font-size: 16px;border:1px inset pink; }
+   .show {
+      position: relative!important;
+      bottom: 20px; right: 1px!important;
+      padding: 10px 20px; z-index: 9; 
+      background-color: #333;
+      
+   }
+   .saved {
+      /*background-image:linear-gradient(140deg,rgb(0, 151, 10),rgb(26, 30, 0) 50%);*/
+      font-weight: bold;
+      animation: anim 1.5s ease-in-out 1 ;
+  
+   }
+   .ab {
+      font-weight: bold;
+      background-color: gold!important;
+      color: black!important;
+   }
+   .dev {
+         font-family: cursive;
+         font-size: 10px;
+         position: fixed;
+         z-index: 1000;
+         bottom: 0px;
+         right: 10px;
+         color: beige;
+         opacity: 0.7;
+         text-shadow: 0px 0px 1px rgb(255, 0, 0);
+         user-select: none;
+      }
+
+
+
+   @keyframes anim { 
+      50% {background-color:green;}
+      90% {background-image:linear-gradient(140deg,rgb(0, 151, 10),rgb(26, 30, 0) 90%);}
+   }
+   @keyframes download { 
+      50% {color:green;}
+      100%{color:darkgreen;}
+   }
+</style>
+</head>
+
+<body class="converter-body">
+
+<div id="wrapper" style="height: max-content;">
+
+<div id="header">
+<h3 id="top-heading" style="color:white" >Notes Saver Application</h3>
+</div>
+<form method="post" name="form1" id="converterForm">
+
+
+<div id="noter">
+   
+   <div class="p-1">
+      <!-- <span class="c-p" onclick="add_note()">Add</span> -->
+      <span class="c-p" onclick="clear_data()">Clear</span>
+      <span style="color: black; margin: 0 0 0 0 ;">Note </span>
+      <span class="c-p" onclick="copy_note()">copy</span>
+
+   </div>
+
+   <textarea id="note_text" placeholder="▶" ></textarea>
+   <div class="p-1">
+      <span class="c-p a s" onclick="set_note()">Save</span>
+      <span class="c-p a" onclick="show_saved_note1()">Show</span>
+      <span class="c-p a" onclick="get_note()">Get</span>
+      <img class="c-p a d" title="download" onclick="download()" style="margin-bottom: -8px;position:relative;width:15px;" src="https://img.icons8.com/?size=512&id=OzzRACtvVfoG&format=png" ></img>
+   </div>
+</div>
+
+</div>
+
+<a href='http://t.me/devravi'>
+   <div class="dev">
+      <p>De✓</p>
+   </div>
+</a>
+<div id="popup" class="hidden" >   Text this to make webpage more interactive! yup, It's notifiction popup. </div>
+<!--==========================================================================================------>
+<!--==========================================================================================------>
+<script>
+/////////////////////////////////////////////////////////////////////////
+   ////////////////////////////////////////////////////////////////////////
+const topHeading = document.getElementById('top-heading');
+let isHidden = false;
+let lastScrollPosition = 0;
+
+function hideh3() {
+  const currentScrollPosition = window.scrollY;
+  const scrollDifference = currentScrollPosition - lastScrollPosition;
+
+  if (scrollDifference > 20) {
+    if (!isHidden) {
+      topHeading.style.opacity = '0';
+      isHidden = true;
+    }
+  } else if (scrollDifference < -20) {
+    if (isHidden) {
+      topHeading.style.opacity = '1';
+      isHidden = false;
+    }
+  }
+
+  lastScrollPosition = currentScrollPosition;
+}
+
+
+
+
+
+
+</script> 
+
+<script>
+
+// script.js
+
+   // Function to be executed when the user scrolls
+   function handleScroll() {
+  // Add your desired actions here
+  //console.log("User scrolled!");
+  hideh3();
+
+  // Example: Change background color when scrolling
+  if (window.scrollY > 100) {
+    document.body.style.backgroundColor = "black";
+    //console.log(window.scrollY);
+    if (window.scrollY > 200 && window.innerWidth >= 600 && window.innerHeight >= 600) {
+      /*window.scrollTo({
+         top: 600,
+         behavior: "smooth" // You can use "auto" for instant jump
+      });/*/
+      } else {
+         document.body.style.backgroundColor = "white";
+      }  
+      
+      window.removeEventListener("scroll", handleScroll);
+      /*setTimeout(() => {
+         window.addEventListener("scroll", handleScroll);
+         },100);*/
+   }
+}
+
+// Attach the scroll event listener to the window
+window.addEventListener("scroll", handleScroll);
+
+</script>   
+<script>   
+   function replaceCharacters() {
+     // Get the textarea element
+     var textarea = document.getElementById('legacy_text');
+     // Get the text from the textarea
+     var text = textarea.value;
+     // Replace 
+     var newText = text.replace(/’/g, '\'');
+     newText = newText.replace(/\n/g, ' ');
+     newText = newText.replace(/ s/g, 's');
+     newText = newText.replace(/ a/g, 'a');
+     // Set the new text back to the textarea
+     textarea.value = newText;
+     showpopup("Replaced.");
+   }
+   /////////////////////////////////////////////////////////////////////////////////////////
+   function showpopup(text,sec=1,c=null){
+      sec = sec * 1000
+      popup = document.getElementById("popup");
+      popup.innerText = text;
+      popup.classList.remove('hidden');   
+      if ( c != null ){
+            popup.classList.add(c);   
+         } 
+
+      setTimeout(() => { 
+         popup.classList.add('hidden');  
+         popup.classList.remove(c); 
+         
+       }, sec);
+   }
+   function add_note(){
+      document.getElementById('note_text').value += (document.getElementById('unicode_text').value+'\n');
+      showpopup("Added!");
+      
+   }
+   function set_note(){
+      var note = document.getElementById('note_text').value;
+      const localStorage = window.localStorage;
+      if (note == null || note == '' || note == " " || note == '\n') {
+         showpopup('Nothing to save!');
+      }  else {
+         localStorage.setItem('saved_note1', note);
+         showpopup('Saved.',sec=1.5,c='saved'); 
+      } 
+      
+
+   }
+   function get_note(){
+      const localStorage = window.localStorage;
+      x = localStorage.getItem('saved_note1');
+      if (x == null || x == '') {
+         showpopup("It's Empty.");
+      } else {
+         document.getElementById("note_text").value = x;
+         showpopup("Got it.");
+      }
+   }
+   function show_saved_note1(){
+      const localStorage = window.localStorage;
+      x = localStorage.getItem('saved_note1');
+      if (x == '' || x == null ) {
+         showpopup('Nothing Found.') ;  
+      } else {
+      showpopup(x,sec=5,c='show');}
+   }
+</script>
+<script>
+   
+
+   function clear_data(){
+   document.getElementById('note_text').value="";
+   }
+
+
+   function copy_note(){
+      document.getElementById('note_text').select();
+      document.execCommand('copy');
+      document.getElementById('note_text').setSelectionRange(0,0);
+      showpopup("Copied.",1.2,'ab');
+   }
+
+</script>
+<script>
+      
+   function download() {
+      // Get the content of the div
+      var divContent = document.getElementById("note_text").value;//.textContent;
+
+      if (divContent.length > 100)
+      {
+      // Create a Blob (Binary Large Object) from the text content
+      var blob = new Blob([divContent], { type: "text/plain" });
+
+      // Create a temporary URL for the Blob
+      var url = URL.createObjectURL(blob);
+
+      // Create a temporary <a> element to trigger the download
+      var a = document.createElement("a");
+      a.href = url;
+      a.download = "notes.txt";
+      a.style.display = "none";
+
+      // Add the <a> element to the DOM and click it
+      document.body.appendChild(a);
+      a.click();
+
+      // Clean up: remove the temporary <a> and revoke the Blob URL
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      
+      } else {
+         showpopup('Not enough content: ' + divContent.length); 
+      }
+   }
+    
+</script>
+
+
+</body>
+</html>
