@@ -1,6 +1,6 @@
 /**
  * @author Deva Ram
- * @version 1.0
+ * @version 1.1
  */
 /***
  * @author Deva Ram
@@ -38,12 +38,14 @@ function snowfall(snowHolder='snowHolder',nSF= window.innerWidth/2,sec=30,inf='i
 
         @keyframes fall {
             0% {
-                transform: translateY(-11vh) translateX(0) rotate(0deg);
+                transform:  translateX(0) rotate(0deg); /*translateY(-11vh)*/
                 opacity: 1;
+                top:-10px;
             }
             100% {
-                transform: translateY(100vh) translateX(-30px) rotate(360deg);
+                transform:  translateX(-30px) rotate(360deg); /*translateY(100vh)*/
                 opacity: 0.1;
+                top:100%;
             }
         }
         `;
@@ -70,8 +72,8 @@ function snowfall(snowHolder='snowHolder',nSF= window.innerWidth/2,sec=30,inf='i
 
            
             // Randomly position the snowflake
-            snowflake.style.left = Math.random() * window.innerWidth + "px";
-            snowflake.style.top = Math.random() * window.innerHeight + "px";
+            snowflake.style.left = Math.random() * snowH.clientWidth + "px";
+            snowflake.style.top = Math.random() * snowH.clientHeight + "px";
 
             // Randomly set animation duration (wind speed)
             const animationDuration = 3 + Math.random() * 3 + "s";
@@ -89,7 +91,7 @@ function snowfall(snowHolder='snowHolder',nSF= window.innerWidth/2,sec=30,inf='i
 
             // Remove snowflake after animation completes
             snowflake.addEventListener("animationiteration", () => {
-                snowflake.style.left = Math.random() * window.innerWidth + "px";
+                snowflake.style.left = Math.random() * snowH.clientWidth + "px";
                 snowflake.style.top = -30 + "px";
             });
 
