@@ -1,81 +1,528 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-	<meta charset="UTF-8">
+	<meta charset='UTF-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 	<title>Hindi Web</title>
+	<script src="dep/snowFall.js"></script>
 </head>
     <style>
 	body{
 		background:lightyellow;
+		margin: 0 0 0 0;
 	    }
-	    
+
+  
 	h1 {
 		text-align:center;
 		font-family:cursive;
 		text-shadow: 1px 1px 10px white;           
 	}
+	.btn {
+		background-color: rgba(10, 216, 210, 0.555) ;
+		border: 2px outset ;
+		border-radius: 55px;
+		user-select: none;
+		padding:2px 6px;
+		font-size: larger;
+		font-weight: bold;
+		transition: all .2s;
+		max-width: 150px;
+		text-align: center;
+	} 
+	.btn.close {
+		border: 1px outset grey;
+		position: fixed;
+		border-radius: 50%;
+		z-index: 9;
+		right: -12px; 
+		top: -12px;
+	}
+	.btn:hover {
+		background-color: aqua;
+		border: 2px inset ; color: rgb(0, 0, 0);
+		cursor: pointer; text-decoration:underline #000;
+	}.btn.close:hover {
+		cursor: auto;
+		text-decoration: none;
+		border: 1px solid black;
+		color: #000;
+
+		background-color: inherit;		
+	} .btn.close:active, .btn:active {
+		transition: none;
+		background-color: cadetblue;
+	}
+       
 	    .div , .intro {
 		    text-align:center;
 	    }
 
-	    .intro , .enco , .qn {
+	    .lb  {
+			color:darkred;
+			background-color: rgba(251, 251, 178, 0.93);
 		    font-size:24px;
-		    margin:2px 2px 2px 2px;
-		    padding:7px;
-		    border-radius:2px;
-            
+		    margin:5px 35px 35px 5px;
+		    padding:10px;
+			float: left;
+			border-radius:5px;
+			text-align: center;
+			transform-style: preserve-3d;
+			display: flow;
+			overflow: hidden;
+			border:1px solid;
+			border-color: chartreuse gold lightgrey;
 	    }
-	    .intro {
-		    background:grey;
+		.web {
+		    padding:5px;			
+			border:5px ridge ;
+			width:200px;
+			height: 250px;
+			border-color: inherit;
+			display:grid;
+			align-items: center;
+			justify-content: center;
+		} .web  .btn.click-me{
+			margin:auto;
+			position: grid;
+			padding: 2px 10px;
+			font-size: inherit;
+			bottom: 10px;
+			background-color: aqua;
+			margin-bottom: 10px;
+			border-radius: 10px;
+			border-style: outset ;
+		} .web .btn.click-me:hover {
+			border:2px inset  ;
+		} .web .btn.click-me:active {
+			background-color: green;
+		}
+
+		.lb:hover  {
+			overflow: hidden;
+			box-shadow: 0px 0px 3px -1px  rgb(61, 63, 61);
+			background-color: lightblue!important;
+			background-color: rgba(238, 255, 0, 0.995)!important;
+		}
+		.lb a:hover {
+			color: darkblue;
+			background-color: initial;
+		}
+		#popper {
+			position: fixed ;
+			z-index: 2;
+			top:50%;
+			left:50%;
+			padding: 10px;
+			max-width: 500px;
+			transform: translate(-50%,-50%);
+			border: 1.2px dashed ;
+			border-color: cyan;
+			background-color:rgba(69, 77, 11, 0.91); 
+			border-radius: 	5px;
+			overflow:visible;
+			color:white;
+			animation: border-anim  linear 1s 15;
+			text-align: center;
+		}
+		.ddescrip {
+			position: relative;
+		}
+		.descrip {
+			position: absolute;
+			border:1px solid #000;
+			border-radius: 3px;
+			z-index: -1;
+			border-left: 3px solid ;
+			border-bottom: 3px solid;
+			font-size: medium;
+			max-width:280px; 
+			padding: 5px;
+			margin: 270px 0 0 0;
+			background-color: lightblue;
+			border-top: none;
+			display: none;
+			/*transform: translate(-10px,0%);*/
+
+		}
+				
+
+	    .intro {			
+		    font-size: 1.8vw;
 		    color:lightgrey;
-            font-size: 20px;
+			background:rgb(67, 5, 5);
+			padding:7px;
             margin-bottom:22px;
-            border-radius: 10px;
-	    }
+            border-radius: 0px;
+			text-align: center;
+		}
+		
+	
 	    .enco {
 		    background:lightgreen;
-		    color:red;  
 	    }
-        .qn {
+        .waiting {
             background-color: lightcyan;
         }
-	    p span {
+	
+	     div span {
 		    color:grey; 
 	    }
 		    
-    
+		.d-ad {
+			padding: 5px;
+			display: nonje;
+			position: fixed ;
+			z-index: 1;
+			top:50%;
+			left:50%;
+			max-width: 500px;
+			transform: translate(-50%,-50%);
+			border: 1px dashed ;
+			border-color: cyan;
+			background-color:rgba(69, 77, 11, 0.91);
+			border-radius: 	5px;
+			overflow:visible;
+			box-shadow: 1px 1px 20px 0px  snow;
+		}
+		.link-title {
+			color: #000;
+			background-color: lightgray;
+			border: 1px solid rgb(200, 200, 200);
+			border-radius: 5px;
+			font-weight: bold;
+			padding: 5px;
+			margin: auto;			
+		}
+		.div .lb a {
+			text-shadow: 1px 0px 2px white;
+		}
+		.div {
+			position: relative;
+			margin: auto;
+			box-sizing: border-box;
+		}
+		#header {
+			box-sizing: border-box;
+		}
+		#header div {
+			box-shadow: 1px 1px 2px -1px  green;
+		}
+		
+
         @media (min-width:800px){
-		h1 { font-size: 8vw; float:left; width: 4vw;position:fixed; z-index:5; padding-left:5%;
-		   color: rgba(130, 59, 59, 0.852);}
-		.div {font-size: 1vw; float:right; width: 60%;}
-           	#header { margin-top: 5%;}
+			#header {
+				width:30%;text-align: center;float: left;margin: auto;
+			}
+			#header div {
+				box-shadow: 1px 1px 1px 2px green;
+			    border-radius: 10px;
+				width: 20vw;border: 1px dashed;margin: auto;
+			}
+			h1 { font-size: 5vw; z-index:5; 
+			color: rgba(2, 72, 87, 0.952);}
+			#header img {
+				width:35%;
+			}
+			
+
+			.div {text-align: center;font-size: 1vw; float:right; width: 70%;}
+			.lb {align-items: center;}
+			#header { margin-top: 5%;}
         }
+		.d-img{
+			top: initial !important;;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			left: initial!important;
+			transform: none!important;
+		}
+		@media (max-width:560px){
+			.lb {
+				position: relative;
+				top:50%;
+				left:50%;
+				transform: translate(-50%,-0%);
+
+			}
+			
+		}
+
+
+
+		.bg-move {
+			background-repeat: no-repeat;
+			background-image: linear-gradient(270deg,rgba(255, 255, 0, 0) 47%,rgba(211, 211, 211, 0.3) 50%,rgba(198, 22, 22, 0)100%);
+			animation: bg-move linear 5s infinite;
+			animation-delay: 2s;
+		}
+		.gol {
+			width: 100px;
+			height: 100px;
+			border-radius: 50%;
+			position: absolute;
+			z-index: -10; 
+
+		} .gol.bottom { bottom:-50px; left:-50px; }
+		  .gol.top { top:-50px; right:-50px; }
+			
+			
+			
+		
+		@keyframes bg-move {
+			0% { background-position: -500px 0;}
+			100% { background-position: 1000px 0;}
+		}
+		@keyframes border-anim {
+			0% {border:2px dashed aqua}
+			33% {border:2px dotted lawngreen;}
+			50%{border-width: 2px;}
+			66%{border:2px dashed darkblue;}
+			100% {border:2px dotted yellow;} 
+		}
+		.hidden {
+			display: none;
+		} 
 
     </style>
 <body>
 <div id="container" >
+    <div class="intro">
+		
+		This is the Hindi Web's Home Page. here you will find all new webpages I'll upload to the public.
+		
+	</div>
 
-<div id='header'> </div>
 
-<h1>Hindi Web</h1>
+
+
 <div id='body'>
        <!--<div>
 	       <a target="_blank" href="test.html">
 	       <span>testing</span></a>
        </div>-->
-	       <p class="intro">This is the Hindi Web Profile Page here you will find all new webpages I'll build.</p>
-       <div class="div">
-	       <p class="enco"> This is <a href="encoding.html">Encoding.html - font converter and notes saver.</a></p>
-	       <p class="qn"> This is Hindi Quick Access Tool.<span> it will appear here soon. </span> </p>
-           <p></p>
-           <p></p>
+	    <div >
+			<div id="popper">this is popper</div>
+	    </div>
+	    <div id='header'>
+			<div >
+				<h1 >Dev's Web Space</h1>
+			</div>        
+	    </div>
+
+
+        <div class="div">
+			<div class="lb">
+				<div class="web enco rnd">
+					This is <a href="encoding.html"> Encoding.html - Hindi font converter and notes saver.</a></div>
+				<div class="descrip" > This page is capable of converting Hindi fonts from krutidev to unicode and vice versa. <br> You can also save the content to never loose it. </div>
+			</div>
+
+			<div class="lb">
+				<div class="web rnd">
+					This is <a href="notes.html"> Notes.html - notes saver application.</a>
+				</div>
+				<p class="descrip">This is just for saving the notes. type, edit, save, download as text.</p>
+			</div>
+			<div class="lb">
+				<div class="web end rnd">
+					This is <a href="HINDIquick.html"> HINDIquick.html Hindi Quick Access Tool.</a>
+				</div>
+			</div>
+			<div class="lb">
+				<div class="web waiting ">
+					<span>Upcoming...</span>
+				</div>
+			</div>
+			<div class="lb">
+				<div class="web waiting "> <span> Upcoming... </span> </div>
+			</div>
+		</div>
+
        </div>
    
 </div>
 
-
-<div id='footer'> </div>
 </div>
+<div class="d-ad" id="a1d">
+	<div class="btn close" onclick="hide('a1d');">×</div>
+	<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
+		background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
+		opacity: .85;width: 100px;height: 120px;">
+
+	</div>
+	<div class="onr bg-move" style="
+	float: none;opacity: 1;color: #ef0;padding: 7px;font-family:  'Courier New', Courier, monospace;font-weight:bold; ">
+		<h3 style="background-color: aqua;text-shadow: -0.2px .2px 2px rgba(130, 159, 59, 0.85);padding: 5px;border-radius: 5px;font-family: cambria;color: red">👋 Meet the Developer</h3>
+			<p>		
+			I'm <span style="color:rgb(0, 255, 242);text-shadow: 1px 0px 2px rgb(6, 78, 79);"> Deva Ram</span>,
+			a creative web designer with expertise in Python and a specialization in Hindi language.
+			<br>  Let's connect and shape the digital future by crafting stunning digital experiences together! 
+			<br> </p>	
+			<a target="_blank" href="https://t.me/devravi"><h3 class="btn bg-move" style="font-family: 'Courier New', Courier, monospace;">  Connect </h3></a>
+			
+			
+	</div>
+	
+</div>
+<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
+<div class='footer'> 
+		
+	</div>
+</div>
+
+<script>
+function hide(x) {
+	var element = document.getElementById(x);
+	element.style.display = 'none';
+	
+	if (x == 'a1d') {
+		document.getElementById('evening-dark').className = 'hidden';
+		snowfall();
+	} else {
+		console.log(x);
+	}
+	console.log(x,':Hidden');
+}
+hide('popper');
+function popIt(text){
+	var p = document.getElementById('popper');
+		var closer = document.createElement('div');
+		closer.className = 'btn close';
+		closer.innerText = '×';
+		closer.addEventListener('click',function(){
+			p.style.display = 'none';
+		})
+	
+	p.style.display = 'block';
+	p.innerText = text;
+	p.appendChild(closer);
+	/*
+	setTimeout(() => {
+		p.style.display = 'none';
+	}, 5000);*/
+	
+}
+
+var dImg = document.getElementsByClassName('d-img').item(0);
+	function NoIimg(){dImg.style.display = 'none';}
+	dImg.addEventListener('click',NoIimg);
+	dImg.addEventListener('focus',NoIimg);
+	dImg.addEventListener('mouseenter',NoIimg);
+
+var Lib = document.getElementsByClassName('div');
+var fd = Lib.item(0).innerHTML;
+var tg = /\b(\w+\.(html|org|com|in))(?= )\b/g ;
+var replace_with = "<div class=\"link-title\"> $1";
+
+
+fd = fd.replace(tg, " <div class='link-title'> $1 </div>");
+Lib.item(0).innerHTML = fd;
+
+var bElements = document.querySelectorAll('.web');
+bElements.forEach(function (element) {
+	var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
+
+	if (matches && matches.length > 0) {
+		var link = matches[0];
+		var lt = document.createElement('div');var a = document.createElement('a');
+		lt.className = 'btn click-me';lt.style = ""
+		a.href = link;a.textContent = 'Click Me!';
+		lt.appendChild(a); element.appendChild(lt);
+	}
+	
+});
+
+
+
+function brightClrs() {
+	function random(){return Math.floor( (Math.random())*10);}
+	var c = '#'
+	c = c + random() + random() + random();
+	return c;
+}
+
+
+function lightClrs(){
+	function random(){
+		var x= Math.floor((Math.random())*200);
+		if (x<50||x>250) { x=80; }
+		return x;
+	}
+	var c =  `rgb(${random()},${random()},${random()},.${random()})`
+	return c;
+}
+
+var elements = document.querySelectorAll(".rnd");
+elements.forEach(function (element) {
+	element.style.background = lightClrs();
+});
+
+
+var lb = document.querySelectorAll('.lb');
+lb.forEach(function(element) {
+	var div1 = document.createElement('div');
+	var div2 = document.createElement('div');
+	div1.className = 'gol top';
+	div2.className = 'gol bottom';
+	element.appendChild(div1);
+	element.appendChild(div2);
+
+	var e = element.querySelectorAll('.descrip');
+		
+		if (e) {
+			
+			e.forEach(function (el) {
+				var qm = document.createElement('div');
+					qm.style = 'top:3px;right:3px;font-size:12px;text-shadow:0px 0px 0px aqua;';
+					qm.innerText = '?';
+					qm.className = 'btn close';
+					element.appendChild(qm);
+			var etext = el.textContent;
+			console.log(etext);
+			qm.addEventListener('click',function(){
+				popIt(etext);
+			});
+		
+		});
+	} 
+});
+
+lb.forEach(function(e) {
+	var b = brightClrs();
+	var l = lightClrs();
+	var golE = e.querySelectorAll('.gol');
+	e.addEventListener('mouseenter',function (){
+		golE.forEach(function(gol){
+			gol.style.background = 'green';
+		});
+	});
+	e.addEventListener('mouseleave',function (){		
+		golE.forEach(function(gol){
+			gol.style.background = l;
+		});
+	});
+});
+
+
+ 
+var golElements = document.querySelectorAll('.gol');
+golElements.forEach(function(element) {
+  element.style.background = lightClrs();
+});
+
+
+if (window.innerWidth > 300) {
+	document.getElementById('a1d').style.minWidth = '300px';
+}
+
+
+document.addEventListener('DOMContentLoaded',function(){
+	snowfall('d-img',window.innerWidth/2,100);
+});
+</script>
 </body>
 </html>
 
@@ -92,4 +539,7 @@ Here are some ideas to get you started:
 - 📫 How to reach me: ...
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
--->
+--  background-image: url(dep/fool.jpg);
+            background-position:center center;
+            background-repeat:round;
+            background-size: cover;>
