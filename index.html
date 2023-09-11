@@ -203,6 +203,10 @@
 			position: relative;
 			margin: auto;
 			box-sizing: border-box;
+		} .div .lb {
+			display: inline-block;
+			float:none;
+			margin:20px;
 		}
 		#header {
 			box-sizing: border-box;
@@ -238,16 +242,6 @@
 			margin-bottom: 10px;
 			left: initial!important;
 			transform: none!important;
-		}
-		@media (max-width:560px){
-			.lb {
-				position: relative;
-				top:50%;
-				left:50%;
-				transform: translate(-50%,-0%);
-
-			}
-			
 		}
 
 
@@ -316,19 +310,19 @@
         <div class="div">
 			<div class="lb">
 				<div class="web enco rnd">
-					This is <a href="encoding.html"> Encoding.html - Hindi font converter and notes saver.</a></div>
+					This is <a href="encoding.html">  Hindi font converter and notes saver.</a></div>
 				<div class="descrip" > This page is capable of converting Hindi fonts from krutidev to unicode and vice versa. <br> You can also save the content to never loose it. </div>
 			</div>
 
 			<div class="lb">
 				<div class="web rnd">
-					This is <a href="notes.html"> Notes.html - notes saver application.</a>
+					This is <a href="notes.html">  notes saver application.</a>
 				</div>
 				<p class="descrip">This is just for saving the notes. type, edit, save, download as text.</p>
 			</div>
 			<div class="lb">
 				<div class="web end rnd">
-					This is <a href="HINDIquick.html"> HINDIquick.html Hindi Quick Access Tool.</a>
+					This is <a href="HINDIquick.html">  Hindi Quick Access Tool.</a>
 				</div>
 			</div>
 			<div class="lb">
@@ -387,6 +381,10 @@ function hide(x) {
 	console.log(x,':Hidden');
 }
 hide('popper');
+	
+document.addEventListener('DOMContentLoaded',function(){
+	snowfall('d-img',20,60);
+});
 function popIt(text){
 	var p = document.getElementById('popper');
 		var closer = document.createElement('div');
@@ -407,10 +405,11 @@ function popIt(text){
 }
 
 var dImg = document.getElementsByClassName('d-img').item(0);
-	function NoIimg(){dImg.style.display = 'none';}
+	function NoIimg(){dImg.style.borderRadius = '10px';dImg.style.borderColor='grey';}
 	dImg.addEventListener('click',NoIimg);
 	dImg.addEventListener('focus',NoIimg);
 	dImg.addEventListener('mouseenter',NoIimg);
+	dImg.addEventListener('mouseleave',function(){dImg.style.borderRadius='25px';});
 
 var Lib = document.getElementsByClassName('div');
 var fd = Lib.item(0).innerHTML;
@@ -519,9 +518,6 @@ if (window.innerWidth > 300) {
 }
 
 
-document.addEventListener('DOMContentLoaded',function(){
-	snowfall('d-img',window.innerWidth/2,100);
-});
 </script>
 </body>
 </html>
