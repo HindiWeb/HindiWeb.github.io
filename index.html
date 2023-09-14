@@ -203,7 +203,11 @@
 			position: relative;
 			margin: auto;
 			box-sizing: border-box;
-		} .div .lb {
+			overflow-x:scroll;
+		} .div::-webkit-scrollbar{
+			display: none;
+		}
+		 .div .lb {
 			display: inline-block;
 			float:none;
 			margin:20px;
@@ -269,6 +273,10 @@
 			0% { background-position: -500px 0;}
 			100% { background-position: 1000px 0;}
 		}
+	    	@keyframes bg-move-fast {
+			0% { background-position: -100px 0;}
+			100% { background-position: 200px 0;}
+		}
 		@keyframes border-anim {
 			0% {border:2px dashed aqua}
 			33% {border:2px dotted lawngreen;}
@@ -279,8 +287,24 @@
 		.hidden {
 			display: none;
 		} 
-
+	    
     </style>
+	<style>
+		.link-title:hover {
+			background-color: yellow!important;
+
+		} .web .btn.click-me{
+			font-size: 20px;
+
+		}.web .btn.click-me:hover{
+			background-color: #ef0;
+			font-size: 22px;
+		}
+		#container {
+			position: relative;
+		}
+	</style>
+</head>
 <body>
 <div id="container" >
     <div class="intro">
@@ -333,13 +357,92 @@
 			<div class="lb">
 				<div class="web waiting "> <span> Upcoming... </span> </div>
 			</div>
+			<div class="lb">
+				<div class="web waiting "> <span> Upcoming... </span> </div>
+			</div>
 		</div>
-
-       </div>
    
-</div>
+		<div>
+			<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
+			
+			<div>
+				
+				<style>
+					.quote-div {
+						font-family: 'Noto Serif Devanagari';
+						position:relative;
+						margin:5% 2%;
+						border-top:2px solid;
+						border-radius: 2px;
+					} .quote-div .title {
+						padding:2px 12px;
+						padding-top: 4px;
+						background-color: brown;
+						color: aqua;
+						text-shadow: 1px 1px 2px black;
+						font-size: 1.2rem;
+						border: bottom 2px solid rgb(212, 254, 0);
+						border-bottom-right-radius: 5px; 
+					} 
+					.quote-div .quote div {
+						position: inherit;
+						margin-left: 40%;
+						width:65%;
+						box-sizing: border-box;
+						padding: 0;
+					}
+						.eyes-love {
+						background-color: #d9d9a4;
+						color:#000;
+						text-shadow: 0px 0px 1px #fff;
+						font-size: 1.1rem;
+					} .quote-div .quote {
+						margin:2% 10%;
+						border-top-right-radius: 5vw ;
+						border-bottom-left-radius: 5vw; 
+						box-shadow: 1px 1px 1px; 
+						padding:10px;
+					}
+						
+				</style>
+				<div>
+					<div class="quote-div">
+						<div class="title">
+							<strong> एक कविता... </strong>
+						</div>
+						<div class="quote eyes-love" style="text-align: center;">
+							और रहे बैठे तो लोग कहेंगे
+							धुँधले में दुबके प्रेमी बैठे हैं।
 
-</div>
+							वह हम हों भी तो यह हरी घास ही जाने,
+							नहीं सुनें हम उन नगरी के नागरिकों से
+							जिन की भाषा में अतिशय चिकनाई है साबुन की
+							किन्तु नहीं है करुणा।
+							उठो, चलें, प्रिय!
+							
+							<div style="color: darkslategray">–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+						</div>
+						<script>
+							var quote = document.querySelector('.quote').innerHTML;
+							quote = quote.replace(/\n/g, '<br>');
+							document.querySelector('.quote').innerHTML = quote;
+						</script>
+
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="connect btn connect">
+			<a href="https://t.me/Devravi">
+				<div >
+				<img srcset="https://img.icons8.com/?size=256&id=oWiuH0jFiU0R&format=png" style="height:25px;">
+				</div>
+				
+			</a>
+		</div>	
+
+	</div>
 <div class="d-ad" id="a1d">
 	<div class="btn close" onclick="hide('a1d');">×</div>
 	<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
@@ -362,12 +465,204 @@
 	
 </div>
 <div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
-<div class='footer'> 
+
+	<div >
+		<div style="
+		font-family: Georgia, 'Times New Roman', Times, serif;
+		font-size:60px;background-color: rgb(217, 255, 217);
+		color:#fff;text-shadow: 1.5px 1.5px 5px black;
+		box-shadow:0px 1px 2px 0px  black; 
+		min-width: 150px;margin-top: 15%;
+		padding:2%;font-weight: bold;text-align: center;
+		">Tools</div>
+	</div>
+	<style>
+		.loading {
+			background-image: linear-gradient(270deg,rgba(255, 255, 0, 0) 47%,rgba(211, 211, 211, 0.8) 50%,rgba(198, 22, 22, 0)100%);
+			animation: bg-move-fast linear 1.5s infinite;
+			transition: width ;			
+			animation-delay: 0s;
+			background-color: rgb(21, 142, 208);
+			width:150px;
+			margin:10px auto;
+			font-weight:bold;
+			border-radius: 10px;
+			text-align: center;
+			text-shadow: 0px 0px 1px aqua;
+			padding: 5px;
+		}
+	</style>
+	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;
+			">
+		<h1 title="Hindi quick Access.">1. HINDI quick</h1>
+			<div class="bg-move loading ">Loading</div>
+		<iframe id="ifr1" src="https://HindiWeb.GitHub.io/HINDIquick.html" width="100%"  ></iframe>
+		<h1 title="font converter.">2. Decoding</h1>
+			<div class="bg-move loading ">Loading</div>
+		<iframe id="ifr2" src="https://HindiWeb.GitHub.io/encoding.html" width="100%" ></iframe>
+		<h1 title="notes saver.">3. Notes</h1>
+			<div class="bg-move loading ">Loading</div>
+		<iframe id="ifr3" src="https://HindiWeb.GitHub.io/notes.html" width="100%" ></iframe>
+
+	</div>
+	<script>
+        var iframes = document.querySelectorAll('iframe');
+        var loadingDivs = document.querySelectorAll('.loading');
+
+        // Loop through all iframes and attach event listeners
+        for (var i = 0; i < iframes.length; i++) {
+            iframes[i].addEventListener('load', function () {
+                // Find the corresponding loading message and hide it
+                var index = Array.from(iframes).indexOf(this);
+                loadingDivs[index].style.display = 'none';loadingDivs[index].remove();
+            });
+
+            iframes[i].addEventListener('readystatechange', function () {
+                if (this.readyState === 'loading') {
+                    // Find the corresponding loading message and show it
+                    var index = Array.from(iframes).indexOf(this);
+                    loadingDivs[index].style.display = 'block';
+					
+                }
+            });
+        }
+		function changeText(element){
+			var text = element.innerText;
+			var newText  = text + '.';
+			function changing(sec=500){
+				element.innerText = text;
+				setTimeout(() => {
+					element.innerText = newText;
+					setTimeout(() => {
+						element.innerText = newText + '.';
+						setTimeout(() => {
+							element.innerText = newText +'..';
+							setTimeout(() => {
+								
+								changing();
+											
+							}, sec);
+						}, sec);
+					}, sec);
+				}, sec);
+			}
+			changing(300);
+		}
+		document.querySelectorAll('.loading').forEach(function (params) {
+			changeText(params);
+		})
+    </script>
+
+	<script>
+		/*
+        var iframes = document.querySelectorAll('iframe');
+        var loading = document.getElementById('loading');
+        var loadedCount = 0;
+
+        // Function to check if all iframes are loaded
+        function checkAllIframesLoaded() {
+            loadedCount++;
+            if (loadedCount === iframes.length) {
+                // All iframes are loaded, hide the loading message
+                loading.style.display = 'none';
+            }
+        }
+
+        for (var i = 0; i < iframes.length; i++) {
+            // Add an event listener to each iframe
+            iframes[i].addEventListener('load', checkAllIframesLoaded);
+        }
+
+        // Show the loading message initially
+        loading.style.display = 'block';
+       */
+	</script>
+	
+	<div>
+
+		<style>
+			#iframes h1 {
+				box-shadow: 0px 0px 1px ;
+				padding: 5px;		
+			} 
+			.spining {
+				display: flow-root;
+				text-align: center;
+				animation: spin 7s linear infinite;
+				clear: both;position: relative;
+				height:10vw;width:10vw;margin:50px auto;
+				margin-bottom:20px ;
+				border:1px solid;
+				
+				border-radius: 50% !important;
+				background-image: repeating-conic-gradient( rgb(255, 255, 255),pink,  rgba(0, 128, 0, 0.735) 30%, rgba(0, 0, 255, 0.792),rgba(128, 0, 128, 0.773) 40%);
+/*  
+			    box-shadow: 0 0 0 10px purple, 0 0 0 20px orange, 0 0 0 30px pink;
+*/			}
+			.spining .core {
+				padding: 2vw;
+				height:2vw;width:2vw;
+				
+				margin:  1.9vw;  
+				
+				border-radius: 50%;
+				border:.2vw solid;
+				transform: rotateZ(135deg); 
+				background-color: rgb(255, 255, 255);
+			} 
+			@keyframes spin { 
+					0% {transform:rotate(0deg);}
+					100% {transform:rotate(360deg);}
+				}
+			.connect {
+				display: flex;
+				position: fixed;
+				top:1px;right:1px;
+			} .connect.btn:hover {
+				width:50px;border-radius: 10px;
+			} .connect div {
+				display: inline;	
+				height:50px;
+				margin: auto;
+				color:green;
+			} .connect a , .connect a:hover, .connect.btn {
+				text-decoration: none !important;
+			} .connect.btn {
+				width: 25px;height: 25px;
+				padding: 5px;
+				text-align: center;
+				display:grid;
+				border-radius: 50%;
+			}
+			@media (min-width:800px) {
+				#iframes iframe {
+					border-radius: 15px;
+				}
+			}
+			.d-ad, #evening-dark {
+						display: none;
+					}
+		</style>
+		
+		
+		<div >
+			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(15deg) translateX(-50px);margin-top:20vw;">This webpage (HindiWeb.GitHub.io) is Under Development.</div>
+			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(-15deg) translateX(50px) translateY(-20px) ;">This webpage  is Under Construction.</div>
+			<div class="spining" >
+			<div class="core"></div>
+		</div><div class=" intro " id="unC" style="font-size: 2vw;margin-bottom: 10vh;;">Thanks For visiting.  </div>
+		</div>
+	</div>
+
+	
+	<div class='footer'> 
 		
 	</div>
 </div>
 
 <script>
+		document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
+
 function hide(x) {
 	var element = document.getElementById(x);
 	element.style.display = 'none';
@@ -412,14 +707,23 @@ var dImg = document.getElementsByClassName('d-img').item(0);
 	dImg.addEventListener('mouseleave',function(){dImg.style.borderRadius='25px';});
 
 var Lib = document.getElementsByClassName('div');
-var fd = Lib.item(0).innerHTML;
+var codeInside = Lib.item(0).innerHTML;
+const regex = /\.(html|in|com|org)"> (.*?) - /g;
+
+// Replace only the "-" character with spaces inside the matched pattern
+const newCode= codeInside.replace(regex, (_, domain, words) => {
+const replacedWords = words.replace(/-/g, ' ');
+return `.${domain}"< <div class=\'link-title\'>${replacedWords.trim()}</div>`;
+});
+Lib.item(0).innerHTML = newCode;
+/*var fd = Lib.item(0).innerHTML;
 var tg = /\b(\w+\.(html|org|com|in))(?= )\b/g ;
 var replace_with = "<div class=\"link-title\"> $1";
 
 
 fd = fd.replace(tg, " <div class='link-title'> $1 </div>");
 Lib.item(0).innerHTML = fd;
-
+*/
 var bElements = document.querySelectorAll('.web');
 bElements.forEach(function (element) {
 	var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
