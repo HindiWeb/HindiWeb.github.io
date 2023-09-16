@@ -1,338 +1,47 @@
 
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
-
 	<title>Hindi Web</title>
 	<script src="dep/snowFall.js"></script>
-</head>
-    <style>
-	body{
-		background:lightyellow;
-		margin: 0 0 0 0;
-	    }
-
-  
-	h1 {
-		text-align:center;
-		font-family:cursive;
-		text-shadow: 1px 1px 10px white;           
+	<link href="dep/main.css" rel="stylesheet"/>
+<style>
+	body {
+		overflow: hidden;
 	}
-	.btn {
-		background-color: rgba(10, 216, 210, 0.555) ;
-		border: 2px outset ;
-		border-radius: 55px;
-		user-select: none;
-		padding:2px 6px;
-		font-size: larger;
-		font-weight: bold;
-		transition: all .2s;
-		max-width: 150px;
-		text-align: center;
-	} 
-	.btn.close {
-		border: 1px outset grey;
-		position: fixed;
-		border-radius: 50%;
-		z-index: 9;
-		right: -12px; 
-		top: -12px;
-	}
-	.btn:hover {
-		background-color: aqua;
-		border: 2px inset ; color: rgb(0, 0, 0);
-		cursor: pointer; text-decoration:underline #000;
-	}.btn.close:hover {
-		cursor: auto;
-		text-decoration: none;
-		border: 1px solid black;
-		color: #000;
-
-		background-color: inherit;		
-	} .btn.close:active, .btn:active {
-		transition: none;
-		background-color: cadetblue;
-	}
-       
-	    .div , .intro {
-		    text-align:center;
-	    }
-
-	    .lb  {
-			color:darkred;
-			background-color: rgba(251, 251, 178, 0.93);
-		    font-size:24px;
-		    margin:5px 35px 35px 5px;
-		    padding:10px;
-			float: left;
-			border-radius:5px;
-			text-align: center;
-			transform-style: preserve-3d;
-			display: flow;
-			overflow: hidden;
-			border:1px solid;
-			border-color: chartreuse gold lightgrey;
-	    }
-		.web {
-		    padding:5px;			
-			border:5px ridge ;
-			width:200px;
-			height: 250px;
-			border-color: inherit;
-			display:grid;
-			align-items: center;
-			justify-content: center;
-		} .web  .btn.click-me{
-			margin:auto;
-			position: grid;
-			padding: 2px 10px;
-			font-size: inherit;
-			bottom: 10px;
-			background-color: aqua;
-			margin-bottom: 10px;
-			border-radius: 10px;
-			border-style: outset ;
-		} .web .btn.click-me:hover {
-			border:2px inset  ;
-		} .web .btn.click-me:active {
-			background-color: green;
-		}
-
-		.lb:hover  {
-			overflow: hidden;
-			box-shadow: 0px 0px 3px -1px  rgb(61, 63, 61);
-			background-color: lightblue!important;
-			background-color: rgba(238, 255, 0, 0.995)!important;
-		}
-		.lb a:hover {
-			color: darkblue;
-			background-color: initial;
-		}
-		#popper {
-			position: fixed ;
-			z-index: 2;
-			top:50%;
-			left:50%;
-			padding: 10px;
-			max-width: 500px;
-			transform: translate(-50%,-50%);
-			border: 1.2px dashed ;
-			border-color: cyan;
-			background-color:rgba(69, 77, 11, 0.91); 
-			border-radius: 	5px;
-			overflow:visible;
-			color:white;
-			animation: border-anim  linear 1s 15;
-			text-align: center;
-		}
-		.ddescrip {
-			position: relative;
-		}
-		.descrip {
-			position: absolute;
-			border:1px solid #000;
-			border-radius: 3px;
-			z-index: -1;
-			border-left: 3px solid ;
-			border-bottom: 3px solid;
-			font-size: medium;
-			max-width:280px; 
-			padding: 5px;
-			margin: 270px 0 0 0;
-			background-color: lightblue;
-			border-top: none;
-			display: none;
-			/*transform: translate(-10px,0%);*/
-
-		}
-				
-
-	    .intro {			
-		    font-size: 1.8vw;
-		    color:lightgrey;
-			background:rgb(67, 5, 5);
-			padding:7px;
-            margin-bottom:22px;
-            border-radius: 0px;
-			text-align: center;
-		}
-		
-	
-	    .enco {
-		    background:lightgreen;
-	    }
-        .waiting {
-            background-color: lightcyan;
-        }
-	
-	     div span {
-		    color:grey; 
-	    }
-		    
-		.d-ad {
-			padding: 5px;
-			display: nonje;
-			position: fixed ;
-			z-index: 1;
-			top:50%;
-			left:50%;
-			max-width: 500px;
-			transform: translate(-50%,-50%);
-			border: 1px dashed ;
-			border-color: cyan;
-			background-color:rgba(69, 77, 11, 0.91);
-			border-radius: 	5px;
-			overflow:visible;
-			box-shadow: 1px 1px 20px 0px  snow;
-		}
-		.link-title {
-			color: #000;
-			background-color: lightgray;
-			border: 1px solid rgb(200, 200, 200);
-			border-radius: 5px;
-			font-weight: bold;
-			padding: 5px;
-			margin: auto;			
-		}
-		.div .lb a {
-			text-shadow: 1px 0px 2px white;
-		}
-		.div {
-			position: relative;
-			margin: auto;
-			box-sizing: border-box;
-			overflow-x:scroll;
-		} .div::-webkit-scrollbar{
-			display: none;
-		}
-		 .div .lb {
-			display: inline-block;
-			float:none;
-			margin:20px;
-		}
-		#header {
-			box-sizing: border-box;
-		}
-		#header div {
-			box-shadow: 1px 1px 2px -1px  green;
-		}
-		
-
-        @media (min-width:800px){
-			#header {
-				width:30%;text-align: center;float: left;margin: auto;
-			}
-			#header div {
-				box-shadow: 1px 1px 1px 2px green;
-			    border-radius: 10px;
-				width: 20vw;border: 1px dashed;margin: auto;
-			}
-			h1 { font-size: 5vw; z-index:5; 
-			color: rgba(2, 72, 87, 0.952);}
-			#header img {
-				width:35%;
-			}
-			
-
-			.div {text-align: center;font-size: 1vw; float:right; width: 70%;}
-			.lb {align-items: center;}
-			#header { margin-top: 5%;}
-        }
-		.d-img{
-			top: initial !important;;
-			margin-right: 10px;
-			margin-bottom: 10px;
-			left: initial!important;
-			transform: none!important;
-		}
-
-
-
-		.bg-move {
-			background-repeat: no-repeat;
-			background-image: linear-gradient(270deg,rgba(255, 255, 0, 0) 47%,rgba(211, 211, 211, 0.3) 50%,rgba(198, 22, 22, 0)100%);
-			animation: bg-move linear 5s infinite;
-			animation-delay: 2s;
-		}
-		.gol {
-			width: 100px;
-			height: 100px;
-			border-radius: 50%;
-			position: absolute;
-			z-index: -10; 
-
-		} .gol.bottom { bottom:-50px; left:-50px; }
-		  .gol.top { top:-50px; right:-50px; }
-			
-			
-			
-		
-		@keyframes bg-move {
-			0% { background-position: -500px 0;}
-			100% { background-position: 1000px 0;}
-		}
-	    	@keyframes bg-move-fast {
-			0% { background-position: -100px 0;}
-			100% { background-position: 200px 0;}
-		}
-		@keyframes border-anim {
-			0% {border:2px dashed aqua}
-			33% {border:2px dotted lawngreen;}
-			50%{border-width: 2px;}
-			66%{border:2px dashed darkblue;}
-			100% {border:2px dotted yellow;} 
-		}
-		.hidden {
-			display: none;
-		} 
-	    
-    </style>
-	<style>
-		.link-title:hover {
-			background-color: yellow!important;
-
-		} .web .btn.click-me{
-			font-size: 20px;
-
-		}.web .btn.click-me:hover{
-			background-color: #ef0;
-			font-size: 22px;
-		}
-		#container {
-			position: relative;
-		}
-	</style>
+</style>
 </head>
 <body>
 <div id="container" >
-    <div class="intro">
+	<div class="intro">
 		
-		This is the Hindi Web's Home Page.  You've reached my corner of the internet - Welcome!
+		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
 		
 	</div>
 
 
 
 
-<div id='body'>
-       <!--<div>
-	       <a target="_blank" href="test.html">
-	       <span>testing</span></a>
-       </div>-->
-	    <div >
+	<div id='body'>
+		<!--<div>
+			<a target="_blank" href="test.html">
+			<span>testing</span></a>
+		</div>-->
+		<div >
 			<div id="popper">this is popper</div>
-	    </div>
-	    <div id='header'>
+		</div>
+		<div id='header'>
 			<div >
 				<h1 >Dev's Web Space</h1>
 			</div>        
-	    </div>
+		</div>
 
 
-        <div class="div">
+		<div class="div">
 			<div class="lb">
 				<div class="web enco rnd">
 					This is <a href="encoding.html">  Hindi font converter and notes saver.</a></div>
@@ -347,7 +56,7 @@
 			</div>
 			<div class="lb">
 				<div class="web end rnd">
-					This is <a href="HINDIquick.html">  Hindi Quick Access Tool.</a>
+					This is <a href="HINDIquick.html"> Hindi Quick Access Tool.</a>
 				</div>
 			</div>
 			<div class="lb">
@@ -362,50 +71,13 @@
 				<div class="web waiting "> <span> Upcoming... </span> </div>
 			</div>
 		</div>
-   
+
 		<div>
 			<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
 			
 			<div>
 				
-				<style>
-					.quote-div {
-						font-family: 'Noto Serif Devanagari';
-						position:relative;
-						margin:5% 2%;
-						border-top:2px solid;
-						border-radius: 2px;
-					} .quote-div .title {
-						padding:2px 12px;
-						padding-top: 4px;
-						background-color: brown;
-						color: aqua;
-						text-shadow: 1px 1px 2px black;
-						font-size: 1.2rem;
-						border: bottom 2px solid rgb(212, 254, 0);
-						border-bottom-right-radius: 5px; 
-					} 
-					.quote-div .quote div {
-						position: inherit;
-						margin-left: 40%;
-						width:65%;
-						box-sizing: border-box;
-						padding: 0;
-					}
-						.eyes-love {
-						background-color: #d9d9a4;
-						color:#000;
-						text-shadow: 0px 0px 1px aqua;
-						font-size: 1.2rem;
-					} .quote-div .quote {
-						margin:2% 10%;
-						border-top-right-radius: 5vw ;
-						border-bottom-left-radius: 5vw; 
-						box-shadow: 1px 1px 1px; 
-						padding:10px;
-					}
-						
-				</style>
+				
 				<div>
 					<div class="quote-div">
 						<div class="title">
@@ -444,66 +116,45 @@
 		</div>	
 
 	</div>
-<div class="d-ad" id="a1d">
-	<div class="btn close" onclick="hide('a1d');">×</div>
-	<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
-		background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
-		opacity: .85;width: 100px;height: 120px;">
 
+	<div class="d-ad" id="a1d">
+		<div class="btn close" onclick="hide('a1d');">×</div>
+		<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
+			background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
+			opacity: .85;width: 100px;height: 120px;">
+
+		</div>
+		<div class="onr bg-move" style="
+		float: none;opacity: 1;color: #ef0;padding: 7px;font-family:  'Courier New', Courier, monospace;font-weight:bold; ">
+			<h3 style="background-color: aqua;text-shadow: -0.2px .2px 2px rgba(130, 159, 59, 0.85);padding: 5px;border-radius: 5px;font-family: cambria;color: red">👋 Meet the Developer</h3>
+				<p>		
+				I'm <span style="color:rgb(0, 255, 242);text-shadow: 1px 0px 2px rgb(6, 78, 79);"> Deva Ram</span>,
+				a creative web designer with expertise in Python and a specialization in Hindi language.
+				<br>  Let's connect and shape the digital future by crafting stunning digital experiences together! 
+				<br> </p>	
+				<a target="_blank" href="https://t.me/devravi"><h3 class="btn bg-move" style="font-family: 'Courier New', Courier, monospace;">  Connect </h3></a>
+				
+				
+		</div>
+		
 	</div>
-	<div class="onr bg-move" style="
-	float: none;opacity: 1;color: #ef0;padding: 7px;font-family:  'Courier New', Courier, monospace;font-weight:bold; ">
-		<h3 style="background-color: aqua;text-shadow: -0.2px .2px 2px rgba(130, 159, 59, 0.85);padding: 5px;border-radius: 5px;font-family: cambria;color: red">👋 Meet the Developer</h3>
-			<p>		
-			I'm <span style="color:rgb(0, 255, 242);text-shadow: 1px 0px 2px rgb(6, 78, 79);"> Deva Ram</span>,
-			a creative web designer with expertise in Python and a specialization in Hindi language.
-			<br>  Let's connect and shape the digital future by crafting stunning digital experiences together! 
-			<br> </p>	
-			<a target="_blank" href="https://t.me/devravi"><h3 class="btn bg-move" style="font-family: 'Courier New', Courier, monospace;">  Connect </h3></a>
-			
-			
-	</div>
+	<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
 	
-</div>
-<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
-
 	<div >
-		<div style="
-		font-family: Georgia, 'Times New Roman', Times, serif;
-		font-size:60px;background-color: rgb(217, 255, 217);
-		color:#fff;text-shadow: 1.5px 1.5px 5px black;
-		box-shadow:0px 1px 2px 0px  black; 
-		min-width: 150px;margin-top: 15%;
-		padding:2%;font-weight: bold;text-align: center;
-		">Tools</div>
+		<div id="tools-title" >Tools</div>
 	</div>
-	<style>
-		.loading {
-			background-image: linear-gradient(270deg,rgba(255, 255, 0, 0) 47%,rgba(211, 211, 211, 0.8) 50%,rgba(198, 22, 22, 0)100%);
-			animation: bg-move-fast linear 1.5s infinite;
-			transition: width ;			
-			animation-delay: 0s;
-			background-color: rgb(21, 142, 208);
-			width:150px;
-			margin:10px auto;
-			font-weight:bold;
-			border-radius: 10px;
-			text-align: center;
-			text-shadow: 0px 0px 1px aqua;
-			padding: 5px;
-		}
-	</style>
+
 	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;
 			">
 		<h1 title="Hindi quick Access.">1. HINDI quick</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr1" src="https://HindiWeb.GitHub.io/HINDIquick.html" width="100%"  ></iframe>
+		<iframe id="ifr1" src="https://HindiWeb.GitHub.io/HINDIquick.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="font converter.">2. Decoding</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr2" src="https://HindiWeb.GitHub.io/encoding.html" width="100%" ></iframe>
+		<iframe id="ifr2" src="https://HindiWeb.GitHub.io/encoding.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="notes saver.">3. Notes</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr3" src="https://HindiWeb.GitHub.io/notes.html" width="100%" ></iframe>
+		<iframe id="ifr3" src="https://HindiWeb.GitHub.io/notes.html" width="100%" loading="lazy"></iframe>
 
 	</div>
 	<script>
@@ -515,7 +166,12 @@
             iframes[i].addEventListener('load', function () {
                 // Find the corresponding loading message and hide it
                 var index = Array.from(iframes).indexOf(this);
-                loadingDivs[index].style.display = 'none';loadingDivs[index].remove();
+                /*loadingDivs[index].style.display = 'none';*/
+				setTimeout(() => {
+					loadingDivs[index].remove();
+					iframes[index].style.opacity = '1';
+				}, 1000); 
+				
             });
 
             iframes[i].addEventListener('readystatechange', function () {
@@ -523,7 +179,7 @@
                     // Find the corresponding loading message and show it
                     var index = Array.from(iframes).indexOf(this);
                     loadingDivs[index].style.display = 'block';
-					
+				
                 }
             });
         }
@@ -552,9 +208,9 @@
 		document.querySelectorAll('.loading').forEach(function (params) {
 			changeText(params);
 		})
-    </script>
+</script>
 
-	<script>
+<script>
 		/*
         var iframes = document.querySelectorAll('iframe');
         var loading = document.getElementById('loading');
@@ -580,99 +236,37 @@
 	</script>
 	
 	<div>
-
-		<style>
-			#iframes h1 {
-				box-shadow: 0px 0px 1px ;
-				padding: 5px;		
-			} 
-			.spining {
-				display: flow-root;
-				text-align: center;
-				animation: spin 7s linear infinite;
-				clear: both;position: relative;
-				height:10vw;width:10vw;margin:50px auto;
-				margin-bottom:20px ;
-				border:1px solid;
-				
-				border-radius: 50% !important;
-				background-image: repeating-conic-gradient( rgb(255, 255, 255),pink,  rgba(0, 128, 0, 0.735) 30%, rgba(0, 0, 255, 0.792),rgba(128, 0, 128, 0.773) 40%);
-/*  
-			    box-shadow: 0 0 0 10px purple, 0 0 0 20px orange, 0 0 0 30px pink;
-*/			}
-			.spining .core {
-				padding: 2vw;
-				height:2vw;width:2vw;
-				
-				margin:  1.9vw;  
-				
-				border-radius: 50%;
-				border:.2vw solid;
-				transform: rotateZ(135deg); 
-				background-color: rgb(255, 255, 255);
-			} 
-			@keyframes spin { 
-					0% {transform:rotate(0deg);}
-					100% {transform:rotate(360deg);}
-				}
-			.connect {
-				display: flex;
-				position: fixed;
-				top:1px;right:1px;
-			} .connect.btn:hover {
-				width:50px;border-radius: 10px;
-			} .connect div {
-				display: inline;	
-				height:50px;
-				margin: auto;
-				color:green;
-			} .connect a , .connect a:hover, .connect.btn {
-				text-decoration: none !important;
-			} .connect.btn {
-				width: 25px;height: 25px;
-				padding: 5px;
-				text-align: center;
-				display:grid;
-				border-radius: 50%;
-			}
-			@media (min-width:800px) {
-				#iframes iframe {
-					border-radius: 15px;
-				}
-			}
-			.d-ad, #evening-dark {
-						display: none;
-					}
-		</style>
-		
-		
 		<div >
-			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(15deg) translateX(-50px);margin-top:20vw;">This webpage (HindiWeb.GitHub.io) is Under Development.</div>
-			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(-15deg) translateX(50px) translateY(-20px) ;">This webpage  is Under Construction.</div>
+			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(15deg) translateX(-50px);margin-top:20vw;">
+				This webpage (HindiWeb.GitHub.io) is Under Development.</div>
+			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(-15deg) translateX(50px) translateY(-20px) ;">
+				This webpage  is Under Construction.</div>
 			<div class="spining" >
 			<div class="core"></div>
-		</div>
-			<div class=" intro " id="unC" style="font-size: 2vw;margin-bottom: 10vh;;">Thanks For visiting. 
-		<br> <span style='font-size:.8rem'> − <a target="_blank" href="https://t.me/Devravi" > Deva Ram
- </a></span></div>
+		</div><div class=" intro " id="unC" style="font-size: 2vw;margin-bottom: 10vh;;">Thanks For visiting.  </div>
 		</div>
 	</div>
 
-	
-	<div class='footer'> 
+	<div class='footer'> 		
 	</div>
 </div>
-
+<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
 <script>
-		document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
-
+	/*
+	document.getElementById('a1d').style.display = 'none';
+	document.getElementById('evening-dark').style.display = 'none';
+	*/
+	
+	document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
+	document.getElementById('ifr3').style.maxHeight = '600px';
 function hide(x) {
 	var element = document.getElementById(x);
 	element.style.display = 'none';
 	
 	if (x == 'a1d') {
 		document.getElementById('evening-dark').className = 'hidden';
-		snowfall();
+		snowfall('snowHolder',window.innerWidth/3.5,100,2);
+		document.body.style.overflow = 'auto';
 	} else {
 		console.log(x);
 	}
@@ -690,10 +284,10 @@ function popIt(text){
 		closer.innerText = '×';
 		closer.addEventListener('click',function(){
 			p.style.display = 'none';
-		})
+		});
 	
-	p.style.display = 'block';
 	p.innerText = text;
+	p.style.display = 'block';
 	p.appendChild(closer);
 	/*
 	setTimeout(() => {
@@ -708,25 +302,18 @@ var dImg = document.getElementsByClassName('d-img').item(0);
 	dImg.addEventListener('focus',NoIimg);
 	dImg.addEventListener('mouseenter',NoIimg);
 	dImg.addEventListener('mouseleave',function(){dImg.style.borderRadius='25px';});
+	var Lib = document.getElementsByClassName('div');
 
-var Lib = document.getElementsByClassName('div');
 var codeInside = Lib.item(0).innerHTML;
 const regex = /\.(html|in|com|org)"> (.*?) - /g;
 
 // Replace only the "-" character with spaces inside the matched pattern
 const newCode= codeInside.replace(regex, (_, domain, words) => {
-const replacedWords = words.replace(/-/g, ' ');
-return `.${domain}"< <div class=\'link-title\'>${replacedWords.trim()}</div>`;
+  const replacedWords = words.replace(/-/g, ' ');
+  return `.${domain}"< <div class=\'link-title\'>${replacedWords.trim()}</div>`;
 });
 Lib.item(0).innerHTML = newCode;
-/*var fd = Lib.item(0).innerHTML;
-var tg = /\b(\w+\.(html|org|com|in))(?= )\b/g ;
-var replace_with = "<div class=\"link-title\"> $1";
 
-
-fd = fd.replace(tg, " <div class='link-title'> $1 </div>");
-Lib.item(0).innerHTML = fd;
-*/
 var bElements = document.querySelectorAll('.web');
 bElements.forEach(function (element) {
 	var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
@@ -734,8 +321,9 @@ bElements.forEach(function (element) {
 	if (matches && matches.length > 0) {
 		var link = matches[0];
 		var lt = document.createElement('div');var a = document.createElement('a');
-		lt.className = 'btn click-me';lt.style = ""
-		a.href = link;a.textContent = 'Click Me!';
+		lt.className = 'btn click-me';
+		a.href = link; a.target = "_blank";
+		a.textContent = 'Click Me!';
 		lt.appendChild(a); element.appendChild(lt);
 	}
 	
@@ -823,7 +411,10 @@ golElements.forEach(function(element) {
 if (window.innerWidth > 300) {
 	document.getElementById('a1d').style.minWidth = '300px';
 }
-
+/* this is version 1.2*/
+/* remove empty style for click me.
+	delete Lib replacing code.
+	_blank the click me links.*/
 
 </script>
 </body>
