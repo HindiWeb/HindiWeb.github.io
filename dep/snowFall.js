@@ -10,7 +10,7 @@
  * @param {*} inf animation iteration-count 1,2,3 infinite
  */
 
-function snowfall(snowHolder='snowHolder',nSF= window.innerWidth/2,sec=30,inf='infinite'){
+function snowfall(snowHolder='snowHolder',nSF= window.innerWidth/3.5,sec=30,inf='infinite'){
         const style = document.createElement("style");
         style.textContent = `
         #snowHolder {
