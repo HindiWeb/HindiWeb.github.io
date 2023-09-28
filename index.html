@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -8,6 +9,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 	<title>Hindi Web</title>
 	<script src="dep/snowFall.js"></script>
+	<script src="/HTML folder/dep/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
 <style>
 	body {
@@ -16,7 +18,9 @@
 </style>
 </head>
 <body>
+	<!--<div id="static-header"></div>-->
 <div id="container" >
+	
 	<div class="intro">
 		
 		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
@@ -44,7 +48,7 @@
 		<div class="div">
 			<div class="lb">
 				<div class="web enco rnd">
-					This is <a href="encoding.html">  Hindi font converter and notes saver.</a></div>
+					This is <a href="encoding.html"> Hindi font converter and notes saver.</a></div>
 				<div class="descrip" > This page is capable of converting Hindi fonts from krutidev to unicode and vice versa. <br> You can also save the content to never loose it. </div>
 			</div>
 
@@ -116,127 +120,53 @@
 		</div>	
 
 	</div>
+	<!------------------------------------------------>
+	<div class="about" id="about" style="position: relative;">
+		<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
+		<div class="d-ad" id="a1d">
+			<div class="btn close" onclick="hide('a1d');">×</div>
+			<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
+				background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
+				opacity: .85;width: 100px;height: 120px;">
 
-	<div class="d-ad" id="a1d">
-		<div class="btn close" onclick="hide('a1d');">×</div>
-		<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
-			background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
-			opacity: .85;width: 100px;height: 120px;">
+			</div>
+			<div class="onr bg-move" style="
+			float: none;opacity: 1;color: #ef0;padding: 7px;font-family:  'Courier New', Courier, monospace;font-weight:bold; ">
+				<h3 style="background-color: aqua;text-shadow: -0.2px .2px 2px rgba(130, 159, 59, 0.85);padding: 5px;border-radius: 5px;font-family: cambria;color: red">👋 Meet the Developer</h3>
+					<p>		
+					I'm <span style="color:rgb(0, 255, 242);text-shadow: 1px 0px 2px rgb(6, 78, 79);"> Deva Ram</span>,
+					a creative web designer with expertise in Python and a specialization in Hindi language.
+					<br>  Let's connect and shape the digital future by crafting stunning digital experiences together! 
+					<br> <br>
+					<span>Email:</span>
+					<a  href="mailto:devaram@duck.com">
+					<span class="normal out"  style="color:rgb(182, 105, 254);border-radius: 3px;"  > devaram@duck.com </span> </p>	
+					<a target="_blank" href="https://t.me/devravi"><h3 class="btn bg-move" style="font-family: 'Courier New', Courier, monospace;">  Connect </h3></a>
+					
+					
+			</div>
 
 		</div>
-		<div class="onr bg-move" style="
-		float: none;opacity: 1;color: #ef0;padding: 7px;font-family:  'Courier New', Courier, monospace;font-weight:bold; ">
-			<h3 style="background-color: aqua;text-shadow: -0.2px .2px 2px rgba(130, 159, 59, 0.85);padding: 5px;border-radius: 5px;font-family: cambria;color: red">👋 Meet the Developer</h3>
-				<p>		
-				I'm <span style="color:rgb(0, 255, 242);text-shadow: 1px 0px 2px rgb(6, 78, 79);"> Deva Ram</span>,
-				a creative web designer with expertise in Python and a specialization in Hindi language.
-				<br>  Let's connect and shape the digital future by crafting stunning digital experiences together! 
-				<br> </p>	
-				<a target="_blank" href="https://t.me/devravi"><h3 class="btn bg-move" style="font-family: 'Courier New', Courier, monospace;">  Connect </h3></a>
-				
-				
-		</div>
-		
 	</div>
-	<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
-	
 	<div >
 		<div id="tools-title" >Tools</div>
 	</div>
-
-	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;
-			">
+<!------------------------------------------------>
+	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;">
 		<h1 title="Hindi quick Access.">1. HINDI quick</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr1" src="https://HindiWeb.GitHub.io/HINDIquick.html" width="100%" loading="lazy" ></iframe>
+		<iframe id="ifr1" src="HINDIquick.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="font converter.">2. Decoding</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr2" src="https://HindiWeb.GitHub.io/encoding.html" width="100%" loading="lazy" ></iframe>
+		<iframe id="ifr2" src="encoding.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="notes saver.">3. Notes</h1>
 			<div class="bg-move loading ">Loading</div>
-		<iframe id="ifr3" src="https://HindiWeb.GitHub.io/notes.html" width="100%" loading="lazy"></iframe>
-
+		<iframe id="ifr3" src="notes.html" width="100%" loading="lazy"></iframe>
+		
 	</div>
-	<script>
-        var iframes = document.querySelectorAll('iframe');
-        var loadingDivs = document.querySelectorAll('.loading');
-
-        // Loop through all iframes and attach event listeners
-        for (var i = 0; i < iframes.length; i++) {
-            iframes[i].addEventListener('load', function () {
-                // Find the corresponding loading message and hide it
-                var index = Array.from(iframes).indexOf(this);
-                /*loadingDivs[index].style.display = 'none';*/
-				setTimeout(() => {
-					loadingDivs[index].remove();
-					iframes[index].style.opacity = '1';
-				}, 1000); 
-				
-            });
-
-            iframes[i].addEventListener('readystatechange', function () {
-                if (this.readyState === 'loading') {
-                    // Find the corresponding loading message and show it
-                    var index = Array.from(iframes).indexOf(this);
-                    loadingDivs[index].style.display = 'block';
-				
-                }
-            });
-        }
-		function changeText(element){
-			var text = element.innerText;
-			var newText  = text + '.';
-			function changing(sec=500){
-				element.innerText = text;
-				setTimeout(() => {
-					element.innerText = newText;
-					setTimeout(() => {
-						element.innerText = newText + '.';
-						setTimeout(() => {
-							element.innerText = newText +'..';
-							setTimeout(() => {
-								
-								changing();
-											
-							}, sec);
-						}, sec);
-					}, sec);
-				}, sec);
-			}
-			changing(300);
-		}
-		document.querySelectorAll('.loading').forEach(function (params) {
-			changeText(params);
-		})
-</script>
-
-<script>
-		/*
-        var iframes = document.querySelectorAll('iframe');
-        var loading = document.getElementById('loading');
-        var loadedCount = 0;
-
-        // Function to check if all iframes are loaded
-        function checkAllIframesLoaded() {
-            loadedCount++;
-            if (loadedCount === iframes.length) {
-                // All iframes are loaded, hide the loading message
-                loading.style.display = 'none';
-            }
-        }
-
-        for (var i = 0; i < iframes.length; i++) {
-            // Add an event listener to each iframe
-            iframes[i].addEventListener('load', checkAllIframesLoaded);
-        }
-
-        // Show the loading message initially
-        loading.style.display = 'block';
-       */
-	</script>
-	
+<!------------------------------------------------>	
 	<div>
-		<div >
+		<div class="uco-div">
 			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(15deg) translateX(-50px);margin-top:20vw;">
 				This webpage (HindiWeb.GitHub.io) is Under Development.</div>
 			<div class="intro" style="font-size: 2vw;border:2px solid #f3f3f3;margin:2vw 20vw;transform: rotate(-15deg) translateX(50px) translateY(-20px) ;">
@@ -246,171 +176,41 @@
 		</div><div class=" intro " id="unC" style="font-size: 2vw;margin-bottom: 10vh;;">Thanks For visiting.  </div>
 		</div>
 	</div>
+</div>
+	<div class='footer'> 
 
-	<div class='footer'> 		
+        <div id="footerHW" class="footerHW">
+        <ul>  
+			<li data-link="NoteBook.html">                 Note Book          </li>
+            <li  data-link="HINDIquick.html">              Hindi Quick       </li>
+            <li  data-link="notes.html">              Notes              </li>
+           	<li data-link="encoding.html">              Decoding           </li>
+            <li onclick="about()">              About              </li>
+			<li class="btn bg-move-fast normal">Connect</li>  
+        </ul>
+		<div class="pb">
+        </div>	
 	</div>
 </div>
-<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+
+<div id="ifc">
+	<!--<div class="bg-move loading fixedCenter" style="display: none;" >Loading</div>-->
+	<iframe id="sub-web" src="" width="100%" style="border: none;display: none;"></iframe>
+</div>
+
+<div class="btn out center" style="margin-bottom:50px;margin-top: 20px;"> 
+	<a href="#" class="normal p center _blank" >
+		Home 
+	</a> 
+</div>
+<!--
+		<div class="btn out center fit" href="t.me/devravi">
+				<a href="mailto:devaram@duck.com" class="normal p _blank">
+	 Email: Devaram@Duck.com	</a>
+				</div> --> 
+
+<script src="dep/main.js"></script>
 <script>
-	/*
-	document.getElementById('a1d').style.display = 'none';
-	document.getElementById('evening-dark').style.display = 'none';
-	*/
-	
-	document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
-	document.getElementById('ifr3').style.maxHeight = '600px';
-function hide(x) {
-	var element = document.getElementById(x);
-	element.style.display = 'none';
-	
-	if (x == 'a1d') {
-		document.getElementById('evening-dark').className = 'hidden';
-		snowfall();
-		document.body.style.overflow = 'auto';
-	} else {
-		console.log(x);
-	}
-	console.log(x,':Hidden');
-}
-hide('popper');
-	
-document.addEventListener('DOMContentLoaded',function(){
-	snowfall('d-img',20,60);
-});
-function popIt(text){
-	var p = document.getElementById('popper');
-		var closer = document.createElement('div');
-		closer.className = 'btn close';
-		closer.innerText = '×';
-		closer.addEventListener('click',function(){
-			p.style.display = 'none';
-		});
-	
-	p.innerText = text;
-	p.style.display = 'block';
-	p.appendChild(closer);
-	/*
-	setTimeout(() => {
-		p.style.display = 'none';
-	}, 5000);*/
-	
-}
-
-var dImg = document.getElementsByClassName('d-img').item(0);
-	function NoIimg(){dImg.style.borderRadius = '10px';dImg.style.borderColor='grey';}
-	dImg.addEventListener('click',NoIimg);
-	dImg.addEventListener('focus',NoIimg);
-	dImg.addEventListener('mouseenter',NoIimg);
-	dImg.addEventListener('mouseleave',function(){dImg.style.borderRadius='25px';});
-	var Lib = document.getElementsByClassName('div');
-
-var codeInside = Lib.item(0).innerHTML;
-const regex = /\.(html|in|com|org)"> (.*?) - /g;
-
-// Replace only the "-" character with spaces inside the matched pattern
-const newCode= codeInside.replace(regex, (_, domain, words) => {
-  const replacedWords = words.replace(/-/g, ' ');
-  return `.${domain}"< <div class=\'link-title\'>${replacedWords.trim()}</div>`;
-});
-Lib.item(0).innerHTML = newCode;
-
-var bElements = document.querySelectorAll('.web');
-bElements.forEach(function (element) {
-	var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
-
-	if (matches && matches.length > 0) {
-		var link = matches[0];
-		var lt = document.createElement('div');var a = document.createElement('a');
-		lt.className = 'btn click-me';
-		a.href = link; a.target = "_blank";
-		a.textContent = 'Click Me!';
-		lt.appendChild(a); element.appendChild(lt);
-	}
-	
-});
-
-
-
-function brightClrs() {
-	function random(){return Math.floor( (Math.random())*10);}
-	var c = '#'
-	c = c + random() + random() + random();
-	return c;
-}
-
-
-function lightClrs(){
-	function random(){
-		var x= Math.floor((Math.random())*200);
-		if (x<50||x>250) { x=80; }
-		return x;
-	}
-	var c =  `rgb(${random()},${random()},${random()},.${random()})`
-	return c;
-}
-
-var elements = document.querySelectorAll(".rnd");
-elements.forEach(function (element) {
-	element.style.background = lightClrs();
-});
-
-
-var lb = document.querySelectorAll('.lb');
-lb.forEach(function(element) {
-	var div1 = document.createElement('div');
-	var div2 = document.createElement('div');
-	div1.className = 'gol top';
-	div2.className = 'gol bottom';
-	element.appendChild(div1);
-	element.appendChild(div2);
-
-	var e = element.querySelectorAll('.descrip');
-		
-		if (e) {
-			
-			e.forEach(function (el) {
-				var qm = document.createElement('div');
-					qm.style = 'top:3px;right:3px;font-size:12px;text-shadow:0px 0px 0px aqua;';
-					qm.innerText = '?';
-					qm.className = 'btn close';
-					element.appendChild(qm);
-			var etext = el.textContent;
-			console.log(etext);
-			qm.addEventListener('click',function(){
-				popIt(etext);
-			});
-		
-		});
-	} 
-});
-
-lb.forEach(function(e) {
-	var b = brightClrs();
-	var l = lightClrs();
-	var golE = e.querySelectorAll('.gol');
-	e.addEventListener('mouseenter',function (){
-		golE.forEach(function(gol){
-			gol.style.background = 'green';
-		});
-	});
-	e.addEventListener('mouseleave',function (){		
-		golE.forEach(function(gol){
-			gol.style.background = l;
-		});
-	});
-});
-
-
- 
-var golElements = document.querySelectorAll('.gol');
-golElements.forEach(function(element) {
-  element.style.background = lightClrs();
-});
-
-
-if (window.innerWidth > 300) {
-	document.getElementById('a1d').style.minWidth = '300px';
-}
 
 
 </script>
