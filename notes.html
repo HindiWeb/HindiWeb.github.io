@@ -33,6 +33,7 @@ Develpoed by DEV (https://.me/devravi)"/>
    #legacyContainer { left: 15px;}
    #unicodeContainer {right: 15px; }
    textarea {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       min-width: 100%;
       background-color: rgba(63, 70, 74, 0.982);
       border-radius: 4px;max-height: 400px;height: 400px;
@@ -112,9 +113,10 @@ Develpoed by DEV (https://.me/devravi)"/>
       font-size: 16px;border:1px inset pink; }
    .show {
       position: relative!important;
-      bottom: 20px; right: 1px!important;
+      top: 20px; right: 1px!important;
       padding: 10px 20px; z-index: 9; 
       background-color: #333;
+      font-family: tahoma, 'Courier New', Courier, monospace;
       
    }
    .saved {
@@ -141,10 +143,7 @@ Develpoed by DEV (https://.me/devravi)"/>
          user-select: none;
       }
 
-@media screen and (width:600px) {
-    #noter textarea{
-       min-height: 400px !important;
-   } }
+
 
    @keyframes anim { 
       50% {background-color:green;}
@@ -154,6 +153,22 @@ Develpoed by DEV (https://.me/devravi)"/>
       50% {color:green;}
       100%{color:darkgreen;}
    }
+
+   .hw .dev {
+      position: fixed;
+      top:10px;
+      height: fit-content;
+      width: fit-content;
+      padding: 5px; margin: 0;
+      border-radius: 3px;
+      font-size:small;
+      border:1px solid red;
+      font-family: Cambria, Verdana, Geneva, Tahoma, sans-serif;
+   } 
+   .hw .dev:hover {
+      background-color:rgba(69, 0, 0, 0.9);
+   }
+   
 </style>
 </head>
 
@@ -165,7 +180,11 @@ Develpoed by DEV (https://.me/devravi)"/>
 <h3 id="top-heading" style="color:white" >Notes Saver Application</h3>
 </div>
 <form method="post" name="form1" id="converterForm">
-
+   <a  target="_" href='http://HindiWeb.GitHub.io' class="hw">
+      <div class="dev">
+         Home
+      </div>
+   </a>
 
 <div id="noter">
    
