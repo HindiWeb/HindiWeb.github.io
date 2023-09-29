@@ -441,11 +441,10 @@ h1 {
 opacity: .75;
     }
         /******************************/
-@media screen and (max-width: 600px) {
  #ifr3 {
 	 height:400px ;
  }
-}
+
 @media screen and (width:600px) {
     #noter textarea{
        min-height: 400px !important;
@@ -522,6 +521,9 @@ opacity: .75;
     font-size: inherit;
     border:initial;
     border-radius: initial;
+}
+a.normal .btn.normal {
+    border-radius: 2px;
 }
 .btn.normal:hover {
     text-decoration: none;
@@ -603,17 +605,6 @@ a.p p {
     transform: translate(-50%, -50%);
 }
 
-#ifc::-webkit-scrollbar {
-    width: 10px; /* Set the width of the scrollbar */
-}
-
-/* Customize the scrollbar thumb (the draggable part) */
-#ifc::-webkit-scrollbar-thumb {
-    background-color: #007bff; /* Change the thumb color */
-    border-radius: 5px; /* Add rounded corners to the thumb */
-}
-
-/* Customize the scrollbar track (the background) */
-#ifc::-webkit-scrollbar-track {
-    background-color: #ff0000; /* Change the track color */
+#tools-title {
+    display: none;
 }
