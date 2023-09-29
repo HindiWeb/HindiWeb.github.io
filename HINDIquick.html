@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
   <style>
-    body {background:black;}
+    body {background:beige;}
 
     body {
       width:100%;margin:auto;
@@ -50,7 +50,7 @@
 
     #sidebar p:hover{border:2px inset yellow;}
 
-    #sidebar p{
+    #sidebar p {
       background: rgba(236, 175, 80, 0.6);
       background-image: linear-gradient( to bottom,rgb(255,255,0,0.4),
                                                   rgba(236, 275, 180, 0.4),
@@ -60,6 +60,10 @@
       border-radius:3px;margin-block-start: 20px;
       margin-block-end: 2px;
       }
+
+    #sidebar p:active {
+      border: 2px outset brown;
+    }
     #sidebar #dateBox {
       overflow:hidden;
       height:60px;
@@ -170,24 +174,32 @@
       100% { background:lightyellow; left:120%; top:105%}
     }
 
-    @media (max-width:600px){
-        .w3-col.s4 {font-weight:bold;border-radius:10px;overflow:hidden;}
-	}
+    @media (max-width:600px)
+        {.w3-col.s4 {font-weight:bold;border-radius:10px;overflow:hidden;}}
     @media (min-width:800px){
         h1 { font-size: 8vw; float:left; width: 4vw;position:fixed;
            z-index:5; padding-left:4% ; }
         #header { margin-top: 5%;}
+    } 
+    @media (max-width:382px) {
+      body {
+        background-color: rgb(38, 38, 22);
+      }
     }
-	@media (max-width:382px) {
-      body {background-color: rgb(38, 38, 22)!important;}
+    .p-home:hover {
+      background-image: linear-gradient( to bottom, lightgreen,violet, hotpink) !important;
     }
+    .p-home:active {
+      background-image: linear-gradient(  rgba(99, 24, 9, 0.852),violet, rgba(159, 1, 80, 0.779)) !important; ;
+    }
+
   </style>
 </head>
 <body>
 <picture id="pic" style="width:100%;top: 0px;left: 0px;position:fixed;z-index:-5;">
   <source media="(min-aspect-ratio: 4/3)" srcset="dep/Pink_flowers.jpg">
-  <source media="(min-aspect-ratio: 1/1)" srcset="dep/fool_and_sky.jpg">
-  <img src="dep/fool.jpg" style="width:100%;">
+  <source media="(min-aspect-ratio: 1/1)" srcset="dep/fool_and_sky.jpg"> 
+  <img src="dep/fool.jpg" style="width: 100%;">
 </picture>
 <div id="anim" ></div>
 <div id="antisidebar" onclick="antisidebar()" ></div>
@@ -200,11 +212,12 @@
     <img id="pin" onclick="pin()" src="https://img.icons8.com/?size=2x&id=AfpSfD7cu5Sq&format=png"
            style="width:19px;position:absolute;right:2px;" >
 
-    <div  onclick="homepage()" style="border:1px inset hotpink;text-align:center;cursor:pointer;margin:auto;margin-top:30px;
-           width:40px;background-image: linear-gradient( to bottom, lightgreen,violet, hotpink);
-           background-image: linear-gradient( to top, lightyellow, white,lightblue, skyblue);
-           ">
-    <img  id="home" style="cursor:pointer;">
+    <div  onclick="homepage()"><p class="p-home"  style="text-align:center;cursor:pointer;
+           border:1px inset hotpink;margin:auto;margin-top:30px;width:fit-content;padding:2px 5px;
+            background-image: linear-gradient( to top, lightgreen,violet, hotpink);
+           /*width:40px;background-image: linear-gradient( to top, lightyellow, white,lightblue, skyblue);*/
+           ">Home</p>
+    <!--<img  id="home" style="cursor:pointer;">-->
     </div>
     <div  onclick="currentDiv(1)">
       <p   style="cursor:pointer;" >
@@ -965,7 +978,7 @@
   </div>
   <div class="mySlides"  style="width:100%;display:none">
 
-    <h2 class=MsoNormal align=center>
+    <h2 class=MsoNormal Align='center'>
         &#2360;&#2366;&#2361;&#2367;&#2340;&#2381;&#2351;&#2375;&#2340;&#2367;&#2361;&#2366;&#2360;</h2>
 
     <p class=MsoNormal ><a target="_blank"
@@ -1667,10 +1680,10 @@
   </div>
 </div>
 
-<div id="tl" onclick="menu()" style="display:none;position:fixed;top:2px;z-index:999;">
+<div id="tl" onclick="menu()" style="margin:5px;display:none;position:fixed;top:2px;z-index:999;">
 
-    <p id="button"  >__<br>__<br>__</p>
-    <div id="menubar"> <p></p></div>
+    <p id="button" style="margin:0"  >__<br>__<br>__</p>
+    <div id="menubar"> </div>
 </div>
 
 
@@ -1686,8 +1699,8 @@ var btn = document.getElementById("button");
 var mbody = document.getElementById("mainbody");
 var nbtn = document.getElementById("nightmode");
 var abody = document.getElementsByTagName("body")[0];
-abody.style.background = "beige";
 let pinned = false;
+nbtn.style.display = 'none';
 
 function currentDiv(n) {
   showDivs(slideIndex = n);
@@ -1727,7 +1740,9 @@ function showDivs(n) {
   he.style.width = "100%";
   he.style.marginLeft = "-2.5%";
   he.style.transition = "all 0.3s ease-in-out";
+  nbtn.style.display = 'initial';
 
+  window.scrollTo(0,0);
   const boxes = document.querySelectorAll('.s4');
 
   boxes.forEach(box => {
@@ -1737,6 +1752,7 @@ function showDivs(n) {
     box.style.borderRadius = "2%";
     box.style.lineHeight = ".1";
   });
+
 
  }
 
@@ -1767,9 +1783,10 @@ function antisidebar(){
 
 
 
-home.src = "https://img.icons8.com/?size=151&id=9J1KcyzZVytT&format=png";
-home.style = "width:25px;margin-top:2px;margin-bottom:0px;";
+/* home.src = "https://img.icons8.com/?size=151&id=9J1KcyzZVytT&format=png";
+home.style = "width:25px;margin-top:2px;margin-bottom:0px;"; */
 function homepage() {
+  /*
   let text = "Going to home page!";
   if (confirm(text) == true) {
     text = "You pressed OK!";
@@ -1777,6 +1794,8 @@ function homepage() {
   } else {
     text = "You canceled!";
   }
+  /8/*/
+  window.open('https://hindiweb.github.io','_parent')
 }
 
 
