@@ -8,16 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 	<title>Hindi Web</title>
-	<meta name="description" content="HindiWeb.github.io is Dev's Web Space. Visit us for More."/>
 	<script src="dep/snowFall.js"></script>
+	<meta name="description" content="HindiWeb.github.io is Dev's Web Space. Visit us for More."/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
 	<link href="dep/main.css" rel="stylesheet"/>
-<style>
-	body {
-		overflow: hidden;
-	}
-</style>
+
 </head>
 <body>
 	<!--<div id="static-header"></div>-->
@@ -122,23 +117,26 @@
 		</div>	
 
 	</div>
-
-	<div >
-		<div id="tools-title" >Tools</div>
-	</div>
+	
+	
 <!------------------------------------------------>
+<div id="tools">
+		<div id="tools-title" >Tools</div>
+	
 	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;">
+		<!--
 		<h1 title="Hindi quick Access.">1. HINDI quick</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr1" src="HINDIquick.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="font converter.">2. Decoding</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr2" src="encoding.html" width="100%" loading="lazy" ></iframe>
-		<h1 title="notes saver.">3. Notes</h1>
+		--><h1 title="notes saver."> Notes</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr3" src="notes.html" width="100%" loading="lazy"></iframe>
 		
 	</div>
+</div>
 <!------------------------------------------------>	
 	<div>
 		<div class="uco-div">
@@ -152,6 +150,7 @@
 		</div>
 	</div>
 </div>
+
 <!------------------------------------------------>
 <div class="about" id="about" style="position: relative;">
 	<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
@@ -180,19 +179,20 @@
 
 	</div>
 </div>
+
 <div class='footer'> 
-	
-	<div id="footerHW" class="footerHW">
-	<ul>  
+
+    <div id="footerHW" class="footerHW">
+        <ul>  
 			<!--<li data-link="NoteBook">                 Note Book          </li>-->
-	    <li  data-link="HINDIquick.html">              Hindi Quick       </li>
-	    <li  data-link="notes.html">              Notes              </li>
-		<li data-link="encoding.html">              Decoding           </li>
-	    <li onclick="about()">              About              </li>
-			<a href="http://t.me/devravi" class="normal _blank"> <li class="btn bg-move-fast normal">Connect</li> </a> 
-	</ul>
+            <li  data-link="HINDIquick.html">              Hindi Quick       </li>
+            <li  data-link="notes.html">              Notes              </li>
+           	<li data-link="encoding.html">              Decoding           </li>
+            <li onclick="about()">              About              </li>
+			<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
+        </ul>
 		<div class="pb">
-	</div>	
+        </div>	
 	</div>
 </div>
 
@@ -202,8 +202,8 @@
 </div>
 
 <div class="btn out center" style="margin-bottom:50px;margin-top: 20px;"> 
-	<a onclick='location.reload()' class="normal p center" >
-		Home 
+	<a onclick="about()" class="normal p center" >
+		know More 
 	</a> 
 </div>
 <!--
