@@ -91,7 +91,7 @@ function random(){
     if (x<50||x>250) { x=80; }
     return x;
 }
-var c =  `rgb(${random()},${random()},${random()},.${random()})`
+var c =  `rgba(${random()},${random()},${random()},.${random()})`
 return c;
 }
 
@@ -141,19 +141,28 @@ e.addEventListener('mouseenter',function (){
 });
 e.addEventListener('mouseleave',function (){		
     golE.forEach(function(gol){
-        gol.style.background = l;
+        gol.style.background = l; 
     });
 });
 });
-
-
 
 var golElements = document.querySelectorAll('.gol');
 golElements.forEach(function(element) {
 element.style.background = lightClrs();
 });
 
-
+function hwBg(className) {
+var golElements = document.querySelectorAll(className);
+golElements.forEach(function(element) {
+//element.style.background = lightClrs();
+ 
+var Bi = 'linear-gradient(transparent,'+ lightClrs() +',' + lightClrs()+')';
+element.style.backgroundImage = Bi;
+});
+}
+hwBg('.lb');
+hwBg('.rnd'); 
+hwBg('#header div');
 if (window.innerWidth > 300) {
 document.getElementById('a1d').style.minWidth = '300px';
 }
@@ -331,3 +340,33 @@ function about(){
     document.getElementById('a1d').style.display = 'block';
 
 }
+
+
+
+/** Saving feedback */
+$(document).ready(function() {				
+    $("#feedback_form").submit(function(event) {
+
+        $("#successMessage").html("<img width='30px' class='loading-icon' src='dep/loading.png'>");
+        event.preventDefault(); // Prevent the default form submission 
+
+        // Serialize the form data
+        var formData = $(this).serialize();
+
+        // Send an AJAX request to submit_feedback.php
+        $.ajax({
+            type: "POST",
+            url: "https://neetiindia.org/wp-content/plugins/HindiWeb/save_feedback.php",
+            data: formData,
+            success: function(response) {
+                // Display the success message in the dedicated div
+                $("#successMessage").html(response);
+                $("#feedback_form #name, #feedback_form #email, #feedback_form #feedback").val('');
+            },
+            error: function() {
+                // Handle errors if needed
+                $("#successMessage").html("Error: Unable to save feedback.");
+            }
+        });
+    });
+});
