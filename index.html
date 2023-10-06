@@ -131,7 +131,7 @@
 		<h1 title="font converter.">2. Decoding</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr2" src="encoding.html" width="100%" loading="lazy" ></iframe>
-		--><h1 title="notes saver."> Notes</h1>
+		--><h1 title="notes saver.">Save Your Notes</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr3" src="notes.html" width="100%" loading="lazy"></iframe>
 		
@@ -180,43 +180,73 @@
 	</div>
 </div>
 
-<div class='footer'> 
 
-    <div id="footerHW" class="footerHW">
-        <ul>  
-			<!--<li data-link="NoteBook">                 Note Book          </li>-->
-            <li  data-link="HINDIquick.html">              Hindi Quick       </li>
-            <li  data-link="notes.html">              Notes              </li>
-           	<li data-link="encoding.html">              Decoding           </li>
-            <li onclick="about()">              About              </li>
-			<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
-        </ul>
-		<div class="pb">
-        </div>	
-	</div>
+<div id="footerHW" class="footerHW">
+	<ul>  
+		<!--<li data-link="NoteBook">                 Note Book          </li>-->
+		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
+		<li  data-link="notes.html">              Notes              </li>
+		<li data-link="encoding.html">              Decoding           </li>
+		<li onclick="about()">              About              </li>
+		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
+	</ul>
+	<div class="pb">
+	</div>	
 </div>
 
 <div id="ifc">
 	<!--<div class="bg-move loading fixedCenter" style="display: none;" >Loading</div>-->
 	<iframe id="sub-web" src="" width="100%" style="border: none;display: none;"></iframe>
 </div>
-
+<!--
 <div class="btn out center" style="margin-bottom:50px;margin-top: 20px;"> 
 	<a onclick="about()" class="normal p center" >
 		know More 
 	</a> 
 </div>
-<!--
+
 		<div class="btn out center fit" href="t.me/devravi">
 				<a href="mailto:devaram@duck.com" class="normal p _blank">
 	 Email: Devaram@Duck.com	</a>
-				</div> --> 
+				</div> 
+--> 
+<div class="feedback-footer">
+	<div class="leftdiv">
+		<img  src="/HTML folder/dep/logo.png">
+		<h3 class="g"> HindiWeb: Dev's Web space</h3>
+		<p style="padding-right: 5%;text-align: justify;">
+			<span style="text-align:left ">© DEVA RAM/HindiWeb.GitHub.io</span> <br><br>
+			Welcome to my digital playground!<br>
+			This my unpredictable destination. When I'm nowhere, I'm here.
+
+	This is where  I  come to experiment, create new pages, make small adjustments, add exciting features, or remove some elements.<br>
+	Nowadays, I often find myself on <a href="NoteBook">NoteBook</a>, I'm sorry that is not available for you yet. BUT will be soon, I hope so!<br>
+	Don't forget to leave your valuable feedback for me.
+			
+		</p>
+		<p>
+			<b>Your contribution and Feedback is highly needed.</b> 
+		</p>
+	</div>
+
+	<form id="feedback_form" class="feedback" action="https://neetiindia.org/wp-content/plugins/HindiWeb/save_feedback.php" method="post">
+        <!--<h3>feedback</h3>-->
+
+		<label for="name">Name: *</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <label for="feedback">Feedback: *</label><br> <br> 
+        <textarea id="feedback" name="feedback" rows="4"  required></textarea><br><br>
+		<div id="successMessage">   </div>
+        <input class="btn out ui" type="submit" value="Submit">
+    </form>
+</div>
 
 <script src="dep/main.js"></script>
-<script>
 
-
-</script>
 </body>
 </html>
 
