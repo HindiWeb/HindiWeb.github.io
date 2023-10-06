@@ -14,7 +14,8 @@ body{
 
 h1 {
     text-align:center;
-    font-family:cursive;
+    font-family:algerian, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 550;
     text-shadow: 1px 1px 10px white;           
 }
 .btn {
@@ -60,7 +61,7 @@ h1 {
 
     .lb  {
         color:darkred;
-        background-color: rgba(251, 251, 178, 0.93);
+        background-color: rgba(105, 105, 96, 0.93);
         font-size:24px;
         margin:5px 35px 35px 5px;
         padding:10px;
@@ -74,8 +75,16 @@ h1 {
         border-color: chartreuse gold lightgrey;
         box-shadow: 0px 2px 3px grey;
     }
+    .lb a {
+        color:black;
+        position: relative;
+        z-index: 5;
+        font-weight: 600;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
     .web {
-        padding:5px;			
+        position: inherit;
+        padding:5px;
         border:5px ridge ;
         width:200px;
         height: 250px;
@@ -83,6 +92,7 @@ h1 {
         display:grid;
         align-items: center;
         justify-content: center;
+        z-index: 99;
     } .web  .btn.click-me{
         margin:auto;
         position: grid;
@@ -229,7 +239,7 @@ h1 {
             width: 20vw;border: 1px dashed;margin: auto;
         }
         h1 { font-size: 5vw; z-index:5; 
-        color: rgba(2, 72, 87, 0.952);}
+        }
         #header img {
             width:35%;
         }
@@ -265,7 +275,8 @@ h1 {
         height: 100px;
         border-radius: 50%;
         position: absolute;
-        z-index: -10; 
+        border: 1px solid grey; 
+        z-index: -1; 
 
     } .gol.bottom { bottom:-50px; left:-50px; }
       .gol.top { top:-50px; right:-50px; }
@@ -383,31 +394,31 @@ h1 {
     box-shadow: 0px 0px 1px ;
     padding: 5px;		
 } 
-.spining {
+/*.spining {
     display: flow-root;
     text-align: center;
-    animation: spin 7s linear infinite;
+    animation: spinh 7s linear infinite;
     clear: both;position: relative;
     height:10vw;width:10vw;margin:50px auto;
     margin-bottom:20px ;
     border:1px solid;
     
-    border-radius: 50% !important;
+    border-radius: 0% !important;
     background-image: repeating-conic-gradient( rgb(255, 255, 255),pink,  rgba(0, 128, 0, 0.735) 30%, rgba(0, 0, 255, 0.792),rgba(128, 0, 128, 0.773) 40%);
-/*  
+  
     box-shadow: 0 0 0 10px purple, 0 0 0 20px orange, 0 0 0 30px pink;
-*/			}
+			}
 .spining .core {
     padding: 2vw;
     height:2vw;width:2vw;
     
     margin:  1.9vw;  
     
-    border-radius: 50%;
+    border-radius: 0%;
     border:.2vw solid;
     transform: rotateZ(135deg); 
     background-color: rgb(255, 255, 255);
-} 
+}*/ 
 @keyframes spin { 
         0% {transform:rotate(0deg);}
         100% {transform:rotate(360deg);}
@@ -466,9 +477,8 @@ opacity: .75;
 
 
 
-   /*########## Footer CSS ###########*/
+   /*########## Head CSS ###########*/
 
-        
 .footerHW ul img {
     width:15px;
     top:50%;left: 50%;
@@ -607,4 +617,97 @@ a.p p {
 
 #tools-title {
     display: none;
+}
+
+/** FOR FEEDBACK AND FOOTER at bottom*/
+
+textarea, input {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.res-true {
+    color:green;
+    text-shadow: 0px 0px 3px aqua;
+}
+.res-false {
+    color: red;
+    text-shadow: 0px 0px 3px grey;
+}   
+.loading-icon {
+    animation: loading 3s infinite;
+} 
+@keyframes loading {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+.feedback-footer {
+	margin-top: 50px;
+	position: relative;
+	display: flex;
+    border-top:1.5px outset #8e4444; 
+	border-bottom:2px solid rgb(47, 48, 37);
+	background: bisque ;
+}
+.feedback-footer .leftdiv {
+    float: left;
+    width: 60%;
+    box-sizing: border-box;
+    padding: 10px;
+    border-right: 1.5px solid #fff; 
+}    
+.feedback-footer .leftdiv img {
+    height: 30px;
+    width: 30px;
+    margin-top:2%;
+    float: left;
+    padding-left: 1%;
+    margin-right: 15px;
+	border-radius: 50%;
+}
+.feedback-footer .leftdiv p {
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.feedback {
+    box-sizing: border-box;
+    width:40%;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    float: right;
+}
+.feedback input {
+    width: 80%;
+    margin-right: 20%;
+}
+#feedback_form label {
+    color: brown;
+}
+
+#feedback_form textarea {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-color: blue;
+    border:1.2px outset;
+    border-radius: 3px;
+    min-width: 90%;
+    min-height: 90px;
+    max-width: 100%;
+	height:50px;
+    max-height: 350px;
+} #feedback_form textarea:hover{
+    border:1.2px inset;
+}
+.ui {
+	font-weight:100;
+	font-style: normal;
+	text-decoration: none;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+@media (max-width:500px){
+	.feedback-footer .leftdiv , .feedback-footer .feedback {
+		float: none ; width: 100%;
+		
+	} .feedback-footer {
+		display: grid;
+	}
 }
