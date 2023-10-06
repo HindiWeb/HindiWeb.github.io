@@ -211,8 +211,9 @@
 				</div> 
 --> 
 <div class="feedback-footer">
+	<!--
 	<div class="leftdiv">
-		<img  src="dep/hw_logo.png">
+		<img  src="/HTML folder/dep/logo.png">
 		<h3 class="g"> HindiWeb: Dev's Web space</h3>
 		<p style="padding-right: 5%;text-align: justify;">
 			<span style="text-align:left ">© DEVA RAM/HindiWeb.GitHub.io</span> <br><br>
@@ -227,10 +228,13 @@
 		<p>
 			<b>Your contribution and Feedback is highly needed.</b> 
 		</p>
-	</div>
+	</div>-->
 
 	<form id="feedback_form" class="feedback" action="https://neetiindia.org/wp-content/plugins/HindiWeb/save_feedback.php" method="post">
-        <!--<h3>feedback</h3>-->
+		<h3 class="g"> HindiWeb: Dev's Web space</h3>
+		<span style="text-align:left ">© DEVA RAM/HindiWeb.GitHub.io</span> 
+        <h3 class="h3-h">feedback form</h3>
+
 
 		<label for="name">Name: *</label>
         <input type="text" id="name" name="name" required><br><br>
@@ -238,12 +242,49 @@
         <label for="email">Email:</label>
         <input type="email" id="email" name="email"><br><br>
 
-        <label for="feedback">Feedback: *</label><br> <br> 
+        <label for="feedback">Feedback: *</label><br> 
         <textarea id="feedback" name="feedback" rows="4"  required></textarea><br><br>
 		<div id="successMessage">   </div>
-        <input class="btn out ui" type="submit" value="Submit">
+        <input class="btn out ui m-nil" type="submit" value="Submit">
+		
     </form>
+
 </div>
+<style>
+form .g {
+	color: rgb(79, 3, 3);
+}
+.feedback {
+	width:50%;
+	margin:auto;
+	max-width: 450px; 
+	background-color: rgb(201, 166, 129);
+
+}
+.feedback#feedback_form label {
+	color:#000;
+}
+.feedback#feedback_form input, .feedback#feedback_form textarea {
+	padding: 5px;
+}
+
+.feedback .g {
+	margin: 5px;
+}
+.feedback-footer {
+	padding: 10px; 
+	border-top:2px solid black;
+	border-bottom:3px solid black;
+
+	background-color: rgb(112, 13, 13);
+	float: none;
+}
+.feedback h3.h3-h  {
+	background-color: beige;
+	border-top:1px solid brown;
+	text-align: center; 
+}
+</style>
 
 <script src="dep/main.js"></script>
 
