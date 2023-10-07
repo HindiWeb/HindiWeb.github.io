@@ -8,7 +8,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 	<title>Hindi Web</title>
-	<script src="dep/snowFall.js"></script>
 	<meta name="description" content="HindiWeb.github.io is Dev's Web Space. Visit us for More."/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
@@ -210,7 +209,7 @@
 	 Email: Devaram@Duck.com	</a>
 				</div> 
 --> 
-<div class="feedback-footer">
+<div class="feedback-footer" id="f-bottom">
 	<!--
 	<div class="leftdiv">
 		<img  src="/HTML folder/dep/logo.png">
@@ -232,25 +231,47 @@
 
 	<form id="feedback_form" class="feedback" action="https://neetiindia.org/wp-content/plugins/HindiWeb/save_feedback.php" method="post">
 		<h3 class="g"> HindiWeb: Dev's Web space</h3>
-		<span style="text-align:left ">© DEVA RAM/HindiWeb.GitHub.io</span> 
+		<span style="text-align:left ">© DEVA RAM/HindiWeb.github.io</span> 
         <h3 class="h3-h">feedback form</h3>
 
 
 		<label for="name">Name: *</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required><br>
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email"><br>
 
         <label for="feedback">Feedback: *</label><br> 
-        <textarea id="feedback" name="feedback" rows="4"  required></textarea><br><br>
+        <textarea id="feedback" name="feedback" rows="4"  required></textarea><br>
 		<div id="successMessage">   </div>
         <input class="btn out ui m-nil" type="submit" value="Submit">
 		
     </form>
+	<div class="d-by ui">
+		<span class="a" onclick="about()">Designed by me</span>
+	</div>
 
 </div>
 <style>
+	.a {
+		cursor: pointer;
+	}
+	.a:hover {
+		text-decoration:underline ;		
+	}
+	.d-by {
+		position: absolute;
+		bottom: 10px;
+		width: 100%;
+		text-align: left;
+	}
+	@media (max-width:500px) {
+		.d-by {
+			bottom: 15px;
+			text-align: right;
+			right:20px;z-index: 9!important ;
+		}
+	}
 form .g {
 	color: rgb(79, 3, 3);
 }
@@ -259,13 +280,14 @@ form .g {
 	margin:auto;
 	max-width: 450px; 
 	background-color: rgb(201, 166, 129);
-
+	z-index: 3;
 }
 .feedback#feedback_form label {
 	color:#000;
 }
 .feedback#feedback_form input, .feedback#feedback_form textarea {
-	padding: 5px;
+	padding: 3px 5px;
+	margin-bottom: 10px;
 }
 
 .feedback .g {
@@ -274,9 +296,9 @@ form .g {
 .feedback-footer {
 	padding: 10px; 
 	border-top:2px solid black;
-	border-bottom:3px solid black;
+	border-bottom:20px solid rgb(255, 255, 255);
 
-	background-color: rgb(112, 13, 13);
+	background-color: rgb(71, 8, 8);
 	float: none;
 }
 .feedback h3.h3-h  {
@@ -284,10 +306,29 @@ form .g {
 	border-top:1px solid brown;
 	text-align: center; 
 }
+#f-bottom {
+	overflow: hidden;
+}
+
 </style>
+<style>
 
+	.d-img {
+		background-image:url(dep/d-img.jpg) !important;
+	}
+
+	#a1d {
+		z-index: 99;
+		background-color: rgba(72, 8, 9, 0.9);
+
+	}
+</style>
 <script src="dep/main.js"></script>
+<script src="dep/snowFall.js"></script>
+<script>
+	snowfall('f-bottom',10,500);
 
+</script>
 </body>
 </html>
 
