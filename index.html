@@ -23,9 +23,6 @@
 		
 	</div>
 
-
-
-
 	<div id='body'>
 		<!--<div>
 			<a target="_blank" href="test.html">
@@ -119,22 +116,22 @@
 	
 	
 <!------------------------------------------------>
-<div id="tools">
+<div id="toolj">
 		<div id="tools-title" >Tools</div>
-	
+	<!--
 	<div id="iframes" style="max-width: 600px;margin: auto;overflow: hidden;">
-		<!--
+		
 		<h1 title="Hindi quick Access.">1. HINDI quick</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr1" src="HINDIquick.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="font converter.">2. Decoding</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr2" src="encoding.html" width="100%" loading="lazy" ></iframe>
-		--><h1 title="notes saver.">Save Your Notes</h1>
+		<h1 title="notes saver.">Save Your Notes</h1>
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr3" src="notes.html" width="100%" loading="lazy"></iframe>
 		
-	</div>
+	</div>-->
 </div>
 <!------------------------------------------------>	
 	<div>
@@ -178,11 +175,75 @@
 
 	</div>
 </div>
+<!------------------------------->
+<style>
+	
+	.quick-links {
+		background-image: linear-gradient(#d9d9a4, #fff  );
+		padding:20px;
+		margin:1%;
+		border-color: rgb(80, 4, 4);
+		color: rgb(71, 8, 8);
+		border-width: 2px;
+		border-top-style:solid ;
+		border-bottom-style:ridge;
+		box-shadow: 0px 0px 0px 1px grey; 
+	}
 
+	.quick-links ul li {
+		margin-inline-end: 1.5em;
+		padding: 5px;
+	}
+
+	.quick-links ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style: none;
+	}
+	.quick-links p{
+		padding: 5px;
+		background-color: #d2b4b4;
+		font-weight: bold;
+	}
+
+	.quick-links li:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.line {
+		border-bottom: 2px solid rgb(80, 4, 4);
+		margin: 10px 0px;
+	}
+	#a1d {
+		box-shadow: 0px 0px 0px 5px #fff ,
+		0px 0px 10px 10px grey;
+	}
+	#popper {
+		z-index: 99;
+	}
+</style>
+<div class="quick-links">
+	<p>Quick Links:</p>
+	<ul class="ui"> 
+		<li onclick="popIt('Uh-oh! Sorry, but it looks like the item you have just clicked on is not available at the moment. ')">                 <span>Admin</span>          </li>
+		<li data-link="NoteBook">                 Note Book          </li>
+		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
+		<li  data-link="notes.html">              Note-Saver              </li>
+		<li data-link="encoding.html">              Unicode ⇄ Krutidev            </li>
+		<li data-link="https://neetiindia.org">Neeti Foundation</li>
+		<li onclick="about()">              About              </li>
+		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast out normal">Connect</li> </a> 
+	</ul>
+ 
+</div>
+
+<!-------------------------------->
 
 <div id="footerHW" class="footerHW">
-	<ul>  
-		<!--<li data-link="NoteBook">                 Note Book          </li>-->
+	
+	<ul>  <!--------------------
+		<li data-link="NoteBook">                 Note Book          </li>
+		----------->
 		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
 		<li  data-link="notes.html">              Notes              </li>
 		<li data-link="encoding.html">              Decoding           </li>
@@ -236,17 +297,19 @@
 
 
 		<label for="name">Name: *</label>
-        <input type="text" id="name" name="name" required><br>
+        <input type="text" id="name" name="name" minlength="3" required><br>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email"><br>
 
         <label for="feedback">Feedback: *</label><br> 
-        <textarea id="feedback" name="feedback" rows="4"  required></textarea><br>
+        <textarea id="feedback" name="feedback" rows="4" minlength="3" required></textarea><br>
+
 		<div id="successMessage">   </div>
         <input class="btn out ui m-nil" type="submit" value="Submit">
 		
     </form>
+
 	<div class="d-by ui">
 		<span class="a" onclick="about()">Designed by me</span>
 	</div>
@@ -264,6 +327,7 @@
 		bottom: 10px;
 		width: 100%;
 		text-align: left;
+		z-index: 9!important ;
 	}
 	@media (max-width:500px) {
 		.d-by {
@@ -322,11 +386,14 @@ form .g {
 		background-color: rgba(72, 8, 9, 0.9);
 
 	}
+	 
+
 </style>
 <script src="dep/main.js"></script>
 <script src="dep/snowFall.js"></script>
 <script>
-	snowfall('f-bottom',10,500);
+	snowfall('f-bottom',10,300);
+	snowfall('feedback_form',3,500)
 
 </script>
 </body>
