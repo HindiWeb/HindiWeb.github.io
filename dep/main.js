@@ -170,9 +170,17 @@ document.getElementById('a1d').style.minWidth = '300px';
 //--------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
 
-var iframes = document.querySelectorAll('iframe');
+var alliframes = document.querySelectorAll('iframe');
 var loadingDivs = document.querySelectorAll('.loading');
+var iframes = [];
 
+// Iterate through each iframe and check if it has loading="lazy"
+for (var i = 0; i < alliframes.length; i++) {
+  var iframe = alliframes[i];
+  if (iframe.hasAttribute('loading') && iframe.getAttribute('loading') === 'lazy') {
+    iframes.push(iframe);
+  }
+}
 // Loop through all iframes and attach event listeners
 for (var i = 0; i < iframes.length; i++) {
     iframes[i].addEventListener('load', function () {
@@ -184,7 +192,7 @@ for (var i = 0; i < iframes.length; i++) {
                 loadingDivs[index].remove();
                 iframes[index].style.opacity = '1';
             }, 1000); 
-        }   
+        }  
     });
 
     iframes[i].addEventListener('readystatechange', function () {
@@ -314,9 +322,18 @@ $(document).ready(function () {
     $('li[data-link]').click(function() {
         // Get the value of the data-link attribute
         var link = $(this).data('link');
+
+        var l = $("<span></span>");
+        l.html("<img width='100px' class='loading-icon' src='dep/loading.png'>");
+        l.addClass('fixedCenter').css('z-index','99');
+        l.appendTo('body');
+
         
-        // Open the link in a new tab or window
-        window.open(link, '_self' );
+        setTimeout(function() {
+            // Code to execute after the delay
+            window.open(link, '_self' );
+            console.log("new Page opened!");
+        }, 1500);        
 
         
     });  
@@ -369,4 +386,11 @@ $(document).ready(function() {
             }
         });
     });
+
+
+
+
+
+    //temp
+    $('.feedback').css('background-color','rgb(201, 166, 129,.9)');
 });
