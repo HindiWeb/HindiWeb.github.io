@@ -331,6 +331,7 @@ $(document).ready(function () {
         
         setTimeout(function() {
             // Code to execute after the delay
+			l.remove();
             window.open(link, '_self' );
             console.log("new Page opened!");
         }, 1500);        
