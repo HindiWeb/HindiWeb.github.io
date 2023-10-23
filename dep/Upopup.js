@@ -37,4 +37,4 @@ function popup(text='text',sec=2,move='up 20',c=null){ if (autoid ===211) { var 
 
 function output(buttonid,text,sec=2,c=null) { autoid += 1; createpopup(autoid,'BR'); showpopup(autoid,text,sec,'static',c); var div = document.getElementById(buttonid); var p = document.getElementById("popup"+autoid); 
 // Get the position of the div
-var rect = div.getBoundingClientRect(); var r = rect.right.toFixed(2); var b = rect.bottom.toFixed(2); p.style.top = b-2 +'px'; p.style.left = r-2 + 'px'; p.style.bottom =  'auto'; p.style.right =  'auto'; }
+var rect = div.getBoundingClientRect(); var r = rect.right.toFixed(2); var b = rect.bottom.toFixed(2); p.style.top = (b-2) +'px'; p.style.left = (r-2) + 'px'; p.style.bottom =  'auto'; p.style.right =  'auto'; }
