@@ -7,14 +7,16 @@ document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.in
 document.getElementById('ifr3').style.maxHeight = '600px';
 
 function hide(x) {
-var element = document.getElementById(x);
-element.style.display = 'none';
+
 
     if (x == 'a1d') {
-        document.getElementById('evening-dark').className = 'hidden';
+        x = 'about';
+        var element = document.getElementById(x);
+        element.style.display = 'none';
         document.body.style.overflow = 'auto';
     } else {
-        console.log(x);
+        var element = document.getElementById(x);
+        element.style.display = 'none';
     }
     console.log(x,':Hidden');
 }
@@ -62,14 +64,18 @@ Lib.item(0).innerHTML = newCode;
 
 var bElements = document.querySelectorAll('.web');
 bElements.forEach(function (element) {
-var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
-
-if (matches && matches.length > 0) {
-    var link = matches[0];
-    var lt = document.createElement('div');var a = document.createElement('a');
+    var matches = element.querySelector('a');
+  // var haslink = matches.hasAttribute('href');
+//var matches = element.innerHTML.match(/\b\w+\.(html|org|com|in)\b/g);
+// matches.length > 0 
+if (matches ) {
+    // var link = matches[0];
+    var link = matches;
+    var lt = document.createElement('div');
+    var a = document.createElement('a');
     lt.className = 'btn click-me';
     a.href = link; a.target = "_blank";
-    a.textContent = 'Click Me!';
+    a.textContent = 'Click!';
     lt.appendChild(a); element.appendChild(lt);
 }
 
@@ -110,6 +116,7 @@ div2.className = 'gol bottom';
 element.appendChild(div1);
 element.appendChild(div2);
 
+//.descrip USED for WORKING
 var e = element.querySelectorAll('.descrip');
     
     if (e) {
@@ -123,7 +130,8 @@ var e = element.querySelectorAll('.descrip');
         var etext = el.textContent;
         console.log(etext);
         qm.addEventListener('click',function(){
-            popIt(etext);
+            //popIt(etext);
+            output(this,etext,5);
         });
     
     });
@@ -163,6 +171,17 @@ element.style.backgroundImage = Bi;
 hwBg('.lb');
 hwBg('.rnd'); 
 hwBg('#header div');
+
+    setInterval(() => {
+        //hwBg('.lb');
+//hwBg('.rnd');    
+
+//hwBg('#header div');
+$('.gol').css('background',brightClrs());
+ 
+    }, 5000);
+
+
 if (window.innerWidth > 300) {
 document.getElementById('a1d').style.minWidth = '300px';
 }
@@ -301,6 +320,17 @@ $(document).ready(function () {
         $(this).html(p);
     })
 
+    // var visitorData = {
+    //     device: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile (Android)" : "Desktop",
+    //     os: (navigator.userAgent.match(/Windows Phone|Android|iPad|iPhone|iPod|win64|wow64|macintosh|mac os x|linux/i) || ["Unknown OS"])[0],
+    //     browser: (navigator.userAgent.match(/MSIE|Trident|Firefox|OPR|Safari|Edge|Chrome/i) || ["Unknown Browser"])[0]
+    // };
+    // popup(visitorData);
+    // console.log(visitorData, navigator.userAgent);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://neetiindia.org/wp-content/plugins/HindiWeb/active_user.php", true);
+    xhr.send();
     /**
     $('li[data-link]').click(function() {
         // Get the value of the data-link attribute
@@ -331,9 +361,9 @@ $(document).ready(function () {
         
         setTimeout(function() {
             // Code to execute after the delay
-			l.remove();
             window.open(link, '_self' );
-            console.log("new Page opened!");
+            //console.log("new Page opened!");
+            l.empty(); 
         }, 1500);        
 
         
@@ -371,6 +401,12 @@ $(document).ready(function() {
         // Serialize the form data
         var formData = $(this).serialize();
 
+        //
+        var nameValue = $("#feedback_form #name").val();
+        var emailValue = $("#feedback_form #email").val();
+        var feedbackValue = $("#feedback_form #feedback").val();
+        $("#feedback_form #name, #feedback_form #email, #feedback_form #feedback").val('');
+
         // Send an AJAX request to submit_feedback.php
         $.ajax({
             type: "POST",
@@ -379,11 +415,14 @@ $(document).ready(function() {
             success: function(response) {
                 // Display the success message in the dedicated div
                 $("#successMessage").html(response);
-                $("#feedback_form #name, #feedback_form #email, #feedback_form #feedback").val('');
             },
-            error: function() {
+            error: function(e) {
                 // Handle errors if needed
+                console.log(e);
                 $("#successMessage").html("Error: Unable to save feedback.");
+                $("#feedback_form #name").val(nameValue);
+                $("#feedback_form #email").val(emailValue);
+                $("#feedback_form #feedback").val(feedbackValue);
             }
         });
     });
