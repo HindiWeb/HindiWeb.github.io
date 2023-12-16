@@ -7,24 +7,55 @@
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
-	<title>Hindi Web</title>
+	<title>Hindi Web - Dev's Web Space</title>
 	<meta name="description" content="HindiWeb.github.io is Dev's Web Space. Visit us for More."/>
-	<link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
 	<link rel="icon" href="dep/favicon.ico">
-<style>
+	<script src="dep/Upopup.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<style>
+	body {
+		background-color: #454444;
+	}
 	.m20 {
 		margin:20px auto;
 	}
+	.o7 {
+		opacity: .7;
+	}
+
+	.o7:hover {
+		opacity: 1;
+		color: rgb(210, 0, 0); 
+	}
+	.m0p0 {
+		margin: 0px;
+		padding: 0px;
+	}
+	.gol{
+		transition: all 2s; 
+	} 
+	.lb .web .btn.click-me {
+		text-align: center;
+		margin: auto; 
+	}
+	.div {
+		align-items: center;
+	}
+
 </style>
 </head>
-<body>
+<body>	
+
 	<!--<div id="static-header"></div>-->
 <div id="container" >
 	
 	<div class="intro">
-		
+
 		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
 		
 	</div>
@@ -34,44 +65,47 @@
 			<a target="_blank" href="test.html">
 			<span>testing</span></a>
 		</div>-->
-		<div >
+		<div >		
+
 			<div id="popper">this is popper</div>
 		</div>
 		<div id='header'>
-			<div >
-				<h1 style="font-family:ADLaM Display;" >Dev's Web Space</h1>
+			<div style="background-color: snow;" >
+<h1 style="font-family:ADLaM Display;padding:5px 0;">Dev's Web Space</h1>
+				
 			</div>        
 		</div>
 
 
-		<div class="div">
+		<div class="div"> 
 			<div class="lb">
 				<div class="web enco rnd">
-					This is <a href="encoding.html"> Hindi font converter and notes saver.</a></div>
-				<div class="descrip" > This page is capable of converting Hindi fonts from krutidev to unicode and vice versa. <br> You can also save the content to never loose it. </div>
+					 <a href="encoding.html"> Hindi font converter and notes saver.</a></div>
+				<div class="descrip" > यहाँ से आप कृतिदेव से यूनिकोड और यूनिकोड से कृतिदेव में फॉन्ट्स को बदल सकते हैं। <br> बदली गई सामग्री को सेव करने का विकल्प भी है। </div>
 			</div>
 
 			<div class="lb">
 				<div class="web rnd">
-					This is <a href="notes.html">  notes saver application.</a>
+					 <a href="notes.html">  notes saver application.</a>
 				</div>
-				<p class="descrip">This is just for saving the notes. type, edit, save, download as text.</p>
+				<p class="descrip">नोट सहेजने के लिए। पाठ लिखें, संपादित करें, सहेजें, और पाठ के रूप में डाउनलोड करें।</p>
 			</div>
 			<div class="lb">
 				<div class="web end rnd">
-					This is <a href="HINDIquick.html"> Hindi Quick Access Tool.</a>
+					  <a href="HINDIquick.html"> Hindi Quick Access Tool.</a>
+				</div>
+				<p class="descrip">हिंदी साहित्य से संबधित शानदार लेखों का व्यवस्थित संकलन।</p>
+			</div>
+			<div class="lb">
+				<div class="web rnd">
+					<a href="NoteBook">Note Book </a>
 				</div>
 			</div>
 			<div class="lb">
-				<div class="web waiting ">
-					<span>Upcoming...</span>
-				</div>
+				<div class="web waiting "> Short Notes Saver <span> Upcoming... </span> </div>
 			</div>
 			<div class="lb">
-				<div class="web waiting "> <span> Upcoming... </span> </div>
-			</div>
-			<div class="lb">
-				<div class="web waiting "> <span> Upcoming... </span> </div>
+				<div class="web waiting ">HindiWeb Primium <span> Upcoming... </span> </div>
 			</div>
 		</div>
 
@@ -79,14 +113,21 @@
 			<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
 			
 			<div>
-				
+
 				
 				<div>
-					<div class="quote-div">
-						<div class="title">
-							<strong> एक कविता... </strong>
+					<div class="quote-div" id="quote-div">
+						<div class="i bbp l3p " onclick="scrollPrev()">
+							<i class="fa fa-chevron-left btn out o7 normal "></i>
 						</div>
-						<div class="quote eyes-love" style="text-align: center;">
+						<div class="i bbp r3p " onclick="scrollNext()">
+							<i class="fa fa-chevron-right btn out o7 normal "></i>
+						</div>
+						<div class="title">
+							<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
+						</div>
+						<div id="kavitaSky" class="flexbox"><div class="Nquote">
+						<div class="quote eyes-love center">
 							और रहे बैठे तो लोग कहेंगे
 							धुँधले में दुबके प्रेमी बैठे हैं।
 
@@ -96,13 +137,156 @@
 							किन्तु नहीं है करुणा।
 							उठो, चलें, प्रिय!
 							
-							<div style="color: darkslategray">–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+							<div >–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+						</div></div>
+
 						</div>
 						<script>
-							var quote = document.querySelector('.quote').innerHTML;
-							quote = quote.replace(/\n/g, '<br>');
-							document.querySelector('.quote').innerHTML = quote;
-						</script>
+							var php_path = "https://neetiindia.org/wp-content/plugins/HindiWeb/kavita.php";
+
+
+							$(document).ready(function(){ 
+
+
+			
+
+setTimeout(() => {
+	
+
+var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var $div = $(entry.target);
+      if (entry.isIntersecting) {
+        if ($div.is(':first-child')) {
+		  $('.l3p').css('display','none');
+        } else if ($div.is(':last-child')) {
+		  $('.r3p').css('display','none');
+        } else { 
+			$('.l3p').css('display','flex'); 
+			$('.r3p').css('display','flex'); 
+		}
+      }
+    });
+  }, { threshold: 0.5 }); // Using a threshold of 0.5
+
+  $('.flexbox .Nquote').each(function() {
+    observer.observe(this);
+  });
+}, 500);
+
+	function setPoetries(object){
+		Object.values(object).flat().forEach(item => {
+			var author = item.author;
+			var kavita = item.kavita; 
+			if (author&&kavita){
+				//popup(kavita+' - '+author);
+				//$('#kavitayen').append("<p>"+kavita+' - '+author+'</p>');
+
+				var $newKavita = `<div class="Nquote">
+				<div class="quote eyes-love center"><br>${kavita.replace(/\n/g,'<br>')}
+					<div ><br>– ${author}</div> 
+				</div></div>`;
+
+
+
+
+				$('#kavitaSky').append($newKavita);
+
+			}
+		});
+	}
+
+	//$('#gget').on('click',function(){
+
+function getPoetries(){
+	//popup('getting poetry.');
+	$.ajax({
+		type: "GET",
+		url: php_path,
+		success: function(response) {
+			var data = response;
+			var object = response;
+			//$('#kavitayen').empty();
+
+			setPoetries(object);
+			const cacheData = {
+				data,
+				timestamp: new Date().getTime()
+			};
+			localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+
+
+			//popup("Data received successfully.");
+			console.log("Data received successfully." , response);
+		},  
+		error: function(error) {
+			popup('error');
+			console.log(error);
+			console.log("An error occurred while saving data.");
+		}
+	});
+}
+
+const CACHE_KEY = 'poetries';
+const CACHE_EXPIRATION = 21600000;//;//6h or 86400000; // 1 day in milliseconds
+
+
+// Check if the data is already cached in the browser's localStorage
+const cachedData = localStorage.getItem(CACHE_KEY);
+if (cachedData) {
+const { data, timestamp } = JSON.parse(cachedData);
+	const currentTime = new Date().getTime();
+	if (currentTime - timestamp < CACHE_EXPIRATION) {
+		// Use the cached data
+		setPoetries(data);
+		//popup('using_local');
+	} else {
+		// Data has expired, fetch new data from the server
+		getPoetries();
+	}
+} else {
+	//popup('active');
+	getPoetries();
+}
+//});
+
+});
+
+var qot = document.querySelectorAll('.quote');
+qot.forEach(qq => {
+	tq = qq.innerHTML;
+	tq = tq.replace(/\n/g, '<br>');
+	qq.innerHTML = tq ;
+});   
+							
+const scrollContainer = document.querySelector('.flexbox');
+//const prevButton = document.getElementById('prev-button');
+//const nextButton = document.getElementById('next-button');
+
+//nextButton.addEventListener('click', () => {
+  function scrollNext(){
+	scrollContainer.scrollBy({
+    left: window.innerWidth, // Adjust for horizontal scrolling
+    behavior: 'smooth'
+  });}
+//});
+
+//prevButton.addEventListener('click', () => {
+	function scrollPrev(){
+  scrollContainer.scrollBy({
+    left: -window.innerWidth, // Adjust for horizontal scrolling
+    behavior: 'smooth'
+  });
+}
+//});
+
+				</script>
+						<style>
+							.quote.eyes-love div {
+								color: darkslategray;
+								text-shadow: none;
+							}
+						</style>
 
 					</div>
 				</div>
@@ -166,10 +350,10 @@
 </div>
 
 <!------------------------------------------------>
-<div class="about" id="about" style="position: relative;">
-	<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: #413b3bb8;width:100%;height:100%;"></div>
+<div class="about" id="about" style="position: relative;z-index: 9;">
+	<div id="evening-dark" style="position: fixed;top:0px;left:0px;background-color: rgb(41, 21, 21);width:100%;height:100vh;" onclick="hide('a1d')"></div>
 	<div class="d-ad" id="a1d">
-		<div class="btn close" onclick="hide('a1d');">×</div>
+		<div class="hidden btn close"  onclick="hide('a1d');">×</div>
 		<div class="lb d-img" id="d-img" style="background-image: url(dep/d-img.jpg);
 			background-position: center center;background-repeat: no-repeat;background-size: cover;border-radius: 25px;
 			opacity: .85;width: 100px;height: 120px;">
@@ -195,39 +379,7 @@
 </div>
 <!------------------------------->
 <style>
-	
-	.quick-links {
-		background-image: linear-gradient(#d9d9a4, #fff  );
-		padding:20px;
-		margin:1%;
-		border-color: rgb(80, 4, 4);
-		color: rgb(71, 8, 8);
-		border-width: 2px;
-		border-top-style:solid ;
-		border-bottom-style:ridge;
-		box-shadow: 0px 0px 0px 1px grey; 
-	}
 
-	.quick-links ul li {
-		margin-inline-end: 1.5em;
-		padding: 5px;
-	}
-
-	.quick-links ul {
-		display: flex;
-		flex-wrap: wrap;
-		list-style: none;
-	}
-	.quick-links p{
-		padding: 5px;
-		background-color: #d2b4b4;
-		font-weight: bold;
-	}
-
-	.quick-links li:hover {
-		text-decoration: underline;
-		cursor: pointer;
-	}
 	.line {
 		border-bottom: 2px solid rgb(80, 4, 4);
 		margin: 10px 0px;
@@ -239,34 +391,47 @@
 	#popper {
 		z-index: 99;
 	}
+	.subscribe {
+		background-color: green;
+		color: #ef0;
+		border-radius: 5px;
+		margin:5px;
+	}
+	.cnt {
+		margin:5px;
+	}
 </style>
 <div class="quick-links">
 	<p>Quick Links:</p>
 	<ul class="ui"> 
-		<li data-link="NoteBook/base.html" >                 Admin        </li>
+		<li data-link="NoteBook/base.html">                 Admin        </li>
 		<li data-link="NoteBook">                 Note Book          </li>
 		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
 		<li  data-link="notes.html">              Note-Saver              </li>
 		<li data-link="encoding.html">              Unicode ⇄ Krutidev            </li>
 		<li data-link="https://neetiindia.org">Neeti Foundation</li>
 		<li onclick="about()">              About              </li>
-		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast out normal">Connect</li> </a> 
+		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast out normal cnt">Connect</li> </a> 
+		<li class="bg-move  out normal subscribe" data-link="NoteBook/join.html">SUBSCRIBE</li>
+
 	</ul>
  
 </div>
 
 <!-------------------------------->
 
-<div id="footerHW" class="footerHW">
+<div id="footerHW" class="footerHW" style="z-index: 100;"> 
 	
-	<ul>  <!--------------------
+	<ul>  
+		<li><a href="Https://hindiweb.github.io" ><i style="color: #fff;" class="fa fa-home"></i></a></li>
+		<!--------------------
 		<li data-link="NoteBook">                 Note Book          </li>
-		-->
+		<li  data-link="notes.html">              Notes              </li>
+		----------->
 		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
-		<!--<li  data-link="notes.html">              Notes              </li>----------->
-		<li data-link="encoding.html">              Decoding           </li>
+		<li style="font-family:mukta ;" data-link="#kavitaSky">              कविताएँ            </li>
 		<li onclick="about()">              About              </li>
-		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
+		<a target="_blank" href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
 	</ul>
 	<div class="pb">
 	</div>	
@@ -313,17 +478,17 @@
 		<span style="text-align:left ">© DEVA RAM/HindiWeb.github.io</span> 
         <h3 class="h3-h">feedback form</h3>
 
+        <label for="feedback">Feedback*</label><br>
+        <div style="margin: auto;text-align: center;"><textarea placeholder=" " id="feedback" name="feedback" rows="4" minlength="3" required></textarea></div>
 
-		<label for="name">Name: *</label>
-        <input type="text" id="name" name="name" minlength="3" required><br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email"><br>
+		<label class="hidden" for="name">Name: </label>
+        <input class="hidden" type="text" id="name" name="name" minlength="3" required>
 
-        <label for="feedback">Feedback: *</label><br> 
-        <textarea id="feedback" name="feedback" rows="4" minlength="3" required></textarea><br>
+        <label class="hidden" for="email">Email:</label>
+        <input class="hidden" type="email" placeholder="(optional)" id="email" name="email">
 
-		<div id="successMessage">   </div>
+		<div class="hidden" id="successMessage"><span></span></div>
         <input class="btn out ui m-nil" type="submit" value="Submit">
 		
     </form>
@@ -334,6 +499,12 @@
 
 </div>
 <style>
+	#feedback {
+		resize: vertical; 
+	}
+#feedback_form input {
+	margin: 5px;
+}
 	.a {
 		cursor: pointer;
 	}
@@ -354,43 +525,7 @@
 			right:20px;z-index: 9!important ;
 		}
 	}
-form .g {
-	color: rgb(79, 3, 3);
-}
-.feedback {
-	width:50%;
-	margin:auto;
-	max-width: 450px; 
-	background-color: rgb(201, 166, 129);
-	z-index: 3;
-}
-.feedback#feedback_form label {
-	color:#000;
-}
-.feedback#feedback_form input, .feedback#feedback_form textarea {
-	padding: 3px 5px;
-	margin-bottom: 10px;
-}
 
-.feedback .g {
-	margin: 5px;
-}
-.feedback-footer {
-	padding: 10px; 
-	border-top:2px solid black;
-	border-bottom:20px solid rgb(255, 255, 255);
-
-	background-color: rgb(71, 8, 8);
-	float: none;
-}
-.feedback h3.h3-h  {
-	background-color: beige;
-	border-top:1px solid brown;
-	text-align: center; 
-}
-#f-bottom {
-	overflow: hidden;
-}
 
 </style>
 <style>
@@ -405,14 +540,30 @@ form .g {
 
 	}
 	 
-
 </style>
 <script src="dep/main.js"></script>
 <script src="dep/snowFall.js"></script>
 <script>
 	snowfall('f-bottom',10,300);
-	snowfall('feedback_form',3,500)
+	//snowfall('feedback_form',3,500)
 
+
+$(document).ready(function () {
+	function addq(q,w){
+		$('#quote-div').append(`<div class='eyes-love center quote'>${q}<div>– ${w}</div></div>`);
+	}
+	var q = `gandhi is the politician`;
+	var w= `KPK`
+	//addq(q,w);
+	var toon = true;
+
+	$('#feedback').on('input',function(){
+		if (toon){
+			$('#feedback_form').find('.hidden').removeClass('hidden');
+			toon = false;
+		}  
+	});
+});
 </script>
 </body>
 </html>
@@ -434,3 +585,4 @@ Here are some ideas to get you started:
             background-position:center center;
             background-repeat:round;
             background-size: cover;>
+-->
