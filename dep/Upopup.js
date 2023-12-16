@@ -24,9 +24,11 @@ function createpopup(id=1 , pos='BR',where='undefined'){ var id = 'popup'+ id; v
 * @param {*} c class 
 */ 
 function showpopup(id,text,sec=1,move='static',c=null){ sec = sec * 1000; id = 'popup' + id; var popup = document.getElementById(id); popup.innerText = text; popup.classList.remove('hidden'); popup.style.transform = 'translateY(0%)'; setTimeout(() => { let perse = 80; checkin = move.split(' '); move = checkin[0]; if (checkin.length == 2){ perse = checkin[1]; } if ( move != 'static' ) { popup.style.transition = 'all 1s ease-out'; if (move === 'up') { popup.style.transform = `translateY(-${perse}%)`; } else if ( move === 'down'){popup.style.transform = `translateY(${perse}%)`; } else if ( move === 'left') {popup.style.transform = `translateX(-${perse}%)`; } else if (move === 'right') {popup.style.transform = `translateX(${perse}%)`; } } }, 50); if ( c != null ){ popup.classList.add(c); } setTimeout(() => { popup.classList.add('hidden'); popup.classList.remove(c); }, sec); }
+
 var autoid = 211;  
 function popup(text='text',sec=2,move='up 20',c=null){ if (autoid ===211) { var noticeB = document.createElement('div');noticeB.id = 'noticeboard';document.body.appendChild(noticeB); noticeB.style.zIndex = 99; }; autoid += 1; createpopup(autoid,'BR','noticeboard'); showpopup(autoid,text,sec,move,c); } 
 
+function hidePoAG(id){   document.getElementById(id).style.display = 'none'; }
 /**
  * A small popup for buttons
  * @param {*} buttonid id of button or div 
@@ -35,6 +37,4 @@ function popup(text='text',sec=2,move='up 20',c=null){ if (autoid ===211) { var 
  * @param {*} c class name
  */
 
-function output(buttonid,text,sec=2,c=null) { autoid += 1; createpopup(autoid,'BR'); showpopup(autoid,text,sec,'static',c); var div = document.getElementById(buttonid); var p = document.getElementById("popup"+autoid); 
-// Get the position of the div
-var rect = div.getBoundingClientRect(); var r = rect.right.toFixed(2); var b = rect.bottom.toFixed(2); p.style.top = (b-2) +'px'; p.style.left = (r-2) + 'px'; p.style.bottom =  'auto'; p.style.right =  'auto'; }
+function output(buttonid,text,sec=2,c=null) { autoid += 1; createpopup(autoid,'BR'); showpopup(autoid,text,sec,'up 5',c); var div = document.getElementById(buttonid); if (!div) { div = buttonid; } var p = document.getElementById("popup"+autoid); p.style.position = 'absolute'; var rect = div.getBoundingClientRect(); var r = rect.right.toFixed(2); var b = rect.bottom.toFixed(2); var availableWidth = window.innerWidth - r; p.style.top = ((b-2)+scrollY) +'px'; p.style.bottom = 'auto'; if (availableWidth > 150 || text.length < 15) { p.style.left = r-2 + 'px'; p.style.right = 'auto'; } else { p.style.left = (r-200) + 'px'; p.style.right = 'auto'; } if (text.length > 50 ){ p.innerHTML += `<div class="popup-closer" onclick=hidePoAG('popup${autoid}')>[x]<div>`; } }
