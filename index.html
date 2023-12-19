@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-	<meta charset='UTF-8'>
+	<meta charset='UTF-8'> 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 	<title>Hindi Web - Dev's Web Space</title>
@@ -165,7 +165,6 @@
 
 			
 
-setTimeout(() => {
 	
 
 var observer = new IntersectionObserver(function(entries) {
@@ -184,10 +183,12 @@ var observer = new IntersectionObserver(function(entries) {
     });
   }, { threshold: 0.5 }); // Using a threshold of 0.5
 
+
+function flexMoveObserver(){
   $('.flexbox .Nquote').each(function() {
     observer.observe(this);
   });
-}, 500);
+}
 
 	function setPoetries(object){
 		Object.values(object).flat().forEach(item => {
@@ -202,13 +203,11 @@ var observer = new IntersectionObserver(function(entries) {
 					<div ><br>– ${author}</div><hr> 
 				</div></div>`;
 
-
-
-
 				$('#kavitaSky').append($newKavita);
 
 			}
 		});
+		flexMoveObserver();
 	}
 
 	//$('#gget').on('click',function(){
