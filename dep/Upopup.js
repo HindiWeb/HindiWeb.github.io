@@ -1,6 +1,6 @@
 /** 
 * @author Deva Ram 
-* @version 3.0.0
+* @version 3.1.0
 */  
 
 document.addEventListener("DOMContentLoaded", function() {  var styleElement = document.createElement("style"); var cssRules = `.popup{ position: fixed; padding: 10px 20px; z-index: 99; background-color: #333;color: white; opacity: 0.92;font-size: 18px; font-family:Verdana, Geneva, Tahoma, sans-serif; border-radius: 5px;border:1px inset pink; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); } #noticeboard { max-width:90%; position:fixed;bottom:10px;right:10px; } .hidden { display: none; } .popup-closer { position:fixed;right:5px;top:2px;font-size:12px;cursor:default; } .popup-closer:hover { color:red; }`;   styleElement.textContent = cssRules;document.head.appendChild(styleElement); 
