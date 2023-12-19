@@ -166,8 +166,8 @@
 			
 
 	
-
-var observer = new IntersectionObserver(function(entries) {
+function flexMoveObserver(){
+	var observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       var $div = $(entry.target);
       if (entry.isIntersecting) {
@@ -184,7 +184,6 @@ var observer = new IntersectionObserver(function(entries) {
   }, { threshold: 0.5 }); // Using a threshold of 0.5
 
 
-function flexMoveObserver(){
   $('.flexbox .Nquote').each(function() {
     observer.observe(this);
   });
@@ -207,7 +206,9 @@ function flexMoveObserver(){
 
 			}
 		});
-		flexMoveObserver();
+		setTimeout(() => {
+			flexMoveObserver();			
+		}, 500);
 	}
 
 	//$('#gget').on('click',function(){
