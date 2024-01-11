@@ -14,6 +14,11 @@ function hide(x) {
         var element = document.getElementById(x);
         element.style.display = 'none';
         document.body.style.overflow = 'auto';
+        var containerElement = document.getElementById("a1d");
+        var snowFlakesElements = containerElement.getElementsByClassName("snowflake");
+        for (var i = 0; i < snowFlakesElements.length; i++) {
+            snowFlakesElements[i].style.display = "none";
+        }
     } else {
         var element = document.getElementById(x);
         element.style.display = 'none';
@@ -22,9 +27,9 @@ function hide(x) {
 }
 hide('popper');
 
-document.addEventListener('DOMContentLoaded',function(){
-snowfall('d-img',20,60);
-});
+// document.addEventListener('DOMContentLoaded',function(){
+// snowfall('d-img',20,60);
+// });
 function popIt(text){
 var p = document.getElementById('popper');
     var closer = document.createElement('div');
@@ -384,10 +389,15 @@ $(document).ready(function () {
     
 });
 function about(){
+    if (document.getElementById('about').style.display == 'block') {
+        hide('a1d');
+        return
+    }
     document.getElementById('about').style.display = 'block';
     document.getElementById('a1d').style.display = 'block';
-
+    snowfall('d-img',20,30);
 }
+
 
 
 

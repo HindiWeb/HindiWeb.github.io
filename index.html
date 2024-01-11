@@ -18,6 +18,10 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 	<style>
+
+	body {
+		font-family: Mukta, sans-serif;
+	}
 	@media (max-width:400px) {
 		.div .lb {
 			padding: 7px;
@@ -559,8 +563,11 @@ const scrollContainer = document.querySelector('.flexbox');
 <script src="dep/main.js"></script>
 <script src="dep/snowFall.js"></script>
 <script>
-	snowfall('f-bottom',10,300);
 	//snowfall('feedback_form',3,500)
+	var NoSF = Math.max(5, Math.min(50, 5 + (window.innerWidth - 360) / (1800 - 360) * (50 - 5)));
+	snowfall('f-bottom',NoSF,300);
+
+
 
 
 $(document).ready(function () {
