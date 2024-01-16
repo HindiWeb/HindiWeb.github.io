@@ -19,7 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {  var styleElement = d
 .hw-panel { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); background-color: #ffffcc; color: rgb(0, 0, 0); text-align: center; line-height: 1.5; font-family:  'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 15px; padding-top: 0; width:100%; display: none; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); box-sizing: border-box; } 
 .hw-panel h3 { margin:0; padding: 10px 0; font-size: 24px; font-weight: 400; font-family: "Segoe UI",Arial,sans-serif; }
 .close-btn { cursor: pointer; position: absolute; top: 1px; right: 10px; font-size: 30px; color: rgb(116, 106, 106); padding: 3px; } .close-btn:hover { color: rgb(84, 79, 79); } 
-`;   styleElement.textContent = cssRules;document.head.appendChild(styleElement); 
+
+.hw-alert { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; border: 1px solid #3498db; box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); z-index: 1000; max-width: 300px; border-radius: 8px; } 
+.hw-alert-content { padding: 20px; text-align: center; } .hw-alert h2 { margin-top: 0; color: #3498db; } .hw-alert p { color: #333; } .hw-alert-buttons { margin-top: 15px; } 
+.hw-alert-buttons button { padding: 8px 16px; margin: 0 5px; margin-bottom:3px; cursor: pointer; background-color: #3498db; color: #fff; border: none; border-radius: 4px; outline: none; } .hw-alert-buttons button:hover { background-color: #2980b9; } 
+.hw-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; }`;   styleElement.textContent = cssRules;document.head.appendChild(styleElement); 
 //var noticeB = document.createElement('div');noticeB.id = 'noticeboard';document.body.appendChild(noticeB);
 });  
 
