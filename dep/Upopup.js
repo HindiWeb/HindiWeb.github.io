@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {  var styleElement = d
 #noticeboard { max-width:90%; position:fixed;bottom:10px;right:10px; } .hidden { display: none; } .popup-closer { position:fixed;right:5px;top:2px;font-size:12px;cursor:default; } .popup-closer:hover { color:red; }
 
 .hw-d-overlay { position: fixed; z-index:1000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: cenfter; }
-.hw-d-box { background-color: white; padding:0;margin:10px; text-align: center; border-radius:5px; border: 1px solid #27a; position:fixed; top:50%;left:50%; transform: translate(-50%,-50%); }
+.hw-d-box { background-color: white; padding:0;max-width:99%; text-align: center; border-radius:5px; border: 1px solid #27a; position:fixed; top:50%;left:50%; transform: translate(-50%,-50%); }
 .hw-d-msg { padding : 30px 20px; overflow:auto;max-height:50vh;} 
 .hw-d-button { margin:3px 5px; padding: 10px; display: inline-block; padding: 8px 12px; font-size: 14px; font-weight: bold; text-align: center; text-decoration: none; cursor: pointer; border: 1px solid #27a; color: #27a; background-color: #ffe; border-radius: 8px; transition: background-color 0.1s, color 0.3s, border-color 0.3s; }
 .hw-d-button:hover { background-color: #ccc; color: #000; } 
