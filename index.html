@@ -12,16 +12,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
 	<link rel="icon" href="dep/favicon.ico">
-	<script src="dep/Upopup.js"></script>
+	<!-- <script src="dep/Upopup.js"></script> -->
+	<script src="/dep/jquery.min.js"></script>
+	<!-- <link rel="stylesheet" href="/dep/all.min.css"> -->
+	<!-- <script src="/dep/w3.css"></script> -->
+	<script src="/dep/popup.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+	<!-- <script src='h    ttps://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 	<style>
 
-	body {
-		font-family: Mukta, sans-serif;
-	}
 	@media (max-width:400px) {
 		.div .lb {
 			padding: 7px;
@@ -29,6 +30,12 @@
 		}
 		.div {
 			margin:15px 0;
+			position: relative;
+		}
+		.web {
+			width: 100%;
+			font-size: 5vw;
+			box-sizing: border-box;
 		}
 
 	}
@@ -37,9 +44,9 @@
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
-/* 	body {
+	body {
 		background-color: #454444;
-	} */
+	}
 	.m20 {
 		margin:20px auto;
 	}
@@ -64,28 +71,42 @@
 	}
 	.div {
 		align-items: center;
+        font-size: 80%;
 	}
 
 </style>
 </head>
 <body>	
 
-	<!--<div id="static-header"></div>-->
 <div id="container" >
 	
-	<div class="intro">
+	<!-------------------------------->
 
-		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
+	<header id="footerHW" class="footerHW" style="z-index: 100;"> 
 		
-	</div>
+		<ul>  
+			<li><a href="Https://hindiweb.github.io" ><i style="color: #fff;" class="fa fa-home"></i></a></li>
+			<!--------------------
+			<li data-link="NoteBook">                 Note Book          </li>
+			<li  data-link="notes.html">              Notes              </li>
+			----------->
+			<li  data-link="HINDIquick.html">              Hindi Quick       </li>
+			<li style="font-family:mukta ;" data-link="#kavitaSky">              कविताएँ            </li>
+			<li onclick="about()">              About              </li>
+			<a target="_blank" href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
+		</ul>
+		<div class="pb">
+		</div>	
+	</header>	
+	
+	<p class="intro">
+		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
+	</p>
+
 
 	<div id='body'>
-		<!--<div>
-			<a target="_blank" href="test.html">
-			<span>testing</span></a>
-		</div>-->
-		<div >		
 
+		<div >		
 			<div id="popper">this is popper</div>
 		</div>
 		<div id='header'>
@@ -99,11 +120,11 @@
 		<div class="div"> 
 			<div class="lb">
 				<div class="web enco rnd">
-					 <a href="encoding.html"> Hindi font converter and notes saver.</a></div>
+					 <a href="encoding.html"> Hindi font converter and  saver.</a></div>
 				<div class="descrip" > यहाँ से आप कृतिदेव से यूनिकोड और यूनिकोड से कृतिदेव में फॉन्ट्स को बदल सकते हैं। <br> बदली गई सामग्री को सेव करने का विकल्प भी है। </div>
 			</div>
 
-			<div class="lb">
+			<div class="lb hidden">
 				<div class="web rnd">
 					 <a href="notes.html">  notes saver application.</a>
 				</div>
@@ -121,7 +142,7 @@
 				</div>
 			</div>
 			<div class="lb">
-				<div class="web waiting "> Short Notes Saver <span> Upcoming... </span> </div>
+				<div class="web waiting "> Short Notes  <span> Upcoming... </span> </div>
 			</div>
 			<div class="lb">
 				<div class="web waiting ">HindiWeb Primium <span> Upcoming... </span> </div>
@@ -132,8 +153,12 @@
 			<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
 			
 			<div>
+				<style>
+					.Nquote {
+						display: none;
+					}
+				</style>
 
-				
 				<div>
 					<div class="quote-div" id="quote-div">
 						<div class="i bbp l3p " onclick="scrollPrev()">
@@ -145,7 +170,8 @@
 						<div class="title">
 							<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
 						</div>
-						<div id="kavitaSky" class="flexbox"><div class="Nquote">
+						<div id="kavitaSky" class="flexbox">
+							<div class="Nquote">
 						<div class="quote eyes-love center">
 							और रहे बैठे तो लोग कहेंगे
 							धुँधले में दुबके प्रेमी बैठे हैं।
@@ -159,158 +185,28 @@
 							<div >–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
 						</div></div>
 
-						</div>
-						<script>
-							var php_path = "https://neetiindia.org/wp-content/plugins/HindiWeb/kavita.php";
-
-
-							$(document).ready(function(){ 
-
-
-			
-
+						<!-- <div class="Nquote">
+							<div class="quote eyes-love center">
+								और रहे बैठे तो लोग कहेंगे
+								धुँधले में दुबके प्रेमी बैठे हैं।
 	
-function flexMoveObserver(){
-	var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      var $div = $(entry.target);
-      if (entry.isIntersecting) {
-        if ($div.is(':first-child')) {
-		  $('.l3p').css('display','none');
-        } else if ($div.is(':last-child')) {
-		  $('.r3p').css('display','none');
-        } else { 
-			$('.l3p').css('display','flex'); 
-			$('.r3p').css('display','flex'); 
-		}
-      }
-    });
-  }, { threshold: 0.5 }); // Using a threshold of 0.5
+								वह हम हों भी तो यह हरी घास ही जाने,
+								नहीं सुनें हम उन नगरी के नागरिकों से
+								जिन की भाषा में अतिशय चिकनाई है साबुन की
+								किन्तु नहीं है करुणा।
+								उठो, चलें, प्रिय!
+								
+								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+							</div></div>
 
+						</div> -->
+						<div class="center">
+							<button class="btn normal"><i class="fa fa-arrow-rotate"></i></button>
+						</div>
 
-  $('.flexbox .Nquote').each(function() {
-    observer.observe(this);
-  });
-}
-
-	function setPoetries(object){
-		Object.values(object).flat().forEach(item => {
-			var author = item.author;
-			var kavita = item.kavita; 
-			if (author&&kavita){
-				//popup(kavita+' - '+author);
-				//$('#kavitayen').append("<p>"+kavita+' - '+author+'</p>');
-
-				var $newKavita = `<div class="Nquote">
-				<div class="quote eyes-love center"><br>${kavita.replace(/\n/g,'<br>')}
-					<div ><br>– ${author}</div><hr> 
-				</div></div>`;
-
-				$('#kavitaSky').append($newKavita);
-
-			}
-		});
-		setTimeout(() => {
-			flexMoveObserver();			
-		}, 500);
-	}
-
-	//$('#gget').on('click',function(){
-
-function getPoetries(){
-	//popup('getting poetry.');
-	$.ajax({
-		type: "GET",
-		url: php_path,
-		success: function(response) {
-			var data = response;
-			var object = response;
-			//$('#kavitayen').empty();
-
-			setPoetries(object);
-			const cacheData = {
-				data,
-				timestamp: new Date().getTime()
-			};
-			localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
-
-
-			//popup("Data received successfully.");
-			console.log("Data received successfully." , response);
-		},  
-		error: function(error) {
-			popup('error');
-			console.log(error);
-			console.log("An error occurred while saving data.");
-		}
-	});
-}
-
-const CACHE_KEY = 'poetries';
-const CACHE_EXPIRATION = 21600000;//;//6h or 86400000; // 1 day in milliseconds
-
-
-// Check if the data is already cached in the browser's localStorage
-const cachedData = localStorage.getItem(CACHE_KEY);
-if (cachedData) {
-const { data, timestamp } = JSON.parse(cachedData);
-	const currentTime = new Date().getTime();
-	if (currentTime - timestamp < CACHE_EXPIRATION) {
-		// Use the cached data
-		setPoetries(data);
-		//popup('using_local');
-	} else {
-		// Data has expired, fetch new data from the server
-		getPoetries();
-	}
-} else {
-	//popup('active');
-	getPoetries();
-}
-//});
-
-});
-
-var qot = document.querySelectorAll('.quote');
-qot.forEach(qq => {
-	tq = qq.innerHTML;
-	tq = tq.replace(/\n/g, '<br>');
-	qq.innerHTML = tq ;
-});   
-							
-const scrollContainer = document.querySelector('.flexbox');
-//const prevButton = document.getElementById('prev-button');
-//const nextButton = document.getElementById('next-button');
-
-//nextButton.addEventListener('click', () => {
-  function scrollNext(){
-	scrollContainer.scrollBy({
-    left: window.innerWidth, // Adjust for horizontal scrolling
-    behavior: 'smooth'
-  });}
-//});
-
-//prevButton.addEventListener('click', () => {
-	function scrollPrev(){
-  scrollContainer.scrollBy({
-    left: -window.innerWidth, // Adjust for horizontal scrolling
-    behavior: 'smooth'
-  });
-}
-//});
-
-				</script>
-						<style>
-							.quote.eyes-love div {
-								color: darkslategray;
-								text-shadow: none;
-							}
-						</style>
-
-					</div>
+				</div>
 				</div>
 			</div>
-			
 		</div>
 		<div class="connect btn connect">
 			<a href="https://t.me/Devravi">
@@ -337,21 +233,16 @@ const scrollContainer = document.querySelector('.flexbox');
 			<div class="bg-move loading ">Loading</div>
 		<iframe id="ifr2" src="encoding.html" width="100%" loading="lazy" ></iframe>
 		<h1 title="notes saver.">Save Your Notes</h1>
-			--><div class="bg-move loading ifr3">Loading</div>
+			-,->
+            <div class="bg-move loading ifr3">Loading</div>
 		<iframe id="ifr3" src="notes.html" width="100%" loading="lazy"></iframe>
 		<div class=" center">
 			<h3 class="btn center hidden">
 				Load Notes-Saver
 			</h3>
-		</div>
+		</div>-->
 		
 	</div>
-	<style>
-		#ifr3, .loading.ifr3 {
-			display: none;
-		}
-
-	</style>
 
 </div>
 <!------------------------------------------------>	
@@ -397,29 +288,7 @@ const scrollContainer = document.querySelector('.flexbox');
 	</div>
 </div>
 <!------------------------------->
-<style>
 
-	.line {
-		border-bottom: 2px solid rgb(80, 4, 4);
-		margin: 10px 0px;
-	}
-	#a1d {
-		box-shadow: 0px 0px 0px 5px #fff ,
-		0px 0px 10px 10px grey;
-	}
-	#popper {
-		z-index: 99;
-	}
-	.subscribe {
-		background-color: green;
-		color: #ef0;
-		border-radius: 5px;
-		margin:5px;
-	}
-	.cnt {
-		margin:5px;
-	}
-</style>
 <div class="quick-links">
 	<p>Quick Links:</p>
 	<ul class="ui"> 
@@ -429,52 +298,34 @@ const scrollContainer = document.querySelector('.flexbox');
 		<li  data-link="notes.html">              Note-Saver              </li>
 		<li data-link="encoding.html">              Unicode ⇄ Krutidev            </li>
 		<li data-link="https://neetiindia.org">Neeti Foundation</li>
-		<li onclick="about()">              About              </li>
-		<a href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast out normal cnt">Connect</li> </a> 
+		<!-- <li onclick="about()">              About              </li> -->
+        <li class="cnt"><a href="http://t.me/devravi" class="normal btn bg-move-fast out normal ">Connect</a></li>  
 		<li class="bg-move  out normal subscribe" data-link="NoteBook/join.html">SUBSCRIBE</li>
 
 	</ul>
  
 </div>
 
-<!-------------------------------->
-
-<div id="footerHW" class="footerHW" style="z-index: 100;"> 
-	
-	<ul>  
-		<li><a href="Https://hindiweb.github.io" ><i style="color: #fff;" class="fa fa-home"></i></a></li>
-		<!--------------------
-		<li data-link="NoteBook">                 Note Book          </li>
-		<li  data-link="notes.html">              Notes              </li>
-		----------->
-		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
-		<li style="font-family:mukta ;" data-link="#kavitaSky">              कविताएँ            </li>
-		<li onclick="about()">              About              </li>
-		<a target="_blank" href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
-	</ul>
-	<div class="pb">
-	</div>	
-</div>
 
 <div id="ifc">
 	<!--<div class="bg-move loading fixedCenter" style="display: none;" >Loading</div>-->
 	<iframe id="sub-web" src="" width="100%" style="border: none;display: none;"></iframe>
 </div>
-<!--
-<div class="btn out center" style="margin-bottom:50px;margin-top: 20px;"> 
+
+<div class="btn out center" style="margin-bottom:-20px;margin-top: 20px;"> 
 	<a onclick="about()" class="normal p center" >
-		know More 
+		About Developer 
 	</a> 
 </div>
 
-		<div class="btn out center fit" href="t.me/devravi">
+		<!-- <div class="btn out center fit" href="t.me/devravi">
 				<a href="mailto:devaram@duck.com" class="normal p _blank">
 	 Email: Devaram@Duck.com	</a>
-				</div> 
---> 
+				</div>  -->
+ 
 <div class="feedback-footer" id="f-bottom">
-	<!--
-	<div class="leftdiv">
+	
+	<!-- <div class="leftdiv">
 		<img  src="/HTML folder/dep/logo.png">
 		<h3 class="g"> HindiWeb: Dev's Web space</h3>
 		<p style="padding-right: 5%;text-align: justify;">
@@ -490,7 +341,7 @@ const scrollContainer = document.querySelector('.flexbox');
 		<p>
 			<b>Your contribution and Feedback is highly needed.</b> 
 		</p>
-	</div>-->
+	</div> -->
 
 	<form id="feedback_form" class="feedback" action="https://neetiindia.org/wp-content/plugins/HindiWeb/save_feedback.php" method="post">
 		<h3 class="g"> HindiWeb: Dev's Web space</h3>
@@ -517,58 +368,12 @@ const scrollContainer = document.querySelector('.flexbox');
 	</div>
 
 </div>
-<style>
-	#feedback {
-		resize: vertical; 
-	}
-#feedback_form input {
-	margin: 5px;
-}
-	.a {
-		cursor: pointer;
-	}
-	.a:hover {
-		text-decoration:underline ;		
-	}
-	.d-by {
-		position: absolute;
-		bottom: 10px;
-		width: 100%;
-		text-align: left;
-		z-index: 9!important ;
-	}
-	@media (max-width:500px) {
-		.d-by {
-			bottom: 15px;
-			text-align: right;
-			right:20px;z-index: 9!important ;
-		}
-	}
 
-
-</style>
-<style>
-
-	.d-img {
-		background-image:url(dep/d-img.jpg) !important;
-	}
-
-	#a1d {
-		z-index: 99;
-		background-color: rgba(72, 8, 9, 0.9);
-
-	}
-	 
-</style>
 <script src="dep/main.js"></script>
 <script src="dep/snowFall.js"></script>
 <script>
-	//snowfall('feedback_form',3,500)
-	var NoSF = Math.max(0, Math.min(50, 0 + (window.innerWidth - 360) / (1800 - 360) * (50 - 0)));
-	snowfall('f-bottom',NoSF,300);
-
-
-
+	var NoSF = Math.max(0, Math.min(50, 0 + (window.innerWidth - 360) / (1800 - 300) * (30 - 0)));
+    snowfall('f-bottom',NoSF,300);
 
 $(document).ready(function () {
 	function addq(q,w){

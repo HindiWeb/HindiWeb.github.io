@@ -1,3 +1,9 @@
+
+body{
+    background:lightyellow;
+    margin: 0 0 0 0;
+    font-family:Mukta, sans-serif ;
+}
 #about {
     display: none;
 } 
@@ -5,11 +11,6 @@
     display: none;
 }
 
-
-body{
-    background:lightyellow;
-    margin: 0 0 0 0;
-    }
 
 
 h1 {
@@ -61,7 +62,7 @@ h1 {
     .lb  {
         color:darkred;
         background-color: rgba(105, 105, 96, 0.93);
-        font-size:21px;
+        font-size:24px;
         margin:5px 35px 35px 5px;
         padding:10px;
         float: left;
@@ -78,7 +79,7 @@ h1 {
         color:black;
         position: relative;
         z-index: 5;
-        font-weight: 700;
+        font-weight: 600;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
     .web {
@@ -320,7 +321,7 @@ h1 {
         100% {border:2px dotted yellow;} 
     }
     .hidden {
-        display: none;
+        display: none !important;
     } 
 
 /**********************************/
@@ -328,11 +329,14 @@ h1 {
         background-color: yellow!important;
 
     } .web .btn.click-me{
-        font-size: 20px;
+        font-size: 18px;
 
     }.web .btn.click-me:hover{
         background-color: #ef0;
-        font-size: 22px;
+        font-size: 20px;
+    }
+    .click-me a {
+        text-decoration: none;
     }
     #container {
         position: relative;
@@ -373,7 +377,13 @@ h1 {
         box-shadow: 1px 1px 1px; 
         padding:10px 50px;
     }
+    .quote.eyes-love div {
+        color: darkslategray;
+        text-shadow: none;
+    }
+
 /**********************************/
+
     #tools-title {
 		font-family: Georgia, 'Times New Roman', Times, serif;
 		font-size:60px;background-color: rgb(74, 1, 51);
@@ -386,6 +396,9 @@ h1 {
     }
     #iframes h1 { 
         font-family: Cambria, monospace;
+    }
+    #ifr3, .loading.ifr3 {
+        display: none;
     }
 /**********************************/
 .loading {
@@ -481,20 +494,6 @@ opacity: .75;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    /*########## Head CSS ###########*/
 
 .footerHW ul img {
@@ -558,17 +557,24 @@ a.normal .btn.normal {
 }
 @media (max-width:300px) {
     .footerHW ul {
-        display: grid;
+        display: block;
         justify-content:right;                    
         margin-bottom: 0;
     }
     .footerHW ul li {
+        display: block;
         margin-bottom: 3px;
+        text-align: center !important;
     }
-    .footerHW {         
+    .footerHW ul li:last-child { 
+        min-width: 98% !important; 
+    }
+    .footerHW {
+        display: block;
         width:100%;
-        background-color: rgba(0, 0, 0, 0);
-    }
+        /* background-color: rgba(0, 0, 0, 0); */
+        position: relative;
+    } 
     .footerHW #footer-grip {
         background:grey;
         text-align: right;
@@ -772,7 +778,42 @@ form .g {
 	}
 
 }
+#feedback {
+    resize: vertical; 
+}
+#feedback_form input {
+margin: 5px;
+}
+.a {
+    cursor: pointer;
+}
+.a:hover {
+    text-decoration:underline ;		
+}
+.d-by {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: left;
+    z-index: 9!important ;
+}
+@media (max-width:500px) {
+    .d-by {
+        bottom: 15px;
+        text-align: right;
+        right:20px;z-index: 9!important ;
+    }
+}
 
+.d-img {
+    background-image:url(dep/d-img.jpg) !important;
+}
+
+#a1d {
+    z-index: 99;
+    background-color: rgba(72, 8, 9, 0.9);
+
+}
 /****quick links******/
 	
 .quick-links {
@@ -856,13 +897,13 @@ div.quote-div {
  
 /* flacebox */
 
-.flexbox {
+/* .flexbox {
     width:100%;
     transition: all 5s;
     display:flex;
     flex-wrap:nowrap !important;
     overflow-x: scroll;
-    flex-direction: row; /* Arrange items in a row */
+    flex-direction: row; /* Arrange items in a row 
     align-items: stretch;
     margin-left:auto;margin-right:auto;
     scroll-snap-type: x mandatory;
@@ -877,14 +918,14 @@ div.quote-div {
     scroll-snap-align:start;
     width:100%;
     box-sizing: border-box;
-}
+} */
 .Nquote:first-child {
     border-left: 3px solid;
 }
 .Nquote:last-child {
     border-right: 3px solid;
 }
-
+/* 
 .flexbox::-webkit-scrollbar {
     border: 1px solid rgba(180, 140, 140, 0.744);
     border:none;
@@ -910,7 +951,7 @@ div.quote-div {
 .flexbox::-webkit-scrollbar-thumb:hover {
     background: #454444;  
 
-}
+} */
 .fa.btn {
     display: flex;
     align-items: center;
@@ -930,7 +971,51 @@ div.quote-div {
     
 }
 
+/*Extract from W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
+/* html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit} */
 
+.col,.half,.third,.twothird,.threequarter,.quarter{float:left;width:100%}
+.col.s1{width:8.33333%}.col.s2{width:16.66666%}.col.s3{width:24.99999%}.col.s4{width:33.33333%}
+.col.s5{width:41.66666%}.col.s6{width:49.99999%}.col.s7{width:58.33333%}.col.s8{width:66.66666%}
+.col.s9{width:74.99999%}.col.s10{width:83.33333%}.col.s11{width:91.66666%}.col.s12{width:99.99999%}
+
+@media (min-width:601px){
+    .col.m1{width:8.33333%}.col.m2{width:16.66666%}.col.m3,.quarter{width:24.99999%}.col.m4,.third{width:33.33333%}
+    .col.m5{width:41.66666%}.col.m6,.half{width:49.99999%}.col.m7{width:58.33333%}.col.m8,.twothird{width:66.66666%}
+    .col.m9,.threequarter{width:74.99999%}.col.m10{width:83.33333%}.col.m11{width:91.66666%}.col.m12{width:99.99999%}
+}
+
+@media (min-width:993px){
+    .col.l1{width:8.33333%}.col.l2{width:16.66666%}.col.l3{width:24.99999%}.col.l4{width:33.33333%}
+    .col.l5{width:41.66666%}.col.l6{width:49.99999%}.col.l7{width:58.33333%}.col.l8{width:66.66666%}
+    .col.l9{width:74.99999%}.col.l10{width:83.33333%}.col.l11{width:91.66666%}.col.l12{width:99.99999%}
+}
 
             
-				
+.w3-animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.w3-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+
+
+/* IDK */
+
+
+.line {
+    border-bottom: 2px solid rgb(80, 4, 4);
+    margin: 10px 0px;
+}
+#a1d {
+    box-shadow: 0px 0px 0px 5px #fff ,
+    0px 0px 10px 10px grey;
+}
+#popper {
+    z-index: 99;
+}
+.subscribe {
+    background-color: green;
+    color: #ef0;
+    border-radius: 5px;
+    margin:5px;
+}
+.cnt {
+    margin:5px;
+}

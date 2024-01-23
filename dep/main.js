@@ -3,8 +3,8 @@ document.getElementById('about').style.display = 'none';
 document.body.style.overflow = 'auto';
 
 
-document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
-document.getElementById('ifr3').style.maxHeight = '600px';
+// document.querySelectorAll('iframe').forEach(function(ifr){ifr.height =(window.innerHeight-20) + 'px'; }); 
+// document.getElementById('ifr3').style.maxHeight = '600px';
 
 function hide(x) {
 
@@ -28,7 +28,7 @@ function hide(x) {
 hide('popper');
 
 // document.addEventListener('DOMContentLoaded',function(){
-// snowfall('d-img',20,60);
+// // snowfall('d-img',20,10);
 // });
 function popIt(text){
 var p = document.getElementById('popper');
@@ -38,16 +38,17 @@ var p = document.getElementById('popper');
     closer.addEventListener('click',function(){
         p.style.display = 'none';
     });
+    
 
 p.innerText = text;
 p.style.display = 'block';
 p.appendChild(closer);
-/*
+
 setTimeout(() => {
     p.style.display = 'none';
-}, 5000);*/
-
+}, 5000);
 }
+
 
 var dImg = document.getElementsByClassName('d-img').item(0);
 function NoIimg(){dImg.style.borderRadius = '10px';dImg.style.borderColor='grey';}
@@ -284,6 +285,10 @@ loading.style.display = 'block';
 let lastScrollPosition = 0;
 
 function hideh3() {
+    if(window.innerWidth < 300) {
+        $('#footerHW').css('top','0px');
+        return
+    }
   const currentScrollPosition = window.scrollY;
   const scrollDifference = currentScrollPosition - lastScrollPosition;
 
@@ -301,8 +306,9 @@ function hideh3() {
     
     $('.pb').eq(0).css('width',per + '%');
 } 
-
+hideh3()
 window.addEventListener('scroll', hideh3);
+window.addEventListener('size', hideh3);
 
 
 //<!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
@@ -325,16 +331,15 @@ $(document).ready(function () {
         $(this).html(p);
     })
 
-    // var visitorData = {
-    //     device: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile (Android)" : "Desktop",
-    //     os: (navigator.userAgent.match(/Windows Phone|Android|iPad|iPhone|iPod|win64|wow64|macintosh|mac os x|linux/i) || ["Unknown OS"])[0],
-    //     browser: (navigator.userAgent.match(/MSIE|Trident|Firefox|OPR|Safari|Edge|Chrome/i) || ["Unknown Browser"])[0]
-    // };
-    // popup(visitorData);
+    var customizeView = {
+        device: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ? "Mobile (Android)" : "Desktop",
+        os: (navigator.userAgent.match(/Windows Phone|Android|iPad|iPhone|iPod|win64|wow64|macintosh|mac os x|linux/i) || ["Unknown OS"])[0],
+        browser: (navigator.userAgent.match(/MSIE|Trident|Firefox|OPR|Safari|Edge|Chrome/i) || ["Unknown Browser"])[0]
+    };
     // console.log(visitorData, navigator.userAgent);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://neetiindia.org/wp-content/plugins/HindiWeb/active_user.php", true);
+    xhr.open("GET", "https://neetiindia.org/wp-content/plugins/HindiWeb/active_user.php?view="+customizeView, true);
     xhr.send();
     /**
     $('li[data-link]').click(function() {
@@ -400,7 +405,6 @@ function about(){
 
 
 
-
 /** Saving feedback */
 $(document).ready(function() {				
     $("#feedback_form").submit(function(event) {
@@ -444,3 +448,172 @@ $(document).ready(function() {
     //temp
     $('.feedback').css('background-color','rgb(201, 166, 129,.9)');
 });
+
+
+//  Poetry 
+
+var php_path = "https://neetiindia.org/wp-content/plugins/HindiWeb/kavita.php";
+
+
+$(document).ready(function(){ 
+
+// function flexMoveObserver(){
+// 	var observer = new IntersectionObserver(function(entries) {
+//     entries.forEach(function(entry) {
+//       var $div = $(entry.target);
+//       if (entry.isIntersecting) {
+//         if ($div.is(':first-child')) {
+// 		  $('.l3p').css('display','none');
+//         } else if ($div.is(':last-child')) {
+// 		  $('.r3p').css('display','none');
+//         } else { 
+// 			$('.l3p').css('display','flex'); 
+// 			$('.r3p').css('display','flex'); 
+// 		}
+//       }
+//     });
+//   }, { threshold: 0.5 }); // Using a threshold of 0.5
+
+
+//   $('.flexbox .Nquote').each(function() {
+//     observer.observe(this);
+//   });
+// }
+
+	function setPoetries(object){
+		Object.values(object).flat().forEach(item => {
+			var author = item.author;
+			var kavita = item.kavita; 
+			if (author&&kavita){
+				//popup(kavita+' - '+author);
+				//$('#kavitayen').append("<p>"+kavita+' - '+author+'</p>');
+
+				var $newKavita = `<div class="Nquote">
+				<div class="quote eyes-love center"><br>${kavita.replace(/\n/g,'<br>')}
+					<div ><br>– ${author}</div><hr> 
+				</div></div>`;
+
+				$('#kavitaSky').append($newKavita);
+
+			}
+		});
+		// setTimeout(() => {
+		// 	flexMoveObserver();			
+		// }, 500);
+	}
+
+	//$('#gget').on('click',function(){
+
+function getPoetries(){
+	//popup('getting poetry.');
+	$.ajax({
+		type: "GET",
+		url: php_path,
+		success: function(response) {
+			var data = response;
+			var object = response;
+			//$('#kavitayen').empty();
+
+			setPoetries(object);
+			const cacheData = {
+				data,
+				timestamp: new Date().getTime()
+			};
+			localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+
+
+			//popup("Data received successfully.");
+			console.log("Data received successfully." , response);
+		},  
+		error: function(error) {
+			popup('error');
+			console.log(error);
+			console.log("An error occurred while saving data.");
+		}
+	});
+}
+
+const CACHE_KEY = 'poetries';
+const CACHE_EXPIRATION = 21600000;//;//6h or 86400000; // 1 day in milliseconds
+
+
+// Check if the data is already cached in the browser's localStorage
+const cachedData = localStorage.getItem(CACHE_KEY);
+if (cachedData) {
+const { data, timestamp } = JSON.parse(cachedData);
+	const currentTime = new Date().getTime();
+	if (currentTime - timestamp < CACHE_EXPIRATION) {
+		// Use the cached data
+		setPoetries(data);
+		//popup('using_local');
+	} else {
+		// Data has expired, fetch new data from the server
+		getPoetries();
+	}
+} else {
+	//popup('active');
+	getPoetries();
+}
+//});
+
+});
+
+var qot = document.querySelectorAll('.quote');
+qot.forEach(qq => {
+	tq = qq.innerHTML;
+	tq = tq.replace(/\n/g, '<br>');
+	qq.innerHTML = tq ;
+});   
+							
+const scrollContainer = document.querySelector('.flexbox');
+//const prevButton = document.getElementById('prev-button');
+//const nextButton = document.getElementById('next-button');
+var visibleQuote = 0;
+scroll(+0);
+function scroll(num) {
+	var qts = document.getElementsByClassName("Nquote");
+	
+		$('.Nquote').removeClass('w3-animate-right');
+
+	if(qts[visibleQuote + num]){
+		qts[visibleQuote].style.display = 'none';
+		visibleQuote = visibleQuote + num;
+	}
+	if(!qts[visibleQuote + 1]){
+		$('.r3p').css('display','none');
+		$('.l3p').css('display','flex');
+	} else {
+		$('.l3p').css('display','none');
+		$('.r3p').css('display','flex');
+	}
+	if(num==-1){
+		$(qts[visibleQuote]).addClass("w3-animate-left");
+	} else {
+		$(qts[visibleQuote]).addClass("w3-animate-right");
+	}	 
+	qts[visibleQuote].style.display = 'block';
+
+}
+
+//nextButton.addEventListener('click', () => {
+function scrollNext(){
+	// scrollContainer.scrollBy({
+    // left: window.innerWidth, // Adjust for horizontal scrolling
+    // behavior: 'smooth'});
+	scroll(+1);
+
+}
+//});
+
+//prevButton.addEventListener('click', () => {
+function scrollPrev(){
+//   scrollContainer.scrollBy({
+//     left: -window.innerWidth, // Adjust for horizontal scrolling
+//     behavior: 'smooth'
+//   });
+	scroll(-1);
+
+}
+//});
+
+
