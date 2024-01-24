@@ -955,7 +955,7 @@ div.quote-div {
 .fa.btn {
     display: flex;
     align-items: center;
-    height:7%;
+    height:25px;
 }
 .Nquote::before {
     content: "HindiWeb.github.io";
