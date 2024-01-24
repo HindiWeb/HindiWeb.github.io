@@ -12,15 +12,16 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
 	<link rel="icon" href="dep/favicon.ico">
-	<!-- <script src="dep/Upopup.js"></script> -->
+	<script src="dep/Upopup.js"></script>
 	<!-- <script src="/dep/jquery.min.js"></script> -->
 	<!-- <link rel="stylesheet" href="/dep/all.min.css"> -->
 	<!-- <script src="/dep/w3.css"></script> -->
-	<script src="/dep/Upopup.js"></script>
+	<!-- <script src="/dep/popup.min.js"></script> -->
 	<link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- <script src='h    ttps://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+	<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 	<style>
 	@media (max-width:396px){
 		.web {
@@ -45,6 +46,9 @@
 		max-height: 70vh;
 		overflow-y: auto;
 		overflow-x: hidden;
+	}
+	.Nquote .quote:nth-child(1){
+		display: block;
 	}
 
 	body {
@@ -79,105 +83,109 @@
 	.web a {
 		width: 70%;
 	}
-
 </style>
 </head>
 <body>	
 
-<div id="container" >
+
+<!-------------------------------->
+
+<header id="headerHW" class="headerHW" style="z-index: 100;"> 
 	
-	<!-------------------------------->
+	<ul>  
+		<li ><a href="Https://hindiweb.github.io" style="color: #fff;" ><i class=" fa fa-home "></i></a></li>
+		<!--------------------
+		<li data-link="NoteBook">                 Note Book          </li>
+		<li  data-link="notes.html">              Notes              </li>
+		----------->
+		<li  data-link="HINDIquick.html">              Hindi Quick       </li>
+		<li style="font-family:mukta ;" data-link="#kavitaSky">              कविताएँ            </li>
+		<li onclick="about()">              About              </li>
+		<a target="_blank" href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
+	</ul>
+	<div class="pb">
+	</div>	
+</header>	
 
-	<header id="footerHW" class="footerHW" style="z-index: 100;"> 
-		
-		<ul>  
-			<li><a href="Https://hindiweb.github.io" ><i style="color: #fff;" class="fa fa-home"></i></a></li>
-			<!--------------------
-			<li data-link="NoteBook">                 Note Book          </li>
-			<li  data-link="notes.html">              Notes              </li>
-			----------->
-			<li  data-link="HINDIquick.html">              Hindi Quick       </li>
-			<li style="font-family:mukta ;" data-link="#kavitaSky">              कविताएँ            </li>
-			<li onclick="about()">              About              </li>
-			<a target="_blank" href="http://t.me/devravi" class="normal"> <li class="btn bg-move-fast normal">Connect</li> </a> 
-		</ul>
-		<div class="pb">
-		</div>	
-	</header>	
-	
-	<p class="intro">
-		This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
-	</p>
+<p class="intro">
+	This is the Hindi Web's Home Page. You've reached my corner of the internet - Welcome!
+</p>
 
 
-	<div id='body'>
+<div id='body'>
 
-		<div >		
-			<div id="popper">this is popper</div>
-		</div>
-		<div id='header'>
-			<div style="background-color: snow;" >
+	<div >		
+		<div id="popper">this is popper</div>
+	</div>
+	<div id='header'>
+		<div style="background-color: snow;" >
 <h1 style="font-family:ADLaM Display;padding:5px 0;">Dev's Web Space</h1>
-				
-			</div>        
-		</div>
-
-
-		<div class="div"> 
-			<div class="lb">
-				<div class="web enco rnd">
-					 <a href="encoding.html"> Hindi font converter and  saver.</a></div>
-				<div class="descrip" > यहाँ से आप कृतिदेव से यूनिकोड और यूनिकोड से कृतिदेव में फॉन्ट्स को बदल सकते हैं। <br> बदली गई सामग्री को सेव करने का विकल्प भी है। </div>
-			</div>
-
-			<div class="lb hidden">
-				<div class="web rnd">
-					 <a href="notes.html">  notes saver application.</a>
-				</div>
-				<p class="descrip">नोट सहेजने के लिए। पाठ लिखें, संपादित करें, सहेजें, और पाठ के रूप में डाउनलोड करें।</p>
-			</div>
-			<div class="lb">
-				<div class="web end rnd">
-					  <a href="HINDIquick.html"> Hindi Quick Access Tool.</a>
-				</div>
-				<p class="descrip">हिंदी साहित्य से संबधित शानदार लेखों का व्यवस्थित संकलन।</p>
-			</div>
-			<div class="lb">
-				<div class="web rnd">
-					<a href="NoteBook">Note Book </a>
-				</div>
-			</div>
-			<div class="lb">
-				<div class="web waiting "> Short Notes  <span> Upcoming... </span> </div>
-			</div>
-			<div class="lb">
-				<div class="web waiting ">HindiWeb Primium <span> Upcoming... </span> </div>
-			</div>
-		</div>
-
-		<div>
-			<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
 			
-			<div>
-				<style>
-					.Nquote {
-						display: none;
-					}
-				</style>
+		</div>        
+	</div>
 
-				<div>
-					<div class="quote-div" id="quote-div">
-						<div class="i bbp l3p " onclick="scrollPrev()">
-							<i class="fa fa-chevron-left btn out o7 normal "></i>
-						</div>
-						<div class="i bbp r3p " onclick="scrollNext()">
-							<i class="fa fa-chevron-right btn out o7 normal "></i>
-						</div>
-						<div class="title">
-							<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
-						</div>
-						<div id="kavitaSky" class="flexbox">
-							<div class="Nquote">
+
+	<div class="div"> 
+		<div class="lb">
+			<div class="web enco rnd">
+					<a href="encoding.html"> Hindi font converter and  saver.</a></div>
+			<div class="descrip" > यहाँ से आप कृतिदेव से यूनिकोड और यूनिकोड से कृतिदेव में फॉन्ट्स को बदल सकते हैं। <br> बदली गई सामग्री को सेव करने का विकल्प भी है। </div>
+		</div>
+
+		<div class="lb hidden">
+			<div class="web rnd">
+					<a href="notes.html">  notes saver application.</a>
+			</div>
+			<p class="descrip">नोट सहेजने के लिए। पाठ लिखें, संपादित करें, सहेजें, और पाठ के रूप में डाउनलोड करें।</p>
+		</div>
+		<div class="lb">
+			<div class="web end rnd">
+					<a href="HINDIquick.html"> Hindi Quick Access Tool.</a>
+			</div>
+			<p class="descrip">हिंदी साहित्य से संबधित शानदार लेखों का व्यवस्थित संकलन।</p>
+		</div>
+		<div class="lb">
+			<div class="web end rnd">
+				  <a href="/lib/Upopup/2.2/popup.min.js"> Upopup JavaScript Library </a>
+			</div>
+			<p class="descrip">एक स्क्रिप्ट जिसमें हैं- popup(); createpopup(); showpopup(); functions और HwAlert({:}) and HwDialog({}) classes ;and Evolving... </p>
+		</div>
+		<div class="lb">
+			<div class="web rnd">
+				<a href="NoteBook">Note Book </a>
+			</div>
+		</div>
+		<div class="lb">
+			<div class="web waiting "> Short Notes  <span> Upcoming... </span> </div>
+		</div>
+		<div class="lb">
+			<div class="web waiting ">HindiWeb Primium <span> Upcoming... </span> </div>
+		</div>
+	</div>
+
+	<div>
+		<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
+		
+		<div>
+			<style>
+				.Nquote {
+					display: none;
+				}
+			</style>
+
+			<div>
+				<div class="quote-div" id="quote-div">
+					<div class="i bbp l3p " onclick="scrollPrev()">
+						<i class="fa fa-chevron-left btn out o7 normal "></i>
+					</div>
+					<div class="i bbp r3p " onclick="scrollNext()">
+						<i class="fa fa-chevron-right btn out o7 normal "></i>
+					</div>
+					<div class="title">
+						<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
+					</div>
+					<div id="kavitaSky" class="flexbox">
+					<div class="Nquote">
 						<div class="quote eyes-love center">
 							और रहे बैठे तो लोग कहेंगे
 							धुँधले में दुबके प्रेमी बैठे हैं।
@@ -189,72 +197,73 @@
 							उठो, चलें, प्रिय!
 							
 							<div >–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-						</div></div>
-
-						<!-- <div class="Nquote">
-							<div class="quote eyes-love center">
-								और रहे बैठे तो लोग कहेंगे
-								धुँधले में दुबके प्रेमी बैठे हैं।
-	
-								वह हम हों भी तो यह हरी घास ही जाने,
-								नहीं सुनें हम उन नगरी के नागरिकों से
-								जिन की भाषा में अतिशय चिकनाई है साबुन की
-								किन्तु नहीं है करुणा।
-								उठो, चलें, प्रिय!
-								
-								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-							</div></div>
-
-						</div>						
-						<div class="Nquote">
-							<div class="quote eyes-love center">
-								और रहे बैठे तो लोग कहेंगे
-								धुँधले में दुबके प्रेमी बैठे हैं।
-	3
-								वह हम हों भी तो यह हरी घास ही जाने,
-								नहीं सुनें हम उन नगरी के नागरिकों से
-								जिन की भाषा में अतिशय चिकनाई है साबुन की
-								किन्तु नहीं है करुणा।
-								उठो, चलें, प्रिय!
-								
-								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-							</div></div>
-
 						</div>
-						<div class="Nquote">
-							<div class="quote eyes-love center">
-								और रहे बैठे तो लोग कहेंगे
-								धुँधले में दुबके प्रेमी बैठे हैं।
-	4
-								वह हम हों भी तो यह हरी घास ही जाने,
-								नहीं सुनें हम उन नगरी के नागरिकों से
-								जिन की भाषा में अतिशय चिकनाई है साबुन की
-								किन्तु नहीं है करुणा।
-								उठो, चलें, प्रिय!
-								
-								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-							</div> -->
-						</div>
+					</div>
 
-						</div>
-						<div class="center">
-							<button class="btn normal"><i class="fa fa-arrow-rotate"></i></button>
-						</div>
+					<!-- <div class="Nquote">
+						<div class="quote eyes-love center">
+							और रहे बैठे तो लोग कहेंगे
+							धुँधले में दुबके प्रेमी बैठे हैं।
 
-				</div>
-				</div>
+							वह हम हों भी तो यह हरी घास ही जाने,
+							नहीं सुनें हम उन नगरी के नागरिकों से
+							जिन की भाषा में अतिशय चिकनाई है साबुन की
+							किन्तु नहीं है करुणा।
+							उठो, चलें, प्रिय!
+							
+							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+						</div>
+					</div>
+
+					<div class="Nquote">
+						<div class="quote eyes-love center">
+							और रहे बैठे तो लोग कहेंगे
+							धुँधले में दुबके प्रेमी बैठे हैं।
+3
+							वह हम हों भी तो यह हरी घास ही जाने,
+							नहीं सुनें हम उन नगरी के नागरिकों से
+							जिन की भाषा में अतिशय चिकनाई है साबुन की
+							किन्तु नहीं है करुणा।
+							उठो, चलें, प्रिय!
+							
+							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+						</div>
+					</div>
+
+					<div class="Nquote">
+						<div class="quote eyes-love center">
+							और रहे बैठे तो लोग कहेंगे
+							धुँधले में दुबके प्रेमी बैठे हैं।
+4
+							वह हम हों भी तो यह हरी घास ही जाने,
+							नहीं सुनें हम उन नगरी के नागरिकों से
+							जिन की भाषा में अतिशय चिकनाई है साबुन की
+							किन्तु नहीं है करुणा।
+							उठो, चलें, प्रिय!
+							
+							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+						</div>
+					</div> -->
+					</div>
+
+					</div>
+					<div class="center">
+						<button onclick="randomScroll()" class="btn "><i class="fa-solid fa-rotate  "></i></button>
+					</div>
+
+			</div>
 			</div>
 		</div>
-		<div class="connect btn connect">
-			<a href="https://t.me/Devravi">
-				<div >
-				<img srcset="https://img.icons8.com/?size=256&id=oWiuH0jFiU0R&format=png" style="height:25px;">
-				</div>
-				
-			</a>
-		</div>	
+	<div class="connect btn connect">
+		<a href="https://t.me/Devravi">
+			<div >
+			<img srcset="https://img.icons8.com/?size=256&id=oWiuH0jFiU0R&format=png" style="height:25px;">
+			</div>
+			
+		</a>
+	</div>	
 
-	</div>
+</div>
 	
 	
 <!------------------------------------------------>
@@ -281,7 +290,7 @@
 		
 	</div>
 
-</div>
+
 <!------------------------------------------------>	
 	<div>
 		<div class="uco-div">
@@ -418,6 +427,7 @@ $(document).ready(function () {
 	}
 	var q = `gandhi is the politician`;
 	var w= `KPK`
+	// addq(q,w);
 	// addq(q,w);
 
 	var toon = true;

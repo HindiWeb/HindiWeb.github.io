@@ -23,7 +23,7 @@ function hide(x) {
         var element = document.getElementById(x);
         element.style.display = 'none';
     }
-    console.log(x,':Hidden');
+    // console.log(x,':Hidden');
 }
 hide('popper');
 
@@ -134,7 +134,7 @@ var e = element.querySelectorAll('.descrip');
                 qm.className = 'btn close';
                 element.appendChild(qm);
         var etext = el.textContent;
-        console.log(etext);
+        // console.log(etext);
         qm.addEventListener('click',function(){
             //popIt(etext);
             output(this,etext,5);
@@ -286,18 +286,18 @@ let lastScrollPosition = 0;
 
 function hideh3() {
     if(window.innerWidth < 300) {
-        $('#footerHW').css('top','0px');
+        $('#headerHW').css('top','0px');
         return
     }
   const currentScrollPosition = window.scrollY;
   const scrollDifference = currentScrollPosition - lastScrollPosition;
 
   if (scrollDifference > 20) {
-        $('#footerHW').css('top','0px');
+        $('#headerHW').css('top','0px');
     }
     
    else if ((scrollDifference < -2) && (window.scrollY < 50 )) {
-        $('#footerHW').css('top','-60px');
+        $('#headerHW').css('top','-60px');
     }
   lastScrollPosition = currentScrollPosition;
 	var hii = document.body.scrollHeight;
@@ -336,11 +336,10 @@ $(document).ready(function () {
         os: (navigator.userAgent.match(/Windows Phone|Android|iPad|iPhone|iPod|win64|wow64|macintosh|mac os x|linux/i) || ["Unknown OS"])[0],
         browser: (navigator.userAgent.match(/MSIE|Trident|Firefox|OPR|Safari|Edge|Chrome/i) || ["Unknown Browser"])[0]
     };
-    // console.log(visitorData, navigator.userAgent);
 
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://neetiindia.org/wp-content/plugins/HindiWeb/active_user.php?view="+customizeView, true);
-    xhr.send();
+    xhr.open("POST", "https://neetiindia.org/wp-content/plugins/HindiWeb/active_user.php?", true);
+    xhr.send(customizeView);
     /**
     $('li[data-link]').click(function() {
         // Get the value of the data-link attribute
@@ -380,8 +379,8 @@ $(document).ready(function () {
     });  
     /*
 
-    $('#static-header').html($('#footerHW').html());
-    $('#static-header').addClass ('footerHW').css({
+    $('#static-header').html($('#headerHW').html());
+    $('#static-header').addClass ('headerHW').css({
         'position':'relative',
         'top':'0px',
         'display':'none',
@@ -497,6 +496,7 @@ $(document).ready(function(){
 
 			}
 		});
+        scroll(0);
 		// setTimeout(() => {
 		// 	flexMoveObserver();			
 		// }, 500);
@@ -569,13 +569,25 @@ const scrollContainer = document.querySelector('.flexbox');
 //const prevButton = document.getElementById('prev-button');
 //const nextButton = document.getElementById('next-button');
 var visibleQuote = 0;
-scroll(+0);
-function scroll(num) {
+scroll(0);  
+function scroll(num,random) {
 	var qts = document.getElementsByClassName("Nquote");
-	
+    if(random){
+        var lastIndex = scroll.lastIndex || -1;
+        var newIndex;
+        do {
+            newIndex = Math.floor(Math.random() * qts.length);
+        } while (newIndex === lastIndex);
+        
+        scroll.lastIndex = newIndex; // Update the last index
+        // popup(newIndex); 
+        scroll(newIndex-visibleQuote);
+        return;
+    }
+
     $('.Nquote').removeClass('w3-animate-right');
     $('.Nquote').removeClass('w3-animate-left');
-    popup(qts)
+
 	if(qts[visibleQuote + num]){
 		qts[visibleQuote].style.display = 'none';
 		visibleQuote = visibleQuote + num;
@@ -589,9 +601,9 @@ function scroll(num) {
     if (!qts[visibleQuote - 1]) {
 		$('.l3p').css('display','none');	
 	}
-	if(num==-1){
+	if(num<0){
 		$(qts[visibleQuote]).addClass("w3-animate-left");
-	} else {
+	} else if (num>0) {
 		$(qts[visibleQuote]).addClass("w3-animate-right");
 	}	 
 	qts[visibleQuote].style.display = 'block';
@@ -616,6 +628,10 @@ function scrollPrev(){
 //   });
 	scroll(-1);
 
+}
+
+function randomScroll() {
+    scroll("random",true);
 }
 //});
 
