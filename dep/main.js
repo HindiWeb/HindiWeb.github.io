@@ -573,18 +573,21 @@ scroll(+0);
 function scroll(num) {
 	var qts = document.getElementsByClassName("Nquote");
 	
-		$('.Nquote').removeClass('w3-animate-right');
-
+    $('.Nquote').removeClass('w3-animate-right');
+    $('.Nquote').removeClass('w3-animate-left');
+    popup(qts)
 	if(qts[visibleQuote + num]){
 		qts[visibleQuote].style.display = 'none';
 		visibleQuote = visibleQuote + num;
-	}
+		$('.l3p').css('display','flex');
+		$('.r3p').css('display','flex');
+    }
+
 	if(!qts[visibleQuote + 1]){
 		$('.r3p').css('display','none');
-		$('.l3p').css('display','flex');
-	} else {
-		$('.l3p').css('display','none');
-		$('.r3p').css('display','flex');
+	} 
+    if (!qts[visibleQuote - 1]) {
+		$('.l3p').css('display','none');	
 	}
 	if(num==-1){
 		$(qts[visibleQuote]).addClass("w3-animate-left");

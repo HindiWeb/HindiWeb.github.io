@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-	<meta charset='UTF-8'> 
+	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 	<title>Hindi Web - Dev's Web Space</title>
@@ -22,28 +22,31 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<!-- <script src='h    ttps://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 	<style>
+	@media (max-width:396px){
+		.web {
+			width: 80vw;
+			font-size: 5vw;			
+		}
+		.div, .lb , .web {
+			box-sizing: border-box;
+		}		
+		.div {
+			margin:15px 0;
+		} 	
+	}
 
-	@media (max-width:400px) {
+	@media (max-width:350px) {
 		.div .lb {
 			padding: 7px;
 			margin: 15px;
 		}
-		.div {
-			margin:15px 0;
-			position: relative;
-		}
-		.web {
-			width: 100%;
-			font-size: 5vw;
-			box-sizing: border-box;
-		}
-
 	}
 	.Nquote .quote {
 		max-height: 70vh;
 		overflow-y: auto;
 		overflow-x: hidden;
 	}
+
 	body {
 		background-color: #454444;
 	}
@@ -72,6 +75,9 @@
 	.div {
 		align-items: center;
         font-size: 80%;
+	}
+	.web a {
+		width: 70%;
 	}
 
 </style>
@@ -199,7 +205,38 @@
 								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
 							</div></div>
 
-						</div> -->
+						</div>						
+						<div class="Nquote">
+							<div class="quote eyes-love center">
+								और रहे बैठे तो लोग कहेंगे
+								धुँधले में दुबके प्रेमी बैठे हैं।
+	3
+								वह हम हों भी तो यह हरी घास ही जाने,
+								नहीं सुनें हम उन नगरी के नागरिकों से
+								जिन की भाषा में अतिशय चिकनाई है साबुन की
+								किन्तु नहीं है करुणा।
+								उठो, चलें, प्रिय!
+								
+								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+							</div></div>
+
+						</div>
+						<div class="Nquote">
+							<div class="quote eyes-love center">
+								और रहे बैठे तो लोग कहेंगे
+								धुँधले में दुबके प्रेमी बैठे हैं।
+	4
+								वह हम हों भी तो यह हरी घास ही जाने,
+								नहीं सुनें हम उन नगरी के नागरिकों से
+								जिन की भाषा में अतिशय चिकनाई है साबुन की
+								किन्तु नहीं है करुणा।
+								उठो, चलें, प्रिय!
+								
+								<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+							</div> -->
+						</div>
+
+						</div>
 						<div class="center">
 							<button class="btn normal"><i class="fa fa-arrow-rotate"></i></button>
 						</div>
@@ -377,11 +414,12 @@
 
 $(document).ready(function () {
 	function addq(q,w){
-		$('#quote-div').append(`<div class='eyes-love center quote'>${q}<div>– ${w}</div></div>`);
+		$('#kavitaSky').append(`<div class="Nquote"><div class='eyes-love center quote'>${q}<div>– ${w}</div></div></div> `);
 	}
 	var q = `gandhi is the politician`;
 	var w= `KPK`
-	//addq(q,w);
+	// addq(q,w);
+
 	var toon = true;
 
 	$('#feedback').on('input',function(){
