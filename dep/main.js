@@ -674,7 +674,7 @@ subA = new HwAlert({
         <form id="subs" method="POST"> 
             <input id="name" name="name" minlength="3" placeholder="Name" required> <br>
             <input id="email" name="email" type="email" placeholder="Email" required><br>
-            <div id="responseSub"></div>
+            <div id="responseSub" style="background-color:#454444"></div>
             <input class="btn " type="submit" style="border:none" value="SUBSCRIBE">
         </form>
         </div>
