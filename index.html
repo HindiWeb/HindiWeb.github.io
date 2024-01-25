@@ -12,21 +12,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 	<link href="dep/main.css" rel="stylesheet"/>
 	<link rel="icon" href="dep/favicon.ico">
-	<script src="dep/Upopup.js"></script>
+	<!-- <script src="dep/Upopup.js"></script> -->
 	<!-- <script src="/dep/jquery.min.js"></script> -->
 	<!-- <link rel="stylesheet" href="/dep/all.min.css"> -->
 	<!-- <script src="/dep/w3.css"></script> -->
-	<!-- <script src="/dep/popup.min.js"></script> -->
+	<script src="/lib/Upopup/2.2/popup.min.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=ADLaM Display' rel='stylesheet'>
 	<link href='https://fonts.googleapis.com/css?family=Mukta' rel='stylesheet'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 	<!-- <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script> -->
 	<style>
-	@media (max-width:396px){
+	@media (max-width:396px){ 
 		.web {
 			width: 80vw;
-			font-size: 5vw;			
+			font-size: small ;			
+		}
+		.web .btn.click-me {
+			font-size: small;
 		}
 		.div, .lb , .web {
 			box-sizing: border-box;
@@ -82,6 +85,9 @@
 	}
 	.web a {
 		width: 70%;
+	}
+	.inline {
+		display: inline-block;
 	}
 </style>
 </head>
@@ -184,10 +190,12 @@
 					<div class="title">
 						<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
 					</div>
+					<div class="center ">
+						<p id="poemNum" class="center " style="float: right;">1/1</p>
+						<button onclick="randomScroll()" style="margin-top: 7px;padding: 6px 8px;" class="btn inline " title="फेंटें"><i class="fa-solid fa-rotate  "></i></button>
+					</div>						
 					<div id="kavitaSky" class="flexbox">
-					<div class="center">
-						<button onclick="randomScroll()" style="margin-top: 7px;" class="btn " title="फेंटें"><i class="fa-solid fa-rotate  "></i></button>
-					</div>					
+				
 					<div class="Nquote">
 						<div class="quote eyes-love center">
 							और रहे बैठे तो लोग कहेंगे
@@ -203,7 +211,7 @@
 						</div>
 					</div>
 
-					<!-- <div class="Nquote">
+					 <!-- <div class="Nquote">
 						<div class="quote eyes-love center">
 							और रहे बैठे तो लोग कहेंगे
 							धुँधले में दुबके प्रेमी बैठे हैं।
@@ -246,7 +254,7 @@
 							
 							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
 						</div>
-					</div> -->
+					</div>  -->
 					</div>
 
 					</div>
@@ -347,8 +355,8 @@
 		<li data-link="https://neetiindia.org">Neeti Foundation</li>
 		<!-- <li onclick="about()">              About              </li> -->
         <li class="cnt"><a href="http://t.me/devravi" class="normal btn bg-move-fast out normal ">Connect</a></li>  
-		<li class="bg-move  out normal subscribe" data-link="NoteBook/join.html">SUBSCRIBE</li>
-
+		<li class="bg-move  out normal subscribe" onclick="subscribe()" >SUBSCRIBE</li>
+<!-- data-link="NoteBook/join.html" -->
 	</ul>
  
 </div>
@@ -395,8 +403,8 @@
 		<span style="text-align:left ">© DEVA RAM/HindiWeb.github.io</span> 
         <h3 class="h3-h">feedback form</h3>
 
-        <label for="feedback">Feedback*</label><br>
-        <div style="margin: auto;text-align: center;"><textarea placeholder=" " id="feedback" name="feedback" rows="4" minlength="3" required></textarea></div>
+        <label for="feedback"></label>
+        <div style="margin: auto;text-align: center;"><textarea placeholder="सुझाव/संदेश/प्रतिक्रिया भेजें " id="feedback" name="feedback" rows="4" minlength="3" required></textarea></div>
 
 
 		<label class="hidden" for="name">Name: </label>
@@ -410,15 +418,29 @@
 		
     </form>
 
-	<div class="d-by ui">
-		<span class="a" onclick="about()">Designed by me</span>
-	</div>
+	<!-- <div class="d-by ui">
+		<span class="a" onclick="about()">Designed by <em>me</em></span>
+	</div> -->
 
 </div>
+<div class="tnc" style="padding:15px;margin-top:-20px;background-color: rgb(71, 8, 8);color: #454; position: relative;">
+
+	<p class="m0p0 center"> Special thanks to our CORS Host Neeti Foundation. </p>
+	<hr>
+	<div  style="text-align: center;color: inherit;">
+		<a  href="disclaimer.html">Disclaimer</a> | <a href="terms_of_service.html">Terms of service </a>
+	</div>
+</div>
+<style>
+
+</style>
 
 <script src="dep/main.js"></script>
 <script src="dep/snowFall.js"></script>
 <script>
+	$('.tnc a').css({
+		color : '#99f',
+	});
 	var NoSF = Math.max(0, Math.min(50, 0 + (window.innerWidth - 360) / (1800 - 300) * (30 - 0)));
     snowfall('f-bottom',NoSF,300);
 

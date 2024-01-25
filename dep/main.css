@@ -566,9 +566,9 @@ a.normal .btn.normal {
         margin-bottom: 3px;
         text-align: center !important;
     }
-    .headerHW ul li:last-child { 
+    /* .headerHW ul li:last-child { 
         min-width: 98% !important; 
-    }
+    } */
     .headerHW {
         display: block;
         width:100%;
@@ -806,7 +806,7 @@ margin: 5px;
 }
 
 .d-img {
-    background-image:url(dep/d-img.jpg) !important;
+    background-image:url(d-img.jpg) !important;
 }
 
 #a1d {
@@ -875,7 +875,7 @@ margin: 5px;
     transition: .1s; 
     align-items: center;
     z-index: 1;
-    top:15%; 
+    top:25%; 
     bottom: 10%; 
     padding: 3%;
     background-color: inherit;
@@ -1018,4 +1018,19 @@ div.quote-div {
 }
 .cnt {
     margin:5px;
+}
+
+/* ***********SUBSCRIBE POPUP******** */
+.pop-join {
+    max-width: 90vw;
+}
+.pop-join  * {
+	padding:3px;
+	margin:5px 0;
+}
+.pop-join input {
+	background-color: auto;
+	border-radius: 5px;
+	border-width:1px ;
+	padding: 7px;
 }

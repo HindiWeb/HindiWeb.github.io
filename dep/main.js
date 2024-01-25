@@ -595,6 +595,9 @@ function scroll(num,random) {
 		$('.r3p').css('display','flex');
     }
 
+    $('#poemNum').text((visibleQuote+1) + "/" + qts.length)
+
+    //checks and balances
 	if(!qts[visibleQuote + 1]){
 		$('.r3p').css('display','none');
 	} 
@@ -635,4 +638,53 @@ function randomScroll() {
 }
 //});
 
+
+$(document).ready(function () {
+    $("#subs").submit(function (event) {
+        event.preventDefault();
+		$("#responseSub").html("<img width='30px' class='loading-icon' src='https://hindiweb.github.io/dep/loading.png'>");
+
+        $.ajax({
+            type: "POST",
+            url: "https://neetiindia.org/wp-content/plugins/HindiWeb/save_subscription.php",
+            data: $("#subs").serialize(),
+            success: function (responseSub) {
+                if (responseSub === "subscribed") {
+                    $("#responseSub").html("<p style='color:yellow'> Congratulations! You have <br>successfully subscribed!</p>");
+                } else if (responseSub === "already_subscribed") {
+                    $("#responseSub").html("<p style='color:yellow'> You have already subscribed.</p>");
+                } else {
+                    $("#responseSub").html("Unable to subscribe.<br> Please try again.");
+                }
+            },
+            error:()=>{
+                $("#responseSub").html("Unable to subscribe.<br> Please try again.");
+            }
+        });
+    });
+
+
+});	
+var subA;
+subA = new HwAlert({
+        title: 'Subscribe!',
+        message :` 
+        <div style="position:absolute;top:-10px;right:-10px;color:#444" onclick="subA.hide()" class="btn normal"><i class="fa fa-close  "></i></div> 
+        <div class="pop-join">
+        <form id="subs" method="POST"> 
+            <input id="name" name="name" minlength="3" placeholder="Name" required> <br>
+            <input id="email" name="email" type="email" placeholder="Email" required><br>
+            <div id="responseSub"></div>
+            <input class="btn " type="submit" style="border:none" value="SUBSCRIBE">
+        </form>
+        </div>
+        `,
+        buttons : [],
+        overlay: [true
+        // ,()=>{
+        // 	// subA.remove();
+        // }
+    ]
+}).hide();		
+function subscribe() {subA .open();};
 
