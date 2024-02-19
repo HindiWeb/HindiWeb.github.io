@@ -164,7 +164,7 @@ $('.QnA').on('submit',function(e){
 
     const reply = hwapi('.reply').h('').get();
     question_attempted +=1;
-    $('.ans').val('');
+    if(ans)$('.ans').val('');
 
     setTimeout(() => {
         if (ans){
