@@ -1,0 +1,15 @@
+{
+    "name": "Dev's 123",
+    "short_name": "123",
+    "start_url": "./",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "123.png",
+        "sizes": "199x199",
+        "type": "image/png"
+        
+      }
+    ],
+    "form_factor": "none"
+  }
