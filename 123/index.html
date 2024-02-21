@@ -101,7 +101,7 @@
            
             <label for="ans"> उत्तर:</label>
             
-            <input type="number" name="ans" class="ans" oninput='if(value.length>4){value="";new HwAlert({title:"बदमाशी मत करो।"}).show()};' required>
+            <input type="number" name="ans" class="ans" oninput='if(value.length>4){value="";badassAlert.show()};' required>
             <!-- <input type="hidden" class="hi"> -->
             <hr>
             <input type="submit" value="चेक करें">
@@ -128,7 +128,7 @@ let sahi_questions = 0;
 let galat_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
-    // random('+','-') + random(-15,15) + random('+','-') + random(-15,15)
+const badassAlert = new HwAlert({title:"बदमाशी मत करो।"});
 
 function randomOperator() {
   return Math.random() < 0.5 ? '+' : '-';
