@@ -236,7 +236,7 @@ h1 {
      .div .lb {
         display: inline-block;
         float:none;
-        margin:20px;
+        margin: 30px 15px;
     }
     #header {
         box-sizing: border-box;
