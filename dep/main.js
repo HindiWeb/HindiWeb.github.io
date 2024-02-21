@@ -129,9 +129,9 @@ var e = element.querySelectorAll('.descrip');
         
         e.forEach(function (el) {
             var qm = document.createElement('div');
-                qm.style = 'top:3px;right:3px;font-size:12px;text-shadow:0px 0px 0px aqua;';
+                // qm.style = 'top:3px;right:3px;font-size:12px;text-shadow:0px 0px 0px aqua;';
                 qm.innerText = '?';
-                qm.className = 'btn close';
+                qm.className = 'btn close qmark';
                 element.appendChild(qm);
         var etext = el.textContent;
         // console.log(etext);
