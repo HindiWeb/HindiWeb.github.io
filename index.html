@@ -27,7 +27,7 @@
 	@media (max-width:396px){ 
 		.web {
 			width: 80vw;
-			font-size: 24px ;			
+			font-size: 20px ;			
 		}
 		.web .btn.click-me {
 			font-size: small;
@@ -176,98 +176,91 @@
 		</div>
 	</div>
 
-	<div>
-		<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
-		
-		<div>
-			<style>
-				.Nquote {
-					display: none;
-				}
-			</style>
+	<div class="intro" style="clear: both;height: 2px;padding: 0px;" ></div>
+	<style>
+		.Nquote {
+			display: none;
+		}
+	</style>
+	<div class="quote-div" id="quote-div">
+		<div class="title">
+			<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
+		</div>
+		<div class="center ">
+			<p id="poemNum" class="center " style="float: right;">1/1</p>
+			<button onclick="randomScroll()" style="margin-top: 7px;padding: 6px 8px;" class="btn inline " title="फेंटें"><i class="fa-solid fa-rotate  "></i></button>
+		</div>						
+		<div id="kavitaSky" class="flexbox">
+		<div class="i bbp l3p " onclick="scrollPrev()">
+			<i class="fa fa-chevron-left btn out o7 normal "></i>
+		</div>
+		<div class="i bbp r3p " onclick="scrollNext()">
+			<i class="fa fa-chevron-right btn out o7 normal "></i>
+		</div>
 
-			<div>
-				<div class="quote-div" id="quote-div">
-					<div class="i bbp l3p " onclick="scrollPrev()">
-						<i class="fa fa-chevron-left btn out o7 normal "></i>
-					</div>
-					<div class="i bbp r3p " onclick="scrollNext()">
-						<i class="fa fa-chevron-right btn out o7 normal "></i>
-					</div>
-					<div class="title">
-						<strong> कुछ चुनिंदा कविताओं का एक कोलाज ... </strong>
-					</div>
-					<div class="center ">
-						<p id="poemNum" class="center " style="float: right;">1/1</p>
-						<button onclick="randomScroll()" style="margin-top: 7px;padding: 6px 8px;" class="btn inline " title="फेंटें"><i class="fa-solid fa-rotate  "></i></button>
-					</div>						
-					<div id="kavitaSky" class="flexbox">
+		<div class="Nquote">
+			<div class="quote eyes-love center">
+				और रहे बैठे तो लोग कहेंगे
+				धुँधले में दुबके प्रेमी बैठे हैं।
+
+				वह हम हों भी तो यह हरी घास ही जाने,
+				नहीं सुनें हम उन नगरी के नागरिकों से
+				जिन की भाषा में अतिशय चिकनाई है साबुन की
+				किन्तु नहीं है करुणा।
+				उठो, चलें, प्रिय!
 				
-					<div class="Nquote">
-						<div class="quote eyes-love center">
-							और रहे बैठे तो लोग कहेंगे
-							धुँधले में दुबके प्रेमी बैठे हैं।
-
-							वह हम हों भी तो यह हरी घास ही जाने,
-							नहीं सुनें हम उन नगरी के नागरिकों से
-							जिन की भाषा में अतिशय चिकनाई है साबुन की
-							किन्तु नहीं है करुणा।
-							उठो, चलें, प्रिय!
-							
-							<div >–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-						</div>
-					</div>
-
-					 <!-- <div class="Nquote">
-						<div class="quote eyes-love center">
-							और रहे बैठे तो लोग कहेंगे
-							धुँधले में दुबके प्रेमी बैठे हैं।
-
-							वह हम हों भी तो यह हरी घास ही जाने,
-							नहीं सुनें हम उन नगरी के नागरिकों से
-							जिन की भाषा में अतिशय चिकनाई है साबुन की
-							किन्तु नहीं है करुणा।
-							उठो, चलें, प्रिय!
-							
-							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-						</div>
-					</div>
-
-					<div class="Nquote">
-						<div class="quote eyes-love center">
-							और रहे बैठे तो लोग कहेंगे
-							धुँधले में दुबके प्रेमी बैठे हैं।
-3
-							वह हम हों भी तो यह हरी घास ही जाने,
-							नहीं सुनें हम उन नगरी के नागरिकों से
-							जिन की भाषा में अतिशय चिकनाई है साबुन की
-							किन्तु नहीं है करुणा।
-							उठो, चलें, प्रिय!
-							
-							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-						</div>
-					</div>
-
-					<div class="Nquote">
-						<div class="quote eyes-love center">
-							और रहे बैठे तो लोग कहेंगे
-							धुँधले में दुबके प्रेमी बैठे हैं।
-4
-							वह हम हों भी तो यह हरी घास ही जाने,
-							नहीं सुनें हम उन नगरी के नागरिकों से
-							जिन की भाषा में अतिशय चिकनाई है साबुन की
-							किन्तु नहीं है करुणा।
-							उठो, चलें, प्रिय!
-							
-							<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
-						</div>
-					</div>  -->
-					</div>
-
-					</div>
-			</div>
+				<div >–  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
 			</div>
 		</div>
+<!-- --c>
+			<div class="Nquote">
+			<div class="quote eyes-love center">
+				और रहे बैठे तो लोग कहेंगे
+				धुँधले में दुबके प्रेमी बैठे हैं।
+
+				वह हम हों भी तो यह हरी घास ही जाने,
+				नहीं सुनें हम उन नगरी के नागरिकों से
+				जिन की भाषा में अतिशय चिकनाई है साबुन की
+				किन्तु नहीं है करुणा।
+				उठो, चलें, प्रिय!
+				
+				<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+			</div>
+		</div>
+
+		<div class="Nquote">
+			<div class="quote eyes-love center">
+				और रहे बैठे तो लोग कहेंगे
+				धुँधले में दुबके प्रेमी बैठे हैं।
+3
+				वह हम हों भी तो यह हरी घास ही जाने,
+				नहीं सुनें हम उन नगरी के नागरिकों से
+				जिन की भाषा में अतिशय चिकनाई है साबुन की
+				किन्तु नहीं है करुणा।
+				उठो, चलें, प्रिय!
+				
+				<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+			</div>
+		</div>
+
+		<div class="Nquote">
+			<div class="quote eyes-love center">
+				और रहे बैठे तो लोग कहेंगे
+				धुँधले में दुबके प्रेमी बैठे हैं।
+4
+				वह हम हों भी तो यह हरी घास ही जाने,
+				नहीं सुनें हम उन नगरी के नागरिकों से
+				जिन की भाषा में अतिशय चिकनाई है साबुन की
+				किन्तु नहीं है करुणा।
+				उठो, चलें, प्रिय!
+				
+				<div >– /U+2013;  सच्चितानन्द हीरानन्द वात्स्यायन <strong> ‘अज्ञेय’ </strong></div>
+			</div>
+		</div>  
+	 -->
+	</div>
+
+	</div>
 	<div class="connect btn connect">
 		<a href="https://t.me/Devravi">
 			<i style="color: #4169e1;" class="fa-brands fa-telegram"></i> 	
@@ -369,7 +362,7 @@
 	<iframe id="sub-web" src="" width="100%" style="border: none;display: none;"></iframe>
 </div>
 
-<div class="btn out center" style="margin-bottom:-20px;margin-top: 20px;"> 
+<div class="btn out center" style="margin: 30px auto; max-width:unset;width:230px"> 
 	<a onclick="about()" class="normal p center" >
 		About Developer 
 	</a> 
