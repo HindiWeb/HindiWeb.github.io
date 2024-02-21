@@ -459,12 +459,15 @@ h1 {
     top:1px;right:1px;
 } .connect.btn:hover {
     width:50px;border-radius: 10px;
-} .connect div {
+} 
+
+/* .connect div {
     display: inline;	
     height:50px;
     margin: auto;
     color:green;
-} .connect a , .connect a:hover, .connect.btn {
+}  */
+.connect a , .connect a:hover, .connect.btn {
     text-decoration: none !important;
 } .connect.btn {
     width: 25px;height: 25px;
@@ -472,6 +475,11 @@ h1 {
     text-align: center;
     display:grid;
     border-radius: 50%;
+    background-color: #fff;
+    align-items: center;
+}
+.connect.btn a {
+    display: inherit;
 }
 @media (min-width:800px) {
     #iframes iframe {
