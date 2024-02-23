@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- version 2.0 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HindiWeb - 123</title>
     <meta name="description" content="HindiWeb.github.io/123 is a math game for childern. Just hit the click and get to us to Play. it's simple like 123. | developer - Dev (hindiweb.github.io)"/>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://HindiWeb.github.io/lib/Upopup/2.5/popup.min.js"></script>
+    <link rel="stylesheet" href="https://neetiindia.org/wp-content/plugins/HindiWeb/basic.css">
     <!-- <script src="/Ex/Upopup-2.5.0.js"></script> -->
     <!-- <script src="/Ex/jquery-3.7.1.min.js"></script> -->
-    <!-- <link rel="stylesheet" href="/Ex/css/all.min.css"> -->
-    <!-- <link rel="stylesheet" href="/Ex/css/bootstrap-icons.min.css"> -->
+     <!-- <link rel="stylesheet" href="/Ex/css/all.min.css"> -->
+    <!-- <link rel="stylesheet" href="/Ex/css/bootstrap-icons.min.css"> --> 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    
     <link rel="manifest" href="manifest.json">
     <style>
         * {
             box-sizing: border-box;
+            border-radius: 3px;
         }
-        .container {
+        body {
             max-width: 400px;
             margin: auto;
         }
-        .QnA {
+        .QnA,.QnAequals {
             text-align: center;
             padding: 7px;
             background-color: beige;
         }
 
-        input[type="submit"] {
+        input[type="submit"],.submit {
             background-color: green;
             padding:5px 17px;
             color:white;
@@ -39,7 +41,7 @@
         input[type="text"],input[type="number"]{
             padding: 5px;
         }
-        .reply {
+        .reply,.replyequals {
             padding:3px;
             text-align: center;
         }
@@ -76,10 +78,53 @@
             width: 100%;
             height: 150px;
         }
+        .options {
+            width: 80%;
+            margin: 5px auto;
+            text-align: left;
+        }
+        .options .mcq {
+            margin: 5px;
+        }
+        header.header div {
+            border:1px solid #fff;
+            border-radius: 25px;
+            padding: 5px;
+            float: left;
+        }
+        header.header  {
+            /* position: sticky; */
+            font-size: 24px;
+            opacity: 1;
+        }
+        .header nav {
+            position: relative;
+            height: 30px;
+        }
+        .accordion-item {
+            background-color: #f64c85;
+            text-align: center;
+        }
+        .ann {
+            opacity: .85;
+        }
+
+        
+        
+        
+        
 
     </style>
 </head>
 <body>
+    <header class="header  t0 ">
+        <nav class="w3-bar w3-text-black "> 
+            <div class="accordion-item col s6 w3-center w3-left ann icon w3-padding-small w3-border-right">  <i class="fa fa-plus-minus"></i>            </div>
+            <div class="accordion-item col s6 w3-center w3-left ann icon w3-padding-small w3-border-right" > <i class="fa fa-equals"></i>             </div>            
+            <audio id="doneAudio" class="hidden"  src="/HindiWeb/IN/Done.wav"></audio>
+        </nav>
+        <br>
+    </header>
 
     <div class="container">
         <div class="header">
@@ -102,17 +147,13 @@
            
             <label for="ans"> उत्तर:</label>
             
-            <input type="number" name="ans" class="ans" oninput='if(value.length>4){value="";badassAlert.show()};' required>
+            <input type="number" oninput='if(value.length>4){value="";badassAlert.show()};'  name="ans" class="ans" required>
             <!-- <input type="hidden" class="hi"> -->
             <hr>
             <input type="submit" value="चेक करें">
             <button class="newq" hidden>नया सवाल</button>
         </form>
 
-        <div class="footer">
-            <div class="ask-me">सवाल पूछें</div>
-
-        </div>
         <div class="examples">
             उदाहरण-
             <pre>
@@ -121,33 +162,168 @@
             3) -1+2 = 1
             4) -3+2 = -1</pre>
         </div>
+        
     </div>
+    <!-- <div class="container">
+        <div class="header">
+            <div class="result-wrap"> रिजल्ट: 
+                <span class="result">0/0</span>
+            </div>
+        </div>
+        <div class="reply">
+
+        </div>        
+        <div class="MCQ mcq">
+            <div> नाम:
+                <span class="username"></span>
+            </div>
+            <hr>
+            <p>सवाल:</p>
+            <h2 class="mcques"></h2>
+            <hr>
+           
+            <div> उत्तर:</div>
+
+            <div  class="options">
+                <div class="mcq q" data-clicked="!1" > <i class="bi bi-circle"></i><span class="mcans1"></span></div>
+                <div class="mcq q" data-clicked="!1" > <i class="bi bi-circle"></i><span class="mcans2"></span></div>
+                <div class="mcq q" data-clicked="!1" > <i class="bi bi-circle"></i><span class="mcans3"></span></div>
+                <div class="mcq q" data-clicked="!1" > <i class="bi bi-circle"></i><span class="mcans4"></span></div>
+            </div>
+            
+            <hr>
+            <button class="submit" value="">चेक करें</button>
+            <button class="newmcq" >नया सवाल</button>
+        </div>
+
+
+        <div class="examples">
+            उदाहरण-
+            <pre>
+            1) 2+3 = 5
+            2) -1-2 = -3
+            3) -1+2 = 1
+            4) -3+2 = -1</pre>
+        </div>
+        
+    </div> -->
+    <div class="container">
+        <div class="header">
+            <div class="result-wrap"> रिजल्ट: 
+                <span class="resultequals">0/0</span>
+            </div>
+        </div>
+        <div class="replyequals">
+
+        </div>        
+        <form class="QnAequals">
+            <div> नाम:
+                <span class="username"></span>
+            </div>
+            <!-- <input type="text" class="username" name="username" required> -->
+            <hr>
+            <p>सवाल:</p>
+            <h2 class="ques_equals"></h2>
+            <hr>
+           
+            <label for="ans_equals"> उत्तर:</label>
+            
+            <input type="number" oninput='if(value.length>4){value="";badassAlert.show()};'  name="ans_equals" class="ans_equals" required>
+            <!-- <input type="hidden" class="hi"> -->
+            <hr>
+            <input type="submit" value="चेक करें">
+            <button class="newq_equals" hidden>नया सवाल</button>
+        </form>
+
+        <div class="examples">
+    <hr>        उदाहरण-
+<pre class="math">
+    
+1)  5x - 9 = -24 
+    5x     = -24 + 9
+    5x     = -15
+    x      = -15/5
+    x      = -3
+    <hr>
+2)  -14x + 14 = -70 
+    -14x      = -70 + 14
+    -14x      = -56
+      -x      = -56/-14
+      -x      = -4
+    तो x = 4
+    
+    <hr>
+3)  -10x + 13 = -37 
+    -10x      = -37 + 13
+    -10x      = -24
+       x      = -24/-10
+       x      = 2.4
+       
+    <hr>
+4)  -5x - 4 = 16 
+    -5x     = 16 + 4
+    -5x     = 20
+      x     = 20/-5
+      x     = -4
+    
+    
+</pre>
+                
+        </div>
+        
+    </div>
+    <footer>
+        <div class="footer">
+            <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
+
+        </div>        
+    </footer>
+<script src="script.js"></script>
 <script>
-let username;
+
+    // ****************** GENERIC JAVASCRIPT
+
+    $(document).ready(function() {
+        $(".accordion-item").click(function() {
+            // $(".accordion-item").css('background','initial');
+            $(".accordion-item").css('border','3px solid #fff '); 
+            // $(".accordion-item i").addClass('w3-text-green    ');
+            // $(this).css('background','purple'); 
+            $(this).css('border-left','13px solid #630131');  
+            $(this).css('border-right','13px solid #630131');  
+            // $(this).css('borderBottom','3px solid white');  
+            // $(this).find('i').removeClass('hidden');
+        
+            $(".container").hide();
+            
+            var inde = $(this).index(".accordion-item");
+            $(".container").eq(inde).show(); 
+        
+        }); 
+        $(".container").css('display','block');
+        $(".accordion-item").eq(1).click();
+
+
+    });
+
+    
+    function store(t,l){try{localStorage.setItem(t,JSON.stringify(l))}catch(t){try{console.log(t)}finally{return null}}}
+    function getValue(t){try{const l=localStorage.getItem(t);return l?JSON.parse(l):null}catch(t){try{console.log(t)}finally{return null}}}
+
+
+    //********************
+let username = getValue('username');
 let question_attempted = 0;
 let sahi_questions = 0;
 let galat_questions = 0;
+// let attempted_mcq_questions = 0;
+// let sahi_mcq_questions = 0;
+// let galat_mcq_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
 const badassAlert = new HwAlert({title:"बदमाशी मत करो।"});
 
-function randomOperator() {
-  return Math.random() < 0.5 ? '+' : '-';
-}
 
-function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function generateExpression() {
-    let Operator = ['+', '-', '','-'][Math.floor(Math.random() * 4)];
-  return (
-    Operator  +
-    randomNumber(0, 15) +
-    randomOperator() +
-    randomNumber(0, 15)
-  );
-}
 
 var evalx;
 var x;
@@ -156,9 +332,6 @@ function giveAquestion(){
     evalx = eval(x);
     $('.ques').text(x);
     $('.ans').val('');
-    // console.log(x);
-    // console.log(evalx);
-    // console.log(x);
 }
 giveAquestion();
 $('.newq').on('click',function(e){giveAquestion();
@@ -179,6 +352,7 @@ $('.QnA').on('submit',function(e){
     const reply = hwapi('.reply').h('').get();
     question_attempted +=1;
     if(ans)$('.ans').val('');
+    
 
     setTimeout(() => {
         if (ans){
@@ -201,7 +375,8 @@ $('.QnA').on('submit',function(e){
     }, 200);
 
 });
-let a = new HwAlert({
+
+let askTheName = new HwAlert({
     title:'आपका नाम:',
     message:`<form id="username"><input type="text" class="username" name="username" >
         <div class="hw-alert-buttons">
@@ -211,11 +386,35 @@ let a = new HwAlert({
     `,
     buttons:[],
     overlay:true
-}).show();
+});
+if(!username){
+    askTheName.show();
+}else{
+    $('span.username').text(username);
+}
+
+
+let asktosavename = function(){
+    let ask = new HwAlert({
+    title :" नाम सेव करें।" ,
+    message:`सेव करने के बाद आप नाम नहीं बदल पाएंगे।
+    <br> अगर आपने नाम लिखने में कोई गलती की है तो दोबारा जाँच लीजिए।<br>आपका नाम: <span style='color:blue'>${username}</span> ` ,
+    buttons:  ['सेव करें', 'बदलें' ],
+    overlay:true,
+    callback:i=>{
+        if(i==0){
+            store('username',username);
+        }else if(i==1){
+            ask.remove();
+            askTheName.show();
+        }
+    }
+    }).show();
+}
 
 let askd = new HwDialog({
     title:'',
-    message:'<textarea class="asking-que" placeholder="यहाँ सवाल लिखें। "></textarea>',
+    message:'<textarea class="asking-que" placeholder="यहाँ लिखें। "></textarea>',
     buttons:['भेजें','कैंसिल'],
     callback : i=>{
         if (i===0){
@@ -225,15 +424,36 @@ let askd = new HwDialog({
 
     }
 }).hide();
+
+
 </script>   
 <script>
+function generateoptions(){
+
+}
+
+$('.mcq.q').html(function(i){
+
+});
+
+$('.mcq.q').on('click',function(){
+    $('.mcq.q i').removeClass('bi-circle-fill').addClass('bi-circle');
+    let i=$(this).find('i');
+    let c=i.hasClass('bi-circle');
+    if(c){
+        i.removeClass('bi-circle').addClass('bi-circle-fill');
+    }
+});    
+</script>
+<script>
+
 $('#username .username').focus();   
 $('#username').on('submit',function(e){
     e.preventDefault();
     username = $('input.username').val().trim();
-    if(!username)a.show();
+    if(!username){askTheName.show();return};
     $('span.username').text(username);
-
+    asktosavename();
 });
 $('.ask-me').on('click',function(){
     askd.open();
@@ -260,13 +480,20 @@ function sendquestion(ques) {
     }); 
 
 }
-function sendlog(name,ques,solved,ans,result){
+function sendlog(name,ques,solved,ans,result,eq){
+    if(eq){
+        data = {log: 
+            {name : name, eq : ques, '=':solved,ans:ans,result:result}
+        }
+    } else {
+        data = {log: 
+            {name : name, ques : ques, '=':solved,ans:ans,result:result}
+        }
+    }
     $.ajax({
         type:'POST',
         url: phpUrl, 
-        data : {log: 
-            {name : name, ques : ques, '=':solved,ans:ans,result:result}
-        },
+        data :data,
         success: function (response) {
             // hwPanel('सवाल भेज दिया।');
         },
