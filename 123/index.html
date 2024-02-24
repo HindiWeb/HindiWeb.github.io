@@ -358,8 +358,10 @@ function giveAquestion(){
     evalx = eval(x);
     $('.ques').text(x);
     $('.ans').val('');
+    sendclicklog({[username]:['Q',x]});
 }
 giveAquestion();
+giveAquestion_();
 $('.newq').on('click',function(e){giveAquestion();
     e.preventDefault();
 });

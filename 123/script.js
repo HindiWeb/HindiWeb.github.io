@@ -65,11 +65,13 @@ function giveAquestion_(){
     evalx_ = eq.x;
     $('.ques_eq').text(x_);
     $('.ans_eq').val('');
-    console.log(x_);
-    console.log(evalx_);
+    // console.log(x_);
+    // console.log(evalx_);
+    sendclicklog({[username]:['Q',x]});
+
     // console.log(x_);
 }
-giveAquestion_();
+// giveAquestion_();
 $('.newq_eq').on('click',function(e){giveAquestion();
     e.preventDefault();
 });
