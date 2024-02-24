@@ -120,7 +120,7 @@ $('body').on('click',function(event){
     if(classes)elementString+=`.${classes}`;
     if(elementString=='input')elementString+='*'+event.target.type;
     if(!id&&!classes&&elementString!='input')elementString+=' '+event.target.innerHTML;
-    console.log({[username]: ['clicked',elementString]});
+    sendclicklog({[username]: ['clicked',elementString]});
     
 });
 function sendclicklog(log){
