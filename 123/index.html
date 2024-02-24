@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- version 2.0 -->
+<!-- version 2.1 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HindiWeb - 123</title>
@@ -25,7 +25,7 @@
             max-width: 400px;
             margin: auto;
         }
-        .QnA,.QnAequals {
+        .QnA,.QnAeq {
             text-align: center;
             padding: 7px;
             background-color: beige;
@@ -35,13 +35,13 @@
             background-color: green;
             padding:5px 17px;
             color:white;
-            border-radius: 7px;
+            border-radius: 17px;
             margin: auto;
         }
         input[type="text"],input[type="number"]{
             padding: 5px;
         }
-        .reply,.replyequals {
+        .reply,.replyeq {
             padding:3px;
             text-align: center;
         }
@@ -114,7 +114,16 @@
         .container {
             display: none;
         }
-
+        .examples::before {
+            content: '';
+            display: block;
+            height: 10px;
+            width: 100%;
+            background-image: linear-gradient(139deg, #fb8817, #ff4b01, #c12127, #e02aff);
+        }
+        .hw-overlay button:nth-child(1),.eq .result-wrap {
+            background-image: linear-gradient(139deg, #fb8917e7, #ff4901e8, #c12126ee, #df2affe8);
+        }
         
         
         
@@ -126,9 +135,9 @@
 <div class="cont-wrap">
     <header class="header  t0 ">
         <nav class="w3-bar w3-text-black "> 
-            <div class="accordion-item col s6 w3-center w3-left ann icon w3-padding-small w3-border-right">  <i class="fa fa-plus-minus"></i>            </div>
-            <div class="accordion-item col s6 w3-center w3-left ann icon w3-padding-small w3-border-right" > <i class="fa fa-equals"></i>             </div>            
-            <!-- <audio id="doneAudio" class="hidden"  src="/HindiWeb/IN/Done.wav"></audio> -->
+            <div class="accordion-item col s6 ann icon ">  <i class="fa fa-plus-minus"></i>            </div>
+            <div class="accordion-item col s6 ann icon " > <i class="fa fa-equals"></i>             </div>            
+            <audio id="doneAudio" class="hidden"  src="/HindiWeb/IN/Done.wav"></audio>
         </nav>
         <br>
     </header>
@@ -161,7 +170,7 @@
             <button class="newq" hidden>नया सवाल</button>
         </form>
 
-        <div class="examples">
+        <div class="examples"><br>
             उदाहरण-
             <pre>
             1) 2+3 = 5
@@ -214,38 +223,38 @@
         </div>
         
     </div> -->
-    <div class="container">
+    <div class="container eq">
         <div class="header">
             <div class="result-wrap"> रिजल्ट: 
-                <span class="resultequals">0/0</span>
+                <span class="resulteq">0/0</span>
             </div>
         </div>
-        <div class="replyequals">
+        <div class="replyeq">
 
         </div>        
-        <form class="QnAequals">
+        <form class="QnAeq">
             <div> नाम:
                 <span class="username"></span>
             </div>
             <!-- <input type="text" class="username" name="username" required> -->
             <hr>
             <p>सवाल:</p>
-            <h2 class="ques_equals"></h2>
+            <h2 class="ques_eq"></h2>
             <hr>
            
-            <label for="ans_equals"><b> x = </b></label>
+            <label for="ans_eq"><b> x = </b></label>
             
-            <input type="number" oninput='if(value.length>4){value="";badassAlert.show()};'  name="ans_equals" class="ans_equals" required>
+            <input type="number" oninput='if(value.length>4){value="";badassAlert.show()};'  name="ans_eq" class="ans_eq" required>
             <!-- <input type="hidden" class="hi"> -->
             <hr>
             <input type="submit" value="चेक करें">
-            <button class="newq_equals" hidden>नया सवाल</button>
+            <button class="newq_eq" hidden>नया सवाल</button>
         </form>
 
-        <div class="examples">
-            <hr>        उदाहरण-
+        <div class="examples"><br>
+            उदाहरण-
 <pre class="math">
-    
+
 1)  
     5x - 9 = -24 
     5x     = -24 + 9
@@ -334,7 +343,6 @@ let galat_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
 const badassAlert = new HwAlert({title:"बदमाशी मत करो।"});
-
 
 
 var evalx;

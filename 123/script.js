@@ -63,21 +63,21 @@ function giveAquestion_(){
     eq = generateRandomLinearEquation()
     x_=eq.equation;
     evalx_ = eq.x;
-    $('.ques_equals').text(x_);
-    $('.ans_equals').val('');
+    $('.ques_eq').text(x_);
+    $('.ans_eq').val('');
     console.log(x_);
     console.log(evalx_);
     // console.log(x_);
 }
 giveAquestion_();
-$('.newq_equals').on('click',function(e){giveAquestion();
+$('.newq_eq').on('click',function(e){giveAquestion();
     e.preventDefault();
 });
 
-$('.QnAequals').on('submit',function(e){
+$('.QnAeq').on('submit',function(e){
     e.preventDefault();
     let ans, val,name;
-    val = $('.ans_equals').val();
+    val = $('.ans_eq').val();
     name = $('.username').val();
     if(evalx_ == val){
         ans = !0;
@@ -85,9 +85,9 @@ $('.QnAequals').on('submit',function(e){
         ans=!1;
     }
 
-    const reply = hwapi('.replyequals').h('').get();
+    const reply = hwapi('.replyeq').h('').get();
     eq_question_attempted +=1;
-    if(ans)$('.ans_equals').val('');
+    if(ans)$('.ans_eq').val('');
     
 
     setTimeout(() => {
@@ -95,7 +95,7 @@ $('.QnAequals').on('submit',function(e){
             hwapi().c('right').h(sahi).a(reply);
             sahi_eq_questions +=1;
 
-            $('.ques_equals').append('<br>x = '+val);
+            $('.ques_eq').append('<br>x = '+val);
             setTimeout(() => {
                 hwapi(reply).h('<div class="next">अगला सवाल <i class="bi bi-arrow-down-circle-fill"></i> </div>');
                 giveAquestion_();    
@@ -105,9 +105,29 @@ $('.QnAequals').on('submit',function(e){
             galat_eq_questions+=1;
         }
         let result = sahi_eq_questions +' / '+ eq_question_attempted       
-        $('.resultequals').text(result);
+        $('.resulteq').text(result);
         sendlog(username,x_,evalx_,val,result,true);
 
     }, 200);
 
 });
+
+$('body').on('click',function(event){
+    let classes = Array.from(event.target.classList).join('.');
+    let id = event.target.id;
+    var elementString = `${event.target.tagName.toLowerCase()}`;
+    if(id)elementString+=`#${id}`;
+    if(classes)elementString+=`.${classes}`;
+    if(elementString=='input')elementString+='*'+event.target.type;
+    if(!id&&!classes&&elementString!='input')elementString+=' '+event.target.innerHTML;
+    console.log({[username]: ['clicked',elementString]});
+    
+});
+function sendclicklog(log){
+    $.ajax({
+        type:'POST',
+        url: phpUrl, 
+        data :{clicklog:log}
+    }); 
+}
+
