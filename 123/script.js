@@ -121,7 +121,11 @@ $('body').on('click',function(event){
     if(id)elementString+=`#${id}`;
     if(classes)elementString+=`.${classes}`;
     if(elementString=='input')elementString+='*'+event.target.type;
-    if(!id&&!classes&&elementString!='input')elementString+=' '+event.target.innerHTML;
+    if(!id&&!classes&&elementString!='input'){
+        let html = event.target.innerText;
+        html = html.length<100 ? html : '>';
+        elementString+=' '+html;
+    };
     sendclicklog({[username]: ['clicked',elementString]});
     
 });
