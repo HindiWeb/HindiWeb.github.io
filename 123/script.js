@@ -67,12 +67,12 @@ function giveAquestion_(){
     $('.ans_eq').val('');
     // console.log(x_);
     // console.log(evalx_);
-    sendclicklog({[username]:['Q',x]});
+    sendclicklog({[username]:['Q',x_]});
 
     // console.log(x_);
 }
 // giveAquestion_();
-$('.newq_eq').on('click',function(e){giveAquestion();
+$('.newq_eq').on('click',function(e){giveAquestion_();
     e.preventDefault();
 });
 
