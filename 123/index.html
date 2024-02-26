@@ -416,7 +416,11 @@ let askTheName = new HwAlert({
     buttons:[],
     overlay:true
 }).hide();
-
+if(!username){
+    askTheName.show();
+}else{
+    $('span.username').text(username);
+}
 
 
 let asktosavename = function(){
@@ -529,11 +533,7 @@ function sendlog(name,ques,solved,ans,result,eq){
     
 
 }
-if(!username){
-    askTheName.show();
-}else{
-    $('span.username').text(username);
-}
+
 </script>
 <script>
     if ('serviceWorker' in navigator) {
