@@ -328,7 +328,7 @@
         
         }); 
         // $(".container").css('display','block');
-        // $(".accordion-item").eq(1).click();
+        $(".accordion-item").eq(1).click();
 
 
     });
@@ -415,12 +415,8 @@ let askTheName = new HwAlert({
     `,
     buttons:[],
     overlay:true
-});
-if(!username){
-    askTheName.show();
-}else{
-    $('span.username').text(username);
-}
+}).hide();
+
 
 
 let asktosavename = function(){
@@ -476,7 +472,7 @@ $('.mcq.q').on('click',function(){
 </script>
 <script>
 
-$('#username .username').focus();   
+// $('#username .username').focus();   
 $('#username').on('submit',function(e){
     e.preventDefault();
     username = $('input.username').val().trim();
@@ -532,6 +528,11 @@ function sendlog(name,ques,solved,ans,result,eq){
     }); 
     
 
+}
+if(!username){
+    askTheName.show();
+}else{
+    $('span.username').text(username);
 }
 </script>
 <script>
