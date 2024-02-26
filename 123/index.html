@@ -246,7 +246,7 @@
            
             <label for="ans_eq"><b> x = </b></label>
             
-            <input type="number" oninput='if(value.length>4){value="";badassAlert.show()};'  name="ans_eq" class="ans_eq" required>
+            <input name="ans_eq"  type="number" oninput='if(value.length>4){value="";badassAlert.show()};' class="ans_eq" required>
             <!-- <input type="hidden" class="hi"> -->
             <hr>
             <input type="submit" value="चेक करें">
@@ -403,7 +403,7 @@ $('.QnA').on('submit',function(e){
 
 let askTheName = new HwAlert({
     title:'आपका नाम:',
-    message:`<form id="username"><input type="text" class="username" name="username" >
+    message:`<form id="username"> <label for="username"></label><input type="text" class="username" name="username" >
         <div class="hw-alert-buttons">
         <button>OK</button>
     </div></form>
@@ -537,7 +537,8 @@ function sendlog(name,ques,solved,ans,result,eq){
       'App :', registration.active.state
       //'Service Worker registered with scope:',registration.scope
       ))
-      .catch(error => console.error('Service Worker registration failed:', error));
+      .catch(error => console.log('App : NA'));
+
     }
 </script>
 </body>
