@@ -8,7 +8,6 @@
     <title>HindiWeb - 123</title>
     <meta name="description" content="HindiWeb.github.io/123 is a math game for childern. Just hit the click and get to us to Play. it's simple like 123. | developer - Dev (hindiweb.github.io)"/>
     <link rel="stylesheet" href="basic.css">
-    <script src="/lib/Upopup/2.5/popup.min.js"></script>
     <script src="/Ex/jquery-3.7.1.min.js"></script>
      <!-- <link rel="stylesheet" href="/Ex/css/all.min.css"> -->
     <!-- <link rel="stylesheet" href="/Ex/css/bootstrap-icons.min.css"> --> 
@@ -302,6 +301,7 @@
         </div>        
     </footer>
 </div>    
+<script src="/lib/Upopup/2.5/popup.min.js"></script>
 <script src="script.js"></script>
 <script>
 
@@ -345,7 +345,7 @@ let galat_questions = 0;
 // let galat_mcq_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
-const badassAlert = new HwAlert({title:"बदमाशी मत करो।"});
+const badassAlert = new HwAlert({title:"बदमाशी मत करो।"}).hide();
 let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 
 
