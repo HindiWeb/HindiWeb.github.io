@@ -392,12 +392,19 @@
         </div>
         
     </div>
-    <!-- <footer>
-        <div class="footer">
-            <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
+    <div class="container chat">
+        <div id="chat-box" >loading messages...</div>
 
-        </div>        
-    </footer> -->
+        <form id="sendMsgForm">
+        <div class="response-w b0 fix">
+            <textarea type="text" id="message-input" placeholder="Message..."></textarea>
+            <button type="submit" id="send-btn" class="i send-btn">  <i class="bi bi-send-fill"></i> 
+     
+            </button>
+        </div>
+        </form>    
+    </div>
+
 </div>    
 <script src="/Ex/jquery-3.7.1.min.js"></script>
 <script src="script.js"></script>
@@ -454,7 +461,7 @@ function giveAquestion(){
     evalx = eval(x);
     $('.ques').text(x);
     $('.ans').val('');
-    sendclicklog({[username]:['Q',x]});
+    console.log({[username]:['Q',x]});
 }
 giveAquestion();
 giveAquestion_();
@@ -583,6 +590,7 @@ $('.ask-me').on('click',function(){
     $('.asking-que').focus();
 });
 
+// let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 function sendquestion(ques) {
     if(!ques.trim())return;
     $.ajax({
@@ -637,6 +645,36 @@ function sendlog(name,ques,solved,ans,result,eq){
       ))
       .catch(error => console.log('App : NA'));
     }
+        window.addEventListener('beforeinstallprompt', (event) => {
+            // Prevent Chrome 67 and earlier from automatically showing the prompt
+            // event.preventDefault();
+            // Stash the event so it can be triggered later
+            deferredPrompt = event;
+            // Update UI to notify the user they can add to home screen
+            // Show a button or any other UI element to prompt installation
+            showInstallButton();
+        });
+
+        function showInstallButton() {
+            // Show a button to prompt installation
+            const installButton = document.getElementById('install-button');
+            installButton.style.display = 'block'; // Display the install button
+            installButton.addEventListener('click', () => {
+                // Show the installation prompt
+                deferredPrompt.prompt();
+                // Wait for the user to respond to the prompt
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    } else {
+                        console.log('User dismissed the install prompt');
+                    }
+                    // Reset the deferredPrompt variable
+                    deferredPrompt = null;
+                });
+            });
+        }
+
 </script>
 <script>
 let chatphp = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/chatbot.php";
