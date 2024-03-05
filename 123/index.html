@@ -112,7 +112,7 @@
         .container {
             display: none;
         }
-        .container:nth-child(2){
+        .container:nth-child(2) {
             display: block;
         }
         .examples::before {
@@ -130,10 +130,95 @@
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
         }
-        
-        
-        
-        
+     
+    </style>   
+    <style>
+        .response-w {
+            /* width: 98%; */
+            position: relative;
+            display: flex;
+            align-items: center;
+            left: 0; right: 0;
+        }
+        .response-w textarea {
+            border-radius: 20px;
+            padding: 7px;
+            border: 1px solid blue;
+            width: 90%;
+            padding-left:15px;
+            height: 30px;
+            margin:10px;
+            max-height: 300px;
+            height: 50px;
+            min-height: 30px;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        .response-w .i {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        #chat-box {
+            margin: 20px;
+        }
+
+        .response-w button{   
+            height: 52px;
+            width: 52px;
+            padding: 22px;
+            rotate: 42deg;
+            font-size: 1.2em;
+            margin: 2px;
+            border-radius: 50%;
+            background: blue;
+            color: white;
+            border: 0;
+        }
+        .msg.user {
+            background-color: beige;
+            margin: 7px;
+            border-radius: 15px 0px 25px 20px;
+            padding:7px 17px;
+            padding-right: 15px;
+            max-width: 80%;
+            float: right;
+            clear: both;
+            /* font-size: 18px; */
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+        }
+        .msg.user .msg-time{
+            font-size: .6em;
+            color: #ccc;
+            float: right;
+        }
+        .msg {
+            border:1px solid #999;
+            margin: 7px;
+            padding:7px 17px;
+            clear: both;
+            font-size: 18px;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            max-width: 80%;
+        }
+        .msg .msg-time{
+            font-size: .6em;
+            color: #ccc;
+            float: right;
+        }        
+        /* .msg.user {
+            background-color: beige;
+            border-radius: 0px  15px 25px 20px;
+            padding-right: 15px;
+            float: left;
+        } */
+        .msg.admin {
+            background-color: rgb(255, 255, 255);
+            border-radius: 0px 15px  25px 20px;
+            padding-right: 15px;
+            float: left;
+        }
+
 
     </style>
 </head>
@@ -141,8 +226,9 @@
 <div class="cont-wrap">
     <header class="header  t0 ">
         <nav class="w3-bar w3-text-black "> 
-            <div class="accordion-item col s6 ann icon ">  <i class="fa fa-plus-minus"></i>            </div>
-            <div class="accordion-item col s6 ann icon " > <i class="fa fa-equals"></i>             </div>            
+            <div class="accordion-item col s5 ann icon ">  <i class="fa fa-plus-minus"></i>            </div>
+            <div class="accordion-item col s5 ann icon " > <i class="fa fa-equals"></i>             </div>            
+            <div class="accordion-item col s2 ann icon " >  <i class="bi bi-chat-dots"></i> </div>            
         </nav>
         <br>
     </header>
@@ -183,7 +269,13 @@
             3) -1+2 = 1
             4) -3+2 = -1</pre>
         </div>
-        
+
+        <footer>
+            <div class="footer">
+                <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
+
+            </div>        
+        </footer>
     </div>
     <!-- <div class="container">
         <div class="header">
@@ -295,6 +387,9 @@
 </pre>
                 
         </div>
+        <div class="next" onclick="$('.accordion-item').eq(2).click();">
+            <span>संदेश भेजें <i class="bi bi-chat-text-fill"></i></span>
+        </div>
         
     </div>
     <footer>
@@ -316,8 +411,8 @@
             $(".accordion-item").css('border','3px solid #fff '); 
             // $(".accordion-item i").addClass('w3-text-green    ');
             // $(this).css('background','purple'); 
-            $(this).css('border-left','13px solid #630131');  
-            $(this).css('border-right','13px solid #630131');  
+            $(this).css('border-left','5px solid #630131');  
+            $(this).css('border-right','5px solid #630131');  
             // $(this).css('borderBottom','3px solid white');  
             // $(this).find('i').removeClass('hidden');
         
@@ -349,7 +444,6 @@ let galat_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
 const badassAlert = new HwAlert({title:"बदमाशी मत करो।"}).hide();
-let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 
 
 var evalx;
@@ -407,7 +501,7 @@ $('.QnA').on('submit',function(e){
 
 let askTheName = new HwAlert({
     title:'आपका नाम:',
-    message:`<form id="username"> <label for="username"></label><input type="text" class="username" name="username" >
+    message:`<form id="username"><input type="text" class="username" name="username" >
         <div class="hw-alert-buttons">
         <button>OK</button>
     </div></form>
@@ -421,7 +515,6 @@ if(!username){
 }else{
     $('span.username').text(username);
 }
-
 
 let asktosavename = function(){
     let ask = new HwAlert({
@@ -489,6 +582,7 @@ $('.ask-me').on('click',function(){
     $('.asking-que').focus();
 });
 
+let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 function sendquestion(ques) {
     if(!ques.trim())return;
     $.ajax({
@@ -533,7 +627,6 @@ function sendlog(name,ques,solved,ans,result,eq){
     
 
 }
-
 </script>
 <script>
     if ('serviceWorker' in navigator) {
@@ -543,8 +636,87 @@ function sendlog(name,ques,solved,ans,result,eq){
       //'Service Worker registered with scope:',registration.scope
       ))
       .catch(error => console.log('App : NA'));
-
     }
+</script>
+<script>
+let chatphp = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/chatbot.php";
+
+$(document).ready(function(){
+    var chatbox = hwapi('#chat-box').get()
+    function generateUserID() {
+        var userID = localStorage.getItem('chatUserID');
+        if (!userID) {
+            userID = Math.random().toString(36).substr(2, 9); // Generate a random ID
+            userID = new Date().getTime() + userID ;
+            localStorage.setItem('chatUserID', userID); // Store the ID in localStorage
+        }
+        return userID;
+    }
+    function loadMessages(){
+        var userID = generateUserID(); // Get or generate user ID
+        $.ajax({
+            url: chatphp,// 'chatbot.php',//'load_messages.php', // URL to load messages from
+            type: 'GET',
+            data: { userID: userID }, // Send user ID to identify the user
+            success: function(response){
+                $('#chat-box').html('');
+                // console.log(response);
+                if(response){
+                    response = JSON.parse(response);
+                    response.forEach(e => {
+                        // console.log(e);
+                        var className = e[0] === 0 ? 'user' : 'admin';
+                        var time = new Date(e[2]*1000);
+                        // time = time.getHours() + ':' +time.getMinutes();
+                        time = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+                        var msg = hwapi().c('msg '+className).a(chatbox).get();
+                        hwapi().c('msg-text').t(e[1]).a(msg);
+                        hwapi().n('span').c('msg-time ui').t(time).a(msg);
+
+                    });
+                    // console.log(response);
+                } 
+                // $('#chat-box').html(response); // Display messages in chat-box
+            }
+        });
+    }
+
+    // Send message
+    function sendMessage(){        
+        var message = $('#message-input').val().trim(); // Get message from input field
+        var userID = generateUserID(); // Get or generate user ID
+        if ($('#chat-box').is(':visible') && message) { // Check if chat-box is visible
+            $.ajax({
+                url: chatphp,// 'chatbot.php',//'send_message.php', // URL to send message to
+                type: 'POST',
+                data: { message: message, userID: userID}, // Send message data and user ID
+                success: function(response){
+                    loadMessages(); // Reload messages after sending if chat-box is visible
+                    $('#message-input').val(''); // Clear input field, t: new Date().getTime()
+                }
+            });
+        }
+    }
+
+    // $('#send-btn').click(function(event){
+
+    // });
+    $("#sendMsgForm").submit(function(event){
+        event.preventDefault();
+        sendMessage();        
+    });
+
+
+    // Reload messages every 5 seconds if chat-box is visible
+    setInterval(function(){
+
+        if ($('#chat-box').is(':visible')) {
+            loadMessages();
+        }
+    }, 5000);
+
+    });
 </script>
 </body>
 </html>
