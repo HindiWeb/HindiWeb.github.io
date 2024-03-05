@@ -392,12 +392,12 @@
         </div>
         
     </div>
-    <footer>
+    <!-- <footer>
         <div class="footer">
             <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
 
         </div>        
-    </footer>
+    </footer> -->
 </div>    
 <script src="/Ex/jquery-3.7.1.min.js"></script>
 <script src="script.js"></script>
@@ -444,6 +444,7 @@ let galat_questions = 0;
 let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i class="bi bi-emoji-sunglasses"></i> `;
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
 const badassAlert = new HwAlert({title:"बदमाशी मत करो।"}).hide();
+let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 
 
 var evalx;
@@ -582,7 +583,6 @@ $('.ask-me').on('click',function(){
     $('.asking-que').focus();
 });
 
-let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 function sendquestion(ques) {
     if(!ques.trim())return;
     $.ajax({
