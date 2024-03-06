@@ -368,7 +368,7 @@
         </form>
 
         <div class="examples"><br>
-            उदाहरण-
+            <a href="https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A4%AE%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3">समीकरण</a> के  उदाहरण-
 <pre class="math">
 
 1)  
@@ -406,7 +406,6 @@
 </pre>     
         </div>
         
-        <p><a href="https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A4%AE%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3">समीकरण</a></p>
         <div class="next" onclick="$('.accordion-item').eq(2).click();">
             <span>संदेश भेजें <i class="bi bi-chat-text-fill"></i></span>
         </div>
@@ -673,36 +672,25 @@ function sendlog(name,ques,solved,ans,result,eq){
       ))
       .catch(error => console.log('App : NA'));
     }
-        window.addEventListener('beforeinstallprompt', (event) => {
-            // Prevent Chrome 67 and earlier from automatically showing the prompt
-            // event.preventDefault();
-            // Stash the event so it can be triggered later
-            deferredPrompt = event;
-            // Update UI to notify the user they can add to home screen
-            // Show a button or any other UI element to prompt installation
-            showInstallButton();
+    let deferredPrompt;
+
+    window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    document.querySelectorAll('.installButton').forEach(button => {
+        button.style.display = 'block';
+    });
+    });
+
+    document.querySelectorAll('.installButton').forEach(button => {
+    button.addEventListener('click', () => {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+        console.log(choiceResult.outcome);
+        deferredPrompt = null;
         });
-
-        function showInstallButton() {
-            // Show a button to prompt installation
-            const installButton = document.getElementById('install-button');
-            installButton.style.display = 'block'; // Display the install button
-            installButton.addEventListener('click', () => {
-                // Show the installation prompt
-                deferredPrompt.prompt();
-                // Wait for the user to respond to the prompt
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the install prompt');
-                    } else {
-                        console.log('User dismissed the install prompt');
-                    }
-                    // Reset the deferredPrompt variable
-                    deferredPrompt = null;
-                });
-            });
-        }
-
+    });
+    });
 </script>
 <script>
 let chatphp = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/chatbot.php";
