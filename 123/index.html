@@ -18,10 +18,19 @@
             box-sizing: border-box;
             border-radius: 3px;
         }
+        body {
+            margin:0;
+            padding:8px;
+            height: 100vh;
+            overflow: auto;
+        }
         .cont-wrap {
             max-width: 400px;
             margin: auto;
             font-size: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .QnA,.QnAeq {
             text-align: center;
@@ -129,6 +138,10 @@
             font-size: 16px;
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
+        }
+        .chat {
+            height: 100%;
+            flex-direction: column;
         }
      
     </style>   
@@ -389,9 +402,10 @@
       x     = -4
     
     
-</pre>
-                
+</pre>     
         </div>
+        
+        <p><a href="https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A4%AE%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3">समीकरण</a></p>
         <div class="next" onclick="$('.accordion-item').eq(2).click();">
             <span>संदेश भेजें <i class="bi bi-chat-text-fill"></i></span>
         </div>
@@ -401,7 +415,7 @@
         <div id="chat-box" >loading messages...</div>
 
         <form id="sendMsgForm">
-        <div class="response-w b0 fix">
+        <div class="response-w b0">
             <textarea type="text" id="message-input" placeholder="Message..."></textarea>
             <button type="submit" id="send-btn" class="i send-btn">  <i class="bi bi-send-fill"></i> 
      
@@ -432,6 +446,9 @@
             
             var inde = $(this).index(".accordion-item");
             $(".container").eq(inde).show(); 
+            if(inde===2){
+                $(".container").eq(inde).css('display','flex');                
+            }
         
         }); 
         // $(".container").css('display','block');
@@ -718,6 +735,8 @@ $(document).ready(function(){
                         hwapi().n('span').c('msg-time ui').t(time).a(msg);
 
                     });
+                    $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
+
                     // console.log(response);
                 } 
                 // $('#chat-box').html(response); // Display messages in chat-box
