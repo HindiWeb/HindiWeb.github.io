@@ -7,11 +7,12 @@
     <script src="/lib/Upopup/2.5/popup.min.js"></script>
 </head>
 <body>
+    <p>v0.1.1</p>
     <textarea id="test" placeholder="type here"></textarea>
     
     <script>
     function adjustHeight() {
-      var windowHeight = document.innerHeight;
+      var windowHeight = document.documentElement.clientHeight;
       document.body.style.height = windowHeight + 'px';
       popup(windowHeight)
     }
