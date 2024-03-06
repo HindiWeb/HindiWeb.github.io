@@ -793,9 +793,9 @@ $(document).ready(function(){
                 data: { message: message, userID: userID}, // Send message data and user ID
                 success: function(response){
                     loadMessages(); // Reload messages after sending if chat-box is visible
-                    $('#message-input').val(''); // Clear input field, t: new Date().getTime()
                 }
             });
+            $('#message-input').val(''); // Clear input field, t: new Date().getTime()
         }
     }
 
