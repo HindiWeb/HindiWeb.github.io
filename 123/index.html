@@ -741,6 +741,7 @@ $(document).ready(function(){
                     }
                     pResponse = response;
                     audio = new Audio('https://notificationsounds.com/storage/sounds/file-sounds-1148-juntos.ogg');
+                    audio.volume = 0.5;
                     audio.play().catch(error=>{console.log(error);}); 
 
                     $('#chat-box').html('');
