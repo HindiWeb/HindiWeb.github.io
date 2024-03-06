@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/lib/Upopup/2.5/popup.min.js"></script>
+</head>
+<body>
+    <textarea placeholder="type here"></textarea>
+    
+    <script>
+    function adjustHeight() {
+      var windowHeight = window.innerHeight;
+      document.body.style.height = windowHeight + 'px';
+      popup(windowHeight)
+    }
+
+    // Adjust height when the page loads and on window resize
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
+
+
+    </script>
+</body>
+</html>
