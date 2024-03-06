@@ -800,14 +800,14 @@ $(document).ready(function(){
     loadMessages();
 
     });
-    // function adjustHeight() {
-    //   var windowHeight = window.innerHeight;
-    //   document.body.style.height = windowHeight + 'px';
-    // }
+    function adjustHeight() {
+      var windowHeight = window.innerHeight;
+      document.body.style.height = windowHeight + 'px';
+    }
 
-    // // Adjust height when the page loads and on window resize
-    // adjustHeight();
-    // window.addEventListener('resize', adjustHeight);
+    // Adjust height when the page loads and on window resize
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
 
 </script>
 </body>
