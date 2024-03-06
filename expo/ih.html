@@ -19,6 +19,21 @@
     // Adjust height when the page loads and on window resize
     adjustHeight();
     window.addEventListener('resize', adjustHeight);
+    var inputField = document.getElementById('your-input-field-id');
+
+inputField.addEventListener('focus', function() {
+    // console.log('Keyboard shown');
+    adjustHeight();
+
+
+});
+
+inputField.addEventListener('blur', function() {
+    // console.log('Keyboard hidden');
+    adjustHeight();
+
+});
+
 
 
     </script>
