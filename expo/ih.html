@@ -51,12 +51,12 @@ inputField.addEventListener('blur', function() {
 var referenceElement = document.getElementById('referenceElement');
 var initialReferenceElementPosition = referenceElement.getBoundingClientRect().top;
 
-window.addEventListener('resize', function() {
-    var currentReferenceElementPosition = referenceElement.getBoundingClientRect().top;
-    var keyboardHeight = initialReferenceElementPosition - currentReferenceElementPosition;
-    console.log('Estimated keyboard height: ' + keyboardHeight + 'px');
-    popup('Estimated keyboard height: ' + keyboardHeight + 'px');
-});
+// window.addEventListener('resize', function() {
+//     var currentReferenceElementPosition = referenceElement.getBoundingClientRect().top;
+//     var keyboardHeight = initialReferenceElementPosition - currentReferenceElementPosition;
+//     console.log('Estimated keyboard height: ' + keyboardHeight + 'px');
+//     popup('Estimated keyboard height: ' + keyboardHeight + 'px');
+// });
 
 
 
