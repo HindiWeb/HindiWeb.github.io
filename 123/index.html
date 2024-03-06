@@ -431,33 +431,6 @@
 
     // ****************** GENERIC JAVASCRIPT
 
-    $(document).ready(function() {
-        $(".accordion-item").click(function() {
-            // $(".accordion-item").css('background','initial');
-            $(".accordion-item").css('border','3px solid #fff '); 
-            // $(".accordion-item i").addClass('w3-text-green    ');
-            // $(this).css('background','purple'); 
-            $(this).css('border-left','5px solid #630131');  
-            $(this).css('border-right','5px solid #630131');  
-            // $(this).css('borderBottom','3px solid white');  
-            // $(this).find('i').removeClass('hidden');
-        
-            $(".container").hide();
-            
-            var inde = $(this).index(".accordion-item");
-            $(".container").eq(inde).show(); 
-            if(inde===2){
-                $(".container").eq(inde).css('display','flex');                
-            }
-        
-        }); 
-        // $(".container").css('display','block');
-        $(".accordion-item").eq(1).click();
-
-
-    });
-
-    
     function store(t,l){try{localStorage.setItem(t,JSON.stringify(l))}catch(t){try{console.log(t)}finally{return null}}}
     function getValue(t){try{const l=localStorage.getItem(t);return l?JSON.parse(l):null}catch(t){try{console.log(t)}finally{return null}}}
 
@@ -474,6 +447,38 @@ let sahi = ` <i class="fa fa-circle-check"></i> सही जवाब!  <i clas
 let galat = ` <i class="fa fa-xmark"></i> गलत जवाब <i class="bi bi-emoji-dizzy"></i> `;
 const badassAlert = new HwAlert({title:"बदमाशी मत करो।"}).hide();
 let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
+
+$(document).ready(function() {
+    $(".accordion-item").click(function() {
+        // $(".accordion-item").css('background','initial');
+        $(".accordion-item").css('border','3px solid #fff '); 
+        // $(".accordion-item i").addClass('w3-text-green    ');
+        // $(this).css('background','purple'); 
+        $(this).css('border-left','5px solid #630131');  
+        $(this).css('border-right','5px solid #630131');  
+        // $(this).css('borderBottom','3px solid white');  
+        // $(this).find('i').removeClass('hidden');
+    
+        $(".container").hide();
+        
+        var inde = $(this).index(".accordion-item");
+        $(".container").eq(inde).show(); 
+        if(inde===2){
+            $(".container").eq(inde).css('display','flex');                
+        }
+        store('user-fav-accordion',inde);
+
+    
+    }); 
+    var userFavAc = getValue('user-fav-accordion');
+    if (!userFavAc) {
+        store('user-fav-accordion',1);
+        userFavAc = 1;
+    }
+    $(".accordion-item").eq(userFavAc).click();
+
+});
+
 
 
 var evalx;
