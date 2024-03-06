@@ -144,7 +144,12 @@
             height: 100%;
             flex-direction: column;
         }
-     
+        .installButton {
+            display: none;
+            text-align: center;
+            background-image: linear-gradient(45deg,pink,#eef,pink);
+            color: darkblue;
+        }     
     </style>   
     <style>
         .response-w {
@@ -237,9 +242,7 @@
             padding-right: 15px;
             float: left;
         }
-        .installButton {
-            display: none;
-        }
+        
 
 
     </style>
@@ -284,6 +287,7 @@
         </form>
 
         <div class="examples"><br>
+        <div class="next installButton"><i class="bi bi-app-indicator"></i> ऐप डाउनलोड करें <i class="bi bi-android2"></i></div>
             उदाहरण-
             <pre>
             1) 2+3 = 5
@@ -294,7 +298,6 @@
 
         <footer>
             <div class="footer">
-                <div class="next installButton"><i class="bi bi-app-indicator"></i> ऐप इंस्टाल करें <i class="bi bi-android2"></i></div>
 
                 <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
 
@@ -373,6 +376,7 @@
         </form>
 
         <div class="examples"><br>
+        <div class="next installButton"><i class="bi bi-app-indicator"></i> ऐप डाउनलोड करें <i class="bi bi-android2"></i></div>
             <a href="https://hi.wikipedia.org/wiki/%E0%A4%B8%E0%A4%AE%E0%A5%80%E0%A4%95%E0%A4%B0%E0%A4%A3">समीकरण</a> के  उदाहरण-
 <pre class="math">
 
@@ -410,7 +414,6 @@
     
 </pre>     
         </div>
-        <div class="next installButton"><i class="bi bi-app-indicator"></i> ऐप इंस्टाल करें <i class="bi bi-android2"></i></div>
 
         <div class="next" onclick="$('.accordion-item').eq(2).click();">
             <span>संदेश भेजें <i class="bi bi-chat-text-fill"></i></span>
