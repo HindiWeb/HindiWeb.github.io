@@ -707,7 +707,14 @@ function sendlog(name,ques,solved,ans,result,eq){
 let chatphp = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/chatbot.php";
 
 $(document).ready(function(){
-    var chatbox = hwapi('#chat-box').get()
+    var chatbox = hwapi('#chat-box').get();
+
+    var chatBox = $("#chat-box");
+    var savedScrollPosition = 'not-set';
+    chatBox.scroll(function() {
+        savedScrollPosition = chatBox.scrollTop();
+    });
+
     function generateUserID() {
         var userID = localStorage.getItem('chatUserID');
         if (!userID) {
@@ -740,8 +747,12 @@ $(document).ready(function(){
                         hwapi().n('span').c('msg-time ui').t(time).a(msg);
 
                     });
-                    $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
-
+                    
+                    if (savedScrollPosition !== 'not-set') {
+                        chatBox.scrollTop(savedScrollPosition);
+                    } else {
+                        $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
+                    }
                     // console.log(response);
                 } 
                 // $('#chat-box').html(response); // Display messages in chat-box
