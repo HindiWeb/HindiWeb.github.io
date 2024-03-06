@@ -703,7 +703,10 @@ function sendlog(name,ques,solved,ans,result,eq){
 </script>
 <script>
 let chatphp = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/chatbot.php";
-
+function isNewMsg(serverArray,clientArray){
+    return JSON.stringify(serverArray) !== JSON.stringify(clientArray);
+}
+let pResponse;
 $(document).ready(function(){
     var chatbox = hwapi('#chat-box').get();
 
@@ -729,10 +732,18 @@ $(document).ready(function(){
             type: 'GET',
             data: { userID: userID }, // Send user ID to identify the user
             success: function(response){
-                $('#chat-box').html('');
                 // console.log(response);
                 if(response){
                     response = JSON.parse(response);
+
+                    if(!isNewMsg(response,pResponse)){
+                        return;
+                    }
+                    pResponse = response;
+                    audio = new Audio('https://notificationsounds.com/storage/sounds/file-sounds-1148-juntos.ogg');
+                    audio.play().catch(error=>{console.log(error);}); 
+
+                    $('#chat-box').html('');
                     response.forEach(e => {
                         // console.log(e);
                         var className = e[0] === 0 ? 'user' : 'admin';
@@ -754,6 +765,19 @@ $(document).ready(function(){
                     // console.log(response);
                 } 
                 // $('#chat-box').html(response); // Display messages in chat-box
+            },
+            complete: function(r){
+
+                if ($('#chat-box').is(':visible')) {
+                    setTimeout(() => {
+                        loadMessages();                        
+                    }, 3000);
+                } else {
+                    setTimeout(() => {
+                        loadMessages()
+                    }, 15000);
+                }
+
             }
         });
     }
@@ -788,12 +812,12 @@ $(document).ready(function(){
 
 
     // Reload messages every 5 seconds if chat-box is visible
-    setInterval(function(){
+    // setInterval(function(){
 
-        if ($('#chat-box').is(':visible')) {
-            loadMessages();
-        }
-    }, 5000);
+    //     if ($('#chat-box').is(':visible')) {
+    //         loadMessages();
+    //     }
+    // }, 5000);
     loadMessages();
 
     });
