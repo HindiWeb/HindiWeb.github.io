@@ -109,7 +109,7 @@
             position: relative;
             height: 30px;
         }
-        .accordion-item {
+        .acc-btn {
             background-color: #f64c85;
             text-align: center;
         }
@@ -251,9 +251,9 @@
 <div class="cont-wrap">
     <header class="header  t0 ">
         <nav class="w3-bar w3-text-black "> 
-            <div class="accordion-item col s5 ann icon ">  <i class="fa fa-plus-minus"></i>            </div>
-            <div class="accordion-item col s5 ann icon " > <i class="fa fa-equals"></i>             </div>            
-            <div class="accordion-item col s2 ann icon " >  <i class="bi bi-chat-dots"></i> </div>            
+            <div class="acc-btn col s5 ann icon zb1">  <i class="fa fa-plus-minus"></i>            </div>
+            <div class="acc-btn col s5 ann icon zb2" > <i class="fa fa-equals"></i>             </div>            
+            <div class="acc-btn col s2 ann icon zb3" >  <i class="bi bi-chat-dots"></i> </div>            
         </nav>
         <br>
     </header>
@@ -415,7 +415,7 @@
 </pre>     
         </div>
 
-        <div class="next" onclick="$('.accordion-item').eq(2).click();">
+        <div class="next" onclick="$('.acc-btn').eq(2).click();">
             <span>संदेश भेजें <i class="bi bi-chat-text-fill"></i></span>
         </div>
         
@@ -458,10 +458,10 @@ const badassAlert = new HwAlert({title:"बदमाशी मत करो।"}
 let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 
 $(document).ready(function() {
-    $(".accordion-item").click(function() {
-        // $(".accordion-item").css('background','initial');
-        $(".accordion-item").css('border','3px solid #fff '); 
-        // $(".accordion-item i").addClass('w3-text-green    ');
+    $(".acc-btn").click(function() {
+        // $(".acc-btn").css('background','initial');
+        $(".acc-btn").css('border','3px solid #fff '); 
+        // $(".acc-btn i").addClass('w3-text-green    ');
         // $(this).css('background','purple'); 
         $(this).css('border-left','5px solid #630131');  
         $(this).css('border-right','5px solid #630131');  
@@ -470,7 +470,7 @@ $(document).ready(function() {
     
         $(".container").hide();
         
-        var inde = $(this).index(".accordion-item");
+        var inde = $(this).index(".acc-btn");
         $(".container").eq(inde).show(); 
         if(inde===2){
             $(".container").eq(inde).css('display','flex');                
@@ -484,7 +484,7 @@ $(document).ready(function() {
         store('user-fav-accordion',1);
         userFavAc = 1;
     }
-    $(".accordion-item").eq(userFavAc).click();
+    $(".acc-btn").eq(userFavAc).click();
 
 });
 
