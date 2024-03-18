@@ -299,7 +299,7 @@
         <footer>
             <div class="footer">
 
-                <div class="ask-me"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
+                <div class="ask-me"  onclick="$('.acc-btn').eq(2).click();"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
 
             </div>        
         </footer>
@@ -621,10 +621,10 @@ $('#username').on('submit',function(e){
     $('span.username').text(username);
     asktosavename();
 });
-$('.ask-me').on('click',function(){
-    askd.open();
-    $('.asking-que').focus();
-});
+// $('.ask-me').on('click',function(){
+//     askd.open();
+//     $('.asking-que').focus();
+// });
 
 // let phpUrl = "https://neetiindia.org/wp-content/plugins/HindiWeb/123/123.php";
 function sendquestion(ques) {
