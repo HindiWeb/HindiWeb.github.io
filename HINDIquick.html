@@ -1701,12 +1701,14 @@ var nbtn = document.getElementById("nightmode");
 var abody = document.getElementsByTagName("body")[0];
 let pinned = false;
 nbtn.style.display = 'none';
+var body1st = 0;
 
 function currentDiv(n) {
   showDivs(slideIndex = n);
 }
 
 function showDivs(n) {
+  body1st++;
   antisidebar();
   var i;
   var x = document.getElementsByClassName("mySlides");
@@ -1724,7 +1726,7 @@ function showDivs(n) {
 
   document.getElementById("h1").style.display = "none";
   document.getElementById("pic").style.display = "none";
-
+  document.body.style.background = "beige";
   document.getElementById("main").style.clear = "both";
   document.getElementById("main").style.display = "block";
   antib.style.zIndex = -1;
