@@ -65,7 +65,7 @@
             border: 1px solid red;
             margin:7px;
         }
-        .next,.ask-me {
+        .next,.ask-me,.change-name {
             padding: 7px;
             margin: 7px;
             border:1px solid;
@@ -300,6 +300,7 @@
             <div class="footer">
 
                 <div class="ask-me"  onclick="$('.acc-btn').eq(2).click();"><i class="bi bi-chat-text-fill"></i> संदेश भेजें  </div>
+                <div class="change-name" onclick="$('.result,.resulteq').text('0/0');askTheName.show()"><i class="bi bi-pen"></i> नाम बदलें  </div>
 
             </div>        
         </footer>
@@ -559,12 +560,12 @@ if(!username){
 }else{
     $('span.username').text(username);
 }
-
+// सेव करने के बाद आप नाम नहीं बदल पाएंगे।
+//     <br> 
 let asktosavename = function(){
     let ask = new HwAlert({
     title :" नाम सेव करें।" ,
-    message:`सेव करने के बाद आप नाम नहीं बदल पाएंगे।
-    <br> अगर आपने नाम लिखने में कोई गलती की है तो दोबारा जाँच लीजिए।<br>आपका नाम: <span style='color:blue'>${username}</span> ` ,
+    message:`अगर आपने नाम लिखने में कोई गलती की है तो दोबारा जाँच लीजिए।<br>आपका नाम: <span style='color:blue'>${username}</span> ` ,
     buttons:  ['सेव करें', 'बदलें' ],
     overlay:true,
     callback:i=>{
