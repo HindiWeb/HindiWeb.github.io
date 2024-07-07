@@ -442,7 +442,7 @@
     // ****************** GENERIC JAVASCRIPT
 
     function store(t,l){try{localStorage.setItem(t,JSON.stringify(l))}catch(t){try{console.log(t)}finally{return null}}}
-    function getValue(t){try{const l=localStorage.getItem(t);return l?JSON.parse(l):null}catch(t){try{console.log(t)}finally{return null}}}
+    function getValue(t){try{const l=localStorage.getItem(t);return l?JSON.parse(l):-1}catch(t){try{console.log(t)}finally{return -1}}}
 
 
     //********************
@@ -481,7 +481,7 @@ $(document).ready(function() {
     
     }); 
     var userFavAc = getValue('user-fav-accordion');
-    if (!userFavAc) {
+    if (userFavAc === -1) {
         store('user-fav-accordion',1);
         userFavAc = 1;
     }
