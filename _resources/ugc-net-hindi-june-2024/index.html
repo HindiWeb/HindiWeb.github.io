@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Answer Display</title>
+    <!-- Bootstrap CSS for basic styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            /* display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #result-container {
+            background-color: rgb(203, 48, 48);
+            max-width: 800px;
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .image-container {
+            position: relative;
+            /* border:1px solid #ccc; */
+            border-radius: 3px;
+            padding: 3px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            /* border-radius: 8px; */
+            /* border: 1px solid #dde; */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .answer {
+            position: relative;
+        }
+
+        .answer .mask {
+            /* position: absolute; */
+            top: 0;
+            left: 0;
+            /* width: 50%; */
+            margin: auto;
+            height: 100%;
+            /* background: rgba(0, 0, 0, 0.7); */
+            color: #888;
+            /* border: 1px solid #888; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 8px;
+            z-index: 1;
+            padding: 5px;
+            font-size: 12px; 
+        }
+
+        .answer .answer-text {
+            text-align: center ;
+            font-weight: bold;
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .answer.show .answer-text {
+            display: block;
+        }
+
+        .answer .mask:hover {
+            /* background: rgba(0, 0, 0, 0.5); */
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="result-container" class="m-auto"></div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Example result object
+        var result = [
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c1_5.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q1.jpg": "3"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c1_5.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q5.jpg": "3"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c1_5.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q3.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_c1_5.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_hindi_q2.jpg": "1"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_c1_5.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_hindi_q4.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q32.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q37.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_q21.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_q45.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q29.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q6.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q23.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q8.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q17.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q27.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q26.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q42.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q41.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q20.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q16.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q9.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_q18.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q12.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q34.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q40.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q36.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q38.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q30.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q33.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q13.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q24.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q14.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q15.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q25.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q39.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q19.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q11.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q43.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q31.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q28.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_hindi_q7.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q44.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q10.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q35.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_q22.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c46_50.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q48.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c46_50.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q50.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c46_50.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q47.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c46_50.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q46.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_generalpaper_13_set13_english_c46_50.jpg": {
+        "2083_342123_0_26765436_generalpaper_13_set13_english_q49.jpg": "1"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q22.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q2.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q82.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q48.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q85.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q89.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q80.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q84.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q87.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q37.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q64.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q45.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q55.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q62.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q79.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q41.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q32.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q4.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q29.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q24.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q38.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q21.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q58.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q17.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q52.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q43.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q50.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q10.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q90.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q36.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q60.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q27.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q3.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q31.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q30.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q8.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q18.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q40.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q15.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q77.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q13.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q47.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q11.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q74.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q66.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q65.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q70.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q54.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q33.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q49.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q73.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q5.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q72.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q25.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q75.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q1.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q78.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q16.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q67.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q19.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q56.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q12.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q14.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q86.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q71.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q26.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q57.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q76.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q61.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q23.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q81.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q69.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q34.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q42.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q53.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q39.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q46.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q59.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q51.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q35.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q20.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q9.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q63.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q6.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q88.jpg": "2"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q83.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q7.jpg": "1"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q28.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q44.jpg": "4"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_q68.jpg": "3"
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c91_95.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q93.jpg": "3"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c91_95.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q91.jpg": "3"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c91_95.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q95.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c91_95.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q92.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c91_95.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q94.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c96_100.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q99.jpg": "1"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c96_100.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q100.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c96_100.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q96.jpg": "4"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c96_100.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q97.jpg": "2"
+      }
+    },
+    {
+      "2083_342123_0_26765436_hindi_set01_hindi_c96_100.jpg": {
+        "2083_342123_0_26765436_hindi_set01_hindi_q98.jpg": "4"
+      }
+    }
+  ]
+
+
+        const liveOnNta  = true;
+
+        function appendAnsWithMask(div,content) {
+            var answerDiv = document.createElement('div');
+                answerDiv.className = 'answer';
+
+                var maskDiv = document.createElement('button');
+                maskDiv.className = 'mask btn border';
+                maskDiv.innerHTML = '&nbsp; उत्तर &nbsp;';
+                maskDiv.addEventListener('click', function() {
+                    answerDiv.classList.toggle('show');
+                });
+                answerDiv.appendChild(maskDiv);
+
+                var answerText = document.createElement('div');
+                answerText.className = 'answer-text';
+                answerText.textContent = content;
+                answerDiv.appendChild(answerText);
+
+                div.appendChild(answerDiv);
+        }
+
+        function generateHTML(result) {
+            var container = document.getElementById('result-container');
+            container.innerHTML = ''; // Clear existing content
+
+            var c = 1 ;
+            var d = 0;
+            var p1html;
+
+            result.forEach(function(item) {
+                var div = document.createElement('div');
+                div.className = 'image-container  box-shadow mb-5 border-top';
+                
+                if(c===51){
+                    p1html = '<h2 class="p-h p1-h text-center m-3">Paper-1</h2>' + container.innerHTML;
+                    container.innerHTML = '<h2 class="p-h p2-h text-center m-3">Paper-2</h2>';
+                    c = 0;
+                    d = 1;
+                } 
+                var qn = $('<div>').html(`Question : ${c?c:d}`).addClass('m-2');
+                    div.append(qn[0]);
+
+                if(c)c++;
+                if(d)d++;
+
+                for (var imgName in item) {
+                    if (item.hasOwnProperty(imgName)) {
+                        var content = item[imgName];
+
+                        // Create and append the main image
+                        var imgElement = document.createElement('img');
+                        imgElement.src = imgName.includes('generalpaper') ? 
+                            'images/p1/' + imgName : 'images/' + imgName;
+                        if(liveOnNta) imgElement.src = "https://cdn3.digialm.com//per/g28/pub/2083/touchstone/TempQPImagesStoreMode1/adcimages/1725513442671/34212341///" + imgName;
+                        imgElement.alt = imgName;
+                        div.appendChild(imgElement);
+
+                        if (typeof content === 'object') {
+                            for (var secondImgName in content) {
+                                if (content.hasOwnProperty(secondImgName)) {
+                                    var secondImgElement = document.createElement('img');
+                                    secondImgElement.src = secondImgName.includes('generalpaper') ? 
+                                        'images/p1/' + secondImgName : 'images/' + secondImgName;
+                                    
+                                    if(liveOnNta) secondImgElement.src = "https://cdn3.digialm.com//per/g28/pub/2083/touchstone/TempQPImagesStoreMode1/adcimages/1725513442671/34212341///" + secondImgName;
+
+                                    secondImgElement.alt = secondImgName;
+                                    div.appendChild(secondImgElement);
+
+                                    // Create and append the answer with a mask
+                                    appendAnsWithMask(div,content[secondImgName])
+                                }
+                            }
+                        } else {
+                            // Create and append the answer with a mask
+                            appendAnsWithMask(div,content);
+                        }
+                    }
+                }
+
+                container.appendChild(div);
+            });
+
+            htm = container.innerHTML;
+            container.innerHTML = htm + p1html;
+        }
+
+        // Generate and insert the HTML
+        generateHTML(result);
+        $('body').on('click','.mask',function () {
+            $(this).parent('.answer').toggleClass('show');
+
+
+        })
+    </script>
+</body>
+</html>
