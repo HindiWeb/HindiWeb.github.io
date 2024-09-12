@@ -90,12 +90,42 @@
             color: #000;
         }
     </style>
+    <style>
+      /* Hide the no-print message normally */
+      #no-print-message {
+          display: none;
+      }
+
+      /* This rule applies when the page is being printed */
+      @media print {
+          /* Hide all regular content */
+          body * ,
+          #result-container {
+              display: none;
+          }
+
+          /* Show only the no-print message */
+          #no-print-message {
+              display: block;
+              text-align: center;
+              margin-top: 100px;
+              font-size: 24px;
+              color: red;
+          }
+      }
+  </style>
 </head>
 <body>
   <div class="dv">
     <code class="m-2">Developer: <b><a href="https://t.me/devravi">Dev</a></b></code> 
   </div>
     <div id="result-container" class="m-auto"></div>
+    <!-- This message will only show when printing is attempted -->
+    <div id="no-print-message">
+      <h1>Printing is not allowed.</h1>
+      <p>Please contact the site administrator if you need a printed copy of this content.</p>
+    </div>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
