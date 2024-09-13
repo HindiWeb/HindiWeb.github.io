@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image and Answer Display</title>
     <!-- Bootstrap CSS for basic styling -->
+    <meta name="description" content="UGC NET June 2024 - paper1 and paper2 (Hindi) with answers.">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -89,6 +90,15 @@
             /* background: rgba(0, 0, 0, 0.5); */
             color: #000;
         }
+        .dv {
+          position: fixed;
+          z-index: 9;
+          top: 0;
+          text-align: center;
+          margin: auto;
+          width: 100%;
+          background-color: #ccc;
+        }
     </style>
     <style>
       /* Hide the no-print message normally */
@@ -99,26 +109,32 @@
       /* This rule applies when the page is being printed */
       @media print {
           /* Hide all regular content */
-          body .image-container ,
-          #result-container {
+          body .image-container {
               display: none;
           }
 
           /* Show only the no-print message */
           #no-print-message {
-              display: block;
+              display: block !important;
               text-align: center;
               margin-top: 100px;
               font-size: 24px;
               color: red;
           }
       }
+      .p-h {
+        font-family: serif;
+        transform-style:preserve-3d;
+        text-shadow: 1px 1px 1px rgb(255, 38, 99);
+      }
   </style>
 </head>
 <body>
-  <div class="dv">
-    <code class="m-2">Developer: <b><a href="https://t.me/devravi">Dev</a></b></code> 
-  </div>
+  <!-- <code class="m-2">Developer: <b><a href="https://t.me/devravi">Dev</a></b> | <small><code>https://hindiweb.github.io/r/net-j-24</code></small></code>  -->
+
+    <div class="dv">
+      <code class="m-2">Developer: <b><a href="https://t.me/devravi">Dev</a></b> |<a href="#paper1" class="btn p-0 my-1 border">&nbsp;Paper-1&nbsp;</a>|<a href="#paper2" class="btn p-0 my-1 border ">&nbsp;Paper-2&nbsp;</a></code> 
+    </div>
     <div id="result-container" class="m-auto"></div>
     <!-- This message will only show when printing is attempted -->
     <div id="no-print-message">
@@ -126,9 +142,7 @@
       <p>Please contact the site administrator if you need a printed copy of this content.</p>
       <p><b>Website is live 24*7.</b></p>
       <p>Share the link <code>https://hindiweb.github.io/r/net-j-24</code></p>
-
     </div>
-
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -665,8 +679,8 @@
                 div.className = 'image-container  box-shadow mb-5 border-top';
                 
                 if(c===51){
-                    p1html = '<h2 class="p-h p1-h text-center m-3">Paper-1</h2>' + container.innerHTML;
-                    container.innerHTML = '<h2 class="p-h p2-h text-center m-3">Paper-2</h2>';
+                    p1html = '<h2 class="p-h p1-h text-center m-3 pt-5 " id="paper1">Paper-1</h2>' + container.innerHTML;
+                    container.innerHTML = '<h2 class="p-h p2-h text-center m-3 pt-5" id="paper2">Paper-2</h2>';
                     c = 0;
                     d = 1;
                 } 
