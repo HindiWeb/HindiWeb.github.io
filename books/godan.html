@@ -31,12 +31,13 @@
 धन्यवाद!
     </div>
     <script>
-        fetch('review.md')
-            .then(response => response.text())
-            .then(text => {
+        // fetch('review.md')
+        //     .then(response => response.text())
+        //     .then(text => {
+                let text = document.getElementById('content').innerHTML;
                 let converter = new showdown.Converter();
                 document.getElementById('content').innerHTML = converter.makeHtml(text);
-            });
+            // });
     </script>
 </body>
 </html>
