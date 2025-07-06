@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Quiz Result</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="response.js"></script> <!-- Ensure this file contains both response & result objects -->
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Detailed Quiz Result</h2>
+        
+        <!-- Summary Section -->
+        <div class="alert alert-info text-center">
+            <h4>Overall Performance</h4>
+            <p><strong>Correct Answers:</strong> <span id="correctCount">0</span></p>
+            <p><strong>Incorrect Answers:</strong> <span id="incorrectCount">0</span></p>
+            <p><strong>Total Questions:</strong> <span id="totalCount">0</span></p>
+        </div>
+
+        <!-- Table for Detailed Results table-bordered table-striped-->
+        <table class="table ">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Question ID</th>
+                    <th>Stored Answer</th>
+                    <th>Correct Answer</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="resultTable"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        var per = window.performance;
+         per = [];
+        var p = [];
+        document.addEventListener("DOMContentLoaded", function () {
+            const tableBody = document.getElementById("resultTable");
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let totalCount = response.length;
+
+            response.forEach((item, index) => {
+                const matchingResult = result.find(r => r.questionId === item.questionId);
+                const correctAnswer = matchingResult ? matchingResult.answer : "N/A";
+                const isCorrect = item.answer == correctAnswer;
+                p[index] = isCorrect;
+
+                per.push({
+                    questionId: item.questionId,
+                    storedAnswer: item.answer,
+                    correctAnswer: correctAnswer,
+                    isCorrect: isCorrect
+                });
+                
+                if (isCorrect) correctCount++;
+                else incorrectCount++;
+
+                const row = `<tr class="${isCorrect ? 'table-success' : 'table-danger'}">
+                    <td>${index + 1}</td>
+                    <td>${item.questionId}</td>
+                    <td>${item.answer}</td>
+                    <td>${correctAnswer}</td>
+                    <td>${isCorrect ? "✅ Correct" : "❌ Incorrect"}</td>
+                </tr>`;
+
+                tableBody.innerHTML += row;
+            });
+            console.log(per, p);
+
+            // Update overall result counts
+            document.getElementById("correctCount").textContent = correctCount;
+            document.getElementById("incorrectCount").textContent = incorrectCount;
+            document.getElementById("totalCount").textContent = totalCount;
+        });
+    </script>
+</body>
+</html>
