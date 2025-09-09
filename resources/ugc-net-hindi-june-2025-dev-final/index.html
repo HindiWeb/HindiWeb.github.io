@@ -11916,15 +11916,25 @@
         function goToQuestion(index) {
             console.log(index);
             var questionId = performance[index].questionId;
-            var element = $('.question-pnl')[index];
+            var element = $(".question-pnl")[index];
             console.log(element);
             if (element) {
-                // Scroll to the element smoothly
-                element.scrollIntoView({ behavior: 'smooth' });
+                // Scroll to the element smoothly{ behavior: "smooth" }
+                element.scrollIntoView({ behavior: "auto" });
+                let counter = 0;
+                const maxAttempts = 5;
+                const intervalId = setInterval(function () {
+                    element.scrollIntoView({ behavior: "auto" });
+                // console.log(`Element height: ${element.offsetHeight}`);
+                // console.log(`Page scroll position: ${window.pageYOffset}`);
+                // console.log(`Element scroll position: ${element.offsetTop}`);
+                    if (++counter === maxAttempts) {
+                        clearInterval(intervalId);
+                    }
+                }, 250);
             }
             //hide the modal
-            $('#menuModal').modal('hide');
-
+            $("#menuModal").modal("hide");
         }
         // First 50 questions belong to the General Test, the next 100 to the Subject Test
         // Append HTML to showcase the results
