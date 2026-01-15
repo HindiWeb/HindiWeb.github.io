@@ -19,14 +19,14 @@ function resolveShortcut() {
 
 function showLoading() {
     document.body.innerHTML = `
-        <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="full-center">
             <h4>Please wait a sec…</h4>
         </div>`;
 }
 
 function showIncorrect() {
     document.body.innerHTML = `
-        <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="full-center">
             <h4>Incorrect URL</h4>
         </div>`;
 }
