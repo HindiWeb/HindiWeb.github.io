@@ -1,6 +1,6 @@
 // list.js
 const shortcuts = {
-    adi:"resources/250520726130-adi-hindi-d25"
+    adi:"/resources/250520726130-adi-hindi-d25"
 };
 
 function resolveShortcut() {
