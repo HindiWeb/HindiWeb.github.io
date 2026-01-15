@@ -30,3 +30,4 @@ function showIncorrect() {
             <h4>Incorrect URL</h4>
         </div>`;
 }
+document.addEventListener("DOMContentLoaded", resolveShortcut);
